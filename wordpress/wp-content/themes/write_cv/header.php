@@ -35,13 +35,13 @@
 				<?php
 			else :
 				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+				
 				<?php
 			endif;
 			$write_cv_description = get_bloginfo( 'description', 'display' );
 			if ( $write_cv_description || is_customize_preview() ) :
 				?>
-				<p class="site-description"><?php echo $write_cv_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
+				
 			<?php endif; ?>
 		</div><!-- .site-branding -->
 
