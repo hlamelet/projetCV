@@ -1,5 +1,172 @@
+/* IMPORTS */
+@import url('https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css');
+
+/* PARTIE UTILISATEURS */
+
+/* principale */
+body{
+    background-color: antiquewhite;
+    height: 100%;
+}
 #bloc_principal_user{
-    background-color: red;
-    width: 50px;
-    height: 50px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+/* Rideau de navigation des modèles cv */
+#myNav{
+    display: flex;
+    flex-direction: row;
+}
+::-webkit-scrollbar {
+    width: 0px;
+}
+#bouton_rideau {
+    display: block;
+    width: 55px;
+    height: 100%;
+    line-height: 100px;
+    background-color: #7267CB;
+    text-align: center;
+    font-size: 1em;
+    padding-top: 35px;
+    color: white;
+    cursor: pointer;
+}
+
+.overlay{
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    background-color: #7267CB;
+    overflow-x: hidden;
+    transition: 0.2s;
+}
+
+#overlay-content1 {
+    position: relative;
+    height: 100%;
+    width: 25%;
+    text-align: center;
+    background-color: #6E3CBC;
+    border-radius: 0px 0px 10px;
+}
+#overlay-content2 {
+    /* position: relative; */
+    /* top: 80px; */
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+#overlay-content3 {
+    position: relative;
+    top: 80px;
+    width: 25%;
+    text-align: center;
+}
+
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    display: block;
+    transition: 0.3s;
+    color: white;
+    top: 72px;
+    margin-top: 44px;
+}
+
+.overlay .closebtn {
+    position: absolute;
+    top: -28px;
+    right: -4px;
+    font-size: 30px;
+    color: white;
+}
+
+.fa-solid{background-color: white;}
+/* barre de recherche */
+
+#barre_recherche {
+    margin-bottom: 75px;
+}
+
+.is-form-style {
+    line-height: 1;
+    padding: 0!important;
+    top: 50px;
+}
+.is-form-style.is-form-style-3 input.is-search-input {
+    border-right: 0!important;
+    border-radius: 50px;
+    width: 80%;
+}
+span.is-search-icon {
+    border-radius: 20px;
+    background-color: #B8E4F0;
+    margin-left: 10px;
+    border: none;
+}
+
+/* feuille cv */
+
+#feuille_cv {
+    width: 40%;
+    height: auto;
+    display: flex;
+    justify-content: flex-end;
+    background-color: white;
+    margin: 50px;
+}
+
+#white {
+    width: 24%;
+    height: 100%;
+}
+
+/* TELECHARGEMENT */
+#telechargement{
+    width: 17%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+}
+
+#btn_telecharger{
+    background-color: #7267CB;
+    border-radius: 7px;
+    
+}
+a#btn_telecharger {
+    color: white;
+    text-decoration: none;
+    width: 100%;
+    padding: 7px;
+}
+
+/* drag and drop */
+.base {
+    cursor: pointer;
+}
+
+.tenu {
+    border: solid 5px #ccc;
+}
+
+.case {
+    display: inline-block;
+    width: auto;
+    margin: 10px;
+    background: #fff;
+}
+
+.hovered {
+    background: #f4f4f4;
+    border-style: dashed;
 }
