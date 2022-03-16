@@ -1,10 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka&display=swap");
 #bloc_principal_user {
   background-color: red;
   width: 50px;
   height: 50px;
 }
 body {
-  background: linear-gradient(#203541, #374955);
+  background: linear-gradient(#b8e4f0, #98bae7);
+  font-family: "Fredoka", sans-serif;
 }
 
 /* HEADER */
@@ -12,6 +14,7 @@ body {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  margin-bottom: 50px;
 }
 #site-navigation {
   display: flex;
@@ -22,8 +25,167 @@ body {
   padding-right: 15px;
 }
 .nav-menu li a {
-  color: white;
+  color: #6e3cbc;
 }
 #logo {
-  width: 100px;
+  width: 95px;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+#titre {
+  font-size: 30px;
+  width: 30%;
+  margin-left: 5px;
+}
+
+/* TEMPLATE HOME */
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.laptop {
+  width: 1000px;
+  height: 540px;
+  background: #7267cb;
+  border: 16px solid #262626;
+  box-shadow: 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0#fff;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+.keyboard {
+  content: "";
+  display: flex;
+  width: 1100px;
+  height: 30px;
+  background: white;
+  border-top: 10px solid #ccc;
+  border-top: 10px solid #ccc;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.container-login,
+.container-register {
+  display: none;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  position: relative;
+  animation-name: animatebottom;
+  animation-duration: 1s;
+  color: white;
+}
+
+.login-text,
+.register-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-text,
+.register-text {
+  width: 50%;
+}
+
+.register-text {
+  text-align: center;
+}
+
+.img-laptop {
+  width: 50%;
+}
+.title-inscription {
+  display: flex;
+  align-items: center;
+  font-size: 80px;
+  margin-right: 80px;
+}
+
+#pen {
+  transform: scaleX(-1);
+}
+@-webkit-keyframes animatebottom {
+  from {
+    bottom: -100px;
+    opacity: 0;
+  }
+  to {
+    bottom: 0px;
+    opacity: 1;
+  }
+}
+
+@keyframes animatebottom {
+  from {
+    bottom: -100px;
+    opacity: 0;
+  }
+  to {
+    bottom: 0;
+    opacity: 1;
+  }
+}
+
+#loading {
+  width: 300px;
+  height: 300px;
+  animation: spin 3s linear;
+  filter: blur(0.5px);
+  align-self: center;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.form-login,
+.form-register {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 80%;
+}
+.form-register {
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+input {
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+
+#email,
+#mdp {
+  color: #7267cb;
+}
+#submit-register,
+#submit-login {
+  margin-top: 5px;
+  border: none;
+  cursor: pointer;
+  background-color: #6e3cbc;
+  color: white;
+  font-size: 20px;
+  justify-self: center;
+}
+#button-register,
+#button-login {
+  cursor: pointer;
+}
+
+.erreur p {
+  background-color: red;
+  border-radius: 5px;
+  margin: 2px;
 }
