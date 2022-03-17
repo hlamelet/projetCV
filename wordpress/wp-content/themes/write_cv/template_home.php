@@ -146,20 +146,9 @@ get_header();
     const mdp = document.getElementById("mdp-register");
     const mdpConf = document.getElementById("mdp-register-confirm");
 
-    var demo = document.getElementById("demo");
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function() {
-        console.log(this);
-        if (this.readyState == 4 && this.status == 200) {
-            demo.innerHTML = JSON.stringify(this.response);
-            console.log(this.response);
 
-        }
-    }
 
-    xhr.open("POST", "/projCV/wordpress/wp-content/themes/write_cv/inscription.php", true);
-    xhr.responseType = "text";
-    xhr.send();
+
 
 
     register.addEventListener("click", pageRegister);
