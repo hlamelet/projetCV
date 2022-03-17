@@ -100,11 +100,22 @@ function addNewWEField() {
   //generating cv
   function generateCV() {
     // console.log("generating CV");
-  
+    
+
+    /* A l'attention de Nayu : 
+   
+      Ici, nameT1 no correspondo à aucun ID de user_home.php
+      => d'où l'erreur lorsque l'on valide le formulaire?
+
+      Ca concerne ton template je crois, je te laisse regarder.
+      Merci!
+
+    */
+
     var nameField = document.getElementById("nameField").value;
-  
+    console.log(nameField);
     var nameT1 = document.getElementById("nameT1");
-  
+    console.log(nameT1);
     nameT1.innerHTML = nameField;
   
     //direct
