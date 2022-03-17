@@ -4,10 +4,16 @@
 /* PARTIE UTILISATEURS */
 
 /* principale */
+<<<<<<< Updated upstream
 
 #bloc_principal_user{
     width: 100%;
     height: 100%;
+=======
+#bloc_principal_user {
+    width: auto;
+    height: auto;
+>>>>>>> Stashed changes
     display: flex;
     flex-direction: row;
 }
@@ -23,7 +29,7 @@
 #bouton_rideau {
     display: block;
     width: 55px;
-    height: 100%;
+    height: auto;
     line-height: 100px;
     background-color: #7267CB;
     text-align: center;
@@ -54,16 +60,16 @@
     border-radius: 0px 0px 10px;
 }
 #overlay-content2 {
-    /* position: relative; */
-    /* top: 80px; */
+    
     width: 100%;
     height: 100%;
     text-align: center;
+    margin-left: 18;
 }
 #overlay-content3 {
     position: relative;
     top: 80px;
-    width: 25%;
+    width: 11%;
     text-align: center;
 }
 
@@ -111,13 +117,11 @@ span.is-search-icon {
 
 /* feuille cv */
 
-#feuille_cv {
-    width: 40%;
-    height: auto;
-    display: flex;
-    justify-content: flex-end;
-    background-color: white;
-    margin: 50px;
+#cv-form {
+    background-color: #d2ebab;
+    padding: 20px;
+    width: 794px;
+    height: 1122px;
 }
 
 #white {
@@ -167,6 +171,7 @@ a#btn_telecharger {
     background: #f4f4f4;
     border-style: dashed;
 }
+
 @import url("https://fonts.googleapis.com/css2?family=Fredoka&display=swap");
 
 body {
@@ -354,6 +359,7 @@ input {
   border-radius: 5px;
   margin: 2px;
 }
+<<<<<<< Updated upstream
 /* ----------------- */
 .page-id-10 body{
   color:white;
@@ -373,4 +379,41 @@ input {
   width:100%;
   height:2000px;
   padding-left:300px;
+=======
+
+/* theo */
+
+input#nameField,
+input#contactField,
+textarea#addressField,
+input#fbField,
+input#instaField,
+input#linkedField,
+textarea#objectiveField,
+textarea.form-control.weField,
+textarea.form-control.eqField
+
+ {
+    border: none;
+    background-color: none;
+    color: black;
+}
+
+#cv-form {
+    background-color: white;
+    padding: 20px;
+    width: 794px;
+    height: 1122px;
+}
+#cv_colonne{
+    display: flex;
+    flex-direction: row;
+}
+
+#colonne1{
+    width: 50%;
+}
+#colonne2{
+    width: 50%;
+>>>>>>> Stashed changes
 }

@@ -39,16 +39,116 @@ wp_head(); ?>
 
     <span id="bouton_rideau" onclick="openNav()"><i class="fas fa-bars"></i></span>
     <div id="white"></div>
-    <div id="feuille_cv" class="case">
+    <div id="feuille_cv">
+
+        <!-- THEO -->
+
+        <div class="card mx-5 mt-3" id="cv-form">
+            <div class="card-header">
+
+            </div>
+            <div class="card-body">
+                <div class="container">
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <!-- premier col -->
+                            <div class="form-group mt-3">
+                                <label for="">Sélectionnez votre photo</label>
+                                <input id="imgField" type="file" class="form-control" />
+                            </div>
+                            <h3>Renseignements personnels</h3>
+
+                            <div class="form-group">
+                                <label for="nameField"></label>
+                                <input type="text" id="nameField" placeholder="John Morroy" class="form-control" />
+                            </div>
+
+                            <div class="form-group mt-2">
+                                <label for="contactField"></label>
+                                <input type="text" id="contactField" placeholder="0658453623" class="form-control" />
+                            </div>
+
+                            <div class="form-group mt-2">
+                                <label for="addressField"></label>
+                                <textarea id="addressField" placeholder="189 avenue Jean rondeaux 76100 , France" class="form-control" rows="5"></textarea>
+                            </div>
+
+
+                            <p class="text-secondary my-3">Mes réseaux sociaux</p>
+
+                            <div class="form-group mt-2">
+                                <label for="fbField"></label>
+                                <input type="text" id="fbField" placeholder="Facebook" class="form-control" />
+                            </div>
+                            <div class="form-group mt-2">
+                                <label for="instaField"></label>
+                                <input type="text" id="instaField" placeholder="Instagram" class="form-control" />
+                            </div>
+                            <div class="form-group mt-2">
+                                <label for="linkedField"></label>
+                                <input type="text" id="linkedField" placeholder="LinkedIn" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <!-- seconde col -->
+                            <h3>Information professionnelle</h3>
+
+                            <div class="form-group mt-2">
+                                <label for="">OBJECTIFS</label>
+                                <textarea id="objectiveField" rows="5" placeholder="Présentation" class="form-control"></textarea>
+                            </div>
+
+                            <div class="form-group mt-2" id="we">
+                                <label for="">
+                                    EXPERIENCES</label>
+                                <textarea placeholder="Enter here" class="form-control weField" rows="3"></textarea>
+
+                                <!-- textarea -->
+
+                                <div class="container text-center mt-2" id="weAddButton">
+                                    <button onclick="addNewWEField()" class="btn btn-primary btn-sm">
+                                        Ajouter
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="form-group mt-2" id="aq">
+                                <label for="">
+                                    FORMATIONS</label>
+                                <textarea placeholder="Enter here" class="form-control eqField" rows="3"></textarea>
+
+                                <div class="container text-center mt-2" id="aqAddButton">
+                                    <button onclick="addNewAQField()" class="btn btn-primary btn-sm">
+                                        Ajouter
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container text-center mt-3">
+                        <button onclick="generateCV()" class="btn btn-primary btn-lg">
+                            Créer mon CV
+                        </button>
+                    </div>
+                </div>
+            </div class="card-body">
+        </div>
+
+
+        <div class="container mt-3 text-center">
+        </div>
     </div>
+
+    <!-- Fin THEO -->
+
     <div id="telechargement">
 
         <a href="#" id="btn_telecharger">TELECHARGER</a>
-
+        <button onclick="printCV()" class="btn background">Print CV</button>
     </div>
 </div>
-
-
 
 
 <?php wp_footer(); ?>
