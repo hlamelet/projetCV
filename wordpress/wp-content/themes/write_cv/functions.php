@@ -146,6 +146,9 @@ function write_cv_scripts() {
 	wp_deregister_script('jquery');
 	wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js', array(), null, true);
 
+	wp_deregister_script('htmltopdf');
+	wp_enqueue_script('htmltopdf', 'https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.js', array(), null, true);
+
 
 	wp_enqueue_script( 'write_cv-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 	wp_register_script('script', get_template_directory_uri() . '/assets/js/script.js', array(), '1.0.0', true);

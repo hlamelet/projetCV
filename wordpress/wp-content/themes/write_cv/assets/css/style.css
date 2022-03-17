@@ -109,14 +109,9 @@ span.is-search-icon {
     border: none;
 }
 
-/* feuille cv */
 
-#cv-form {
-    background-color: #d2ebab;
-    padding: 20px;
-    width: 794px;
-    height: 1122px;
-}
+
+/* feuille cv */
 
 #white {
     width: 24%;
@@ -391,8 +386,8 @@ textarea.form-control.eqField
     color: black;
 }
 
-#cv-form {
-    background-color: white;
+#invoice{
+    background-color: red;
     padding: 20px;
     width: 794px;
     height: 1122px;

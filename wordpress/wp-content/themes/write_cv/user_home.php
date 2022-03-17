@@ -43,7 +43,7 @@ wp_head(); ?>
 
         <!-- THEO -->
 
-        <div class="card mx-5 mt-3" id="cv-form">
+        <div class="card mx-5 mt-3" id="invoice">
             <div class="card-header">
 
             </div>
@@ -134,19 +134,20 @@ wp_head(); ?>
                     </div>
                 </div>
             </div class="card-body">
-        </div>
+        
 
 
         <div class="container mt-3 text-center">
         </div>
     </div>
-
+</div>
     <!-- Fin THEO -->
 
     <div id="telechargement">
 
         <a href="#" id="btn_telecharger">TELECHARGER</a>
         <button onclick="printCV()" class="btn background">Print CV</button>
+        <button class="btn background" id="download">Télécharger</button>
     </div>
 </div>
 
