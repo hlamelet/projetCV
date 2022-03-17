@@ -205,3 +205,33 @@ window.onload = function () {
             html2pdf().from(invoice).set(opt).save();
         })
 }
+
+// palette de couleur
+
+var el_up = document.getElementById("GFG_UP");
+var el_down = document.getElementById("GFG_DOWN");
+var str = "Click on button to change the background color";
+
+el_up.innerHTML = str;
+
+function changeColor(color) {
+    document.getElementById("invoice").style.background = color;
+}
+  
+function gfg_Run() {
+    changeColor('#ffff9a');
+} 
+function blue_Run() {
+    changeColor('#7fb1ff');
+} 
+function pink_Run() {
+    changeColor('rgb(252, 146, 225)');
+} 
+function green_Run() {
+    changeColor('#87ffcc');
+}
+function grey_Run() {
+    changeColor('#8f8f8f');
+} 
+// 
+

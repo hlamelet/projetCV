@@ -28,6 +28,15 @@ wp_head(); ?>
             </div>
             <div id="box_templates">
                 <a href="#" class="base" draggable="true"><img src="<?php echo get_template_directory_uri() ?>/assets/img/template1.png" width="auto" alt=""></a>
+                <!-- couleurs -->
+                <button onclick = "gfg_Run()" id="yellow_color"></button>
+                <button onclick = "blue_Run()" id="blue_color"></button>
+                <button onclick = "green_Run()" id="green_color"></button>
+                <button onclick = "grey_Run()" id="grey_color"></button>
+                <button onclick = "pink_Run()" id="purple_color"></button>
+
+                <!-- fin couleurs -->
+
                 <a href="#"><img src="<?php echo get_template_directory_uri() ?>/assets/img/template2.png" width="auto" alt=""></a>
                 <a href="#"><img src="<?php echo get_template_directory_uri() ?>/assets/img/template1.png" width="auto" alt=""></a>
                 <a href="#"><img src="<?php echo get_template_directory_uri() ?>/assets/img/template1.png" width="auto" alt=""></a>
@@ -43,7 +52,7 @@ wp_head(); ?>
 
         <!-- THEO -->
 
-        <div class="card mx-5 mt-3" id="invoice">
+        <div class="card mx-5 mt-3" id="invoice" class="invoice">
             <div class="card-header">
 
             </div>
@@ -57,7 +66,8 @@ wp_head(); ?>
                                 <label for="">Sélectionnez votre photo</label>
                                 <input id="imgField" type="file" class="form-control" />
                             </div>
-                            <h3>Renseignements personnels</h3>
+                            <!-- CHANGEMENT -->
+                            <h3 class="text">Renseignements personnels</h3>
 
                             <div class="form-group">
                                 <label for="nameField"></label>
@@ -134,22 +144,24 @@ wp_head(); ?>
                     </div>
                 </div>
             </div class="card-body">
-        
 
 
-        <div class="container mt-3 text-center">
+
+            <div class="container mt-3 text-center">
+            </div>
         </div>
     </div>
-</div>
     <!-- Fin THEO -->
 
     <div id="telechargement">
-
-        <a href="#" id="btn_telecharger">TELECHARGER</a>
         <button onclick="printCV()" class="btn background">Print CV</button>
         <button class="btn background" id="download">Télécharger</button>
     </div>
+
 </div>
+          
+          
+    </body> 
 
 
 <?php wp_footer(); ?>

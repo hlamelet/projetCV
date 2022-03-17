@@ -385,12 +385,11 @@ textarea.form-control.eqField
     background-color: none;
     color: black;
 }
-
-#invoice{
-    background-color: red;
-    padding: 20px;
+#invoice {
+    background-color: white;
     width: 794px;
     height: 1122px;
+    margin: 25px;
 }
 #cv_colonne{
     display: flex;
@@ -402,4 +401,37 @@ textarea.form-control.eqField
 }
 #colonne2{
     width: 50%;
+}
+.fa-bars:before {
+    content: "\f0c9";
+    padding: 20px;
+}
+
+/* Palette de couleur */
+
+#yellow_color {
+    border-radius: 50px;
+    background-color: #ffff9a;
+    border: none;
+}
+
+#blue_color {
+    border-radius: 50px;
+    background-color: #7fb1ff;
+    border: none;
+}
+#purple_color {
+    border-radius: 50px;
+    background-color: rgb(252, 146, 225);
+    border: none;
+}
+#green_color {
+    border-radius: 50px;
+    background-color: #87ffcc;
+    border: none;
+}
+#grey_color {
+    border-radius: 50px;
+    background-color: #8f8f8f;
+    border: none;
 }
