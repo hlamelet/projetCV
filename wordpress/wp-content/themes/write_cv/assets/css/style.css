@@ -4,16 +4,10 @@
 /* PARTIE UTILISATEURS */
 
 /* principale */
-<<<<<<< Updated upstream
 
-#bloc_principal_user{
-    width: 100%;
-    height: 100%;
-=======
 #bloc_principal_user {
     width: auto;
     height: auto;
->>>>>>> Stashed changes
     display: flex;
     flex-direction: row;
 }
@@ -359,7 +353,6 @@ input {
   border-radius: 5px;
   margin: 2px;
 }
-<<<<<<< Updated upstream
 /* ----------------- */
 .page-id-10 body{
   color:white;
@@ -379,8 +372,7 @@ input {
   width:100%;
   height:2000px;
   padding-left:300px;
-=======
-
+}
 /* theo */
 
 input#nameField,
@@ -415,5 +407,4 @@ textarea.form-control.eqField
 }
 #colonne2{
     width: 50%;
->>>>>>> Stashed changes
 }
