@@ -1,4 +1,4 @@
-console.log("bla");
+
 
 // Rideau d'ouverture partie users
 
@@ -212,7 +212,7 @@ var el_up = document.getElementById("GFG_UP");
 var el_down = document.getElementById("GFG_DOWN");
 var str = "Click on button to change the background color";
 
-el_up.innerHTML = str;
+// el_up.innerHTML = str;
 
 function changeColor(color) {
     document.getElementById("invoice").style.background = color;
@@ -233,5 +233,33 @@ function green_Run() {
 function grey_Run() {
     changeColor('#8f8f8f');
 } 
-// 
+
+$("#submit").click(function() {
+ 
+  var name = $("#nameField").val();
+  var tel = $("#contactField").val();
+
+
+  if(name == '' || tel == '') {
+      alert("Veuillez remplir tous les champs.");
+      return false;
+  }
+
+  $.ajax({
+      type: "POST",
+      url: "/ProjCV/wordpress/wp-content/themes/write_cv/formToBd.php",
+      data: {
+          name: name,
+          tel: tel
+      },
+      cache: false,
+      success: function(data) {
+          alert(data);
+      },
+      error: function(xhr, status, error) {
+          console.error(xhr);
+      }
+  });
+   
+});
 

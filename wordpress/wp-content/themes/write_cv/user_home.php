@@ -138,9 +138,9 @@ wp_head(); ?>
                     </div>
 
                     <div class="container text-center mt-3">
-                        <button onclick="generateCV()" class="btn btn-primary btn-lg">
-                            Créer mon CV
-                        </button>
+                        <input value="Créer mon CV" type="button" onclick="generateCV()" id="submit" class="btn btn-primary btn-lg" />
+                            
+                        
                     </div>
                 </div>
             </div class="card-body">
