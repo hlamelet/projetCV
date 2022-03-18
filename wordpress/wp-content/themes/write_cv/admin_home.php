@@ -26,10 +26,10 @@ $requete = $requete->fetchall();
             height: 1000px;
         }
 
-        .containerSelection {
+        .pdf {
             width: 49.5%;
             height: 1000px;
-            background-color: red;
+
         }
 
         .selectionToExcelBtn {
@@ -53,35 +53,34 @@ $requete = $requete->fetchall();
     let selection = []
     var requete =
         <?php echo json_encode($requete); ?>;
+    console.log(requete)
 </script>
 <!-- --------------------------- -->
-
-$db = new PDO('mysql:host=localhost;dbname=cvtheque;charset=utf8', 'root', '');
-
-wp_head();
 
 <h1>Admin Accueil</h1>
 <div id="container">
     <!-- ------------------------------------------partie CV -->
     <div id="containerCV">
-        <div onclick="selectionToExcel()" class="selectionToExcelBtn"></div>
+        <!-- bouton pour envoyer en excel -->
+
+        <div onclick="selectionToExcel()" class="selectionToExcelBtn">selection to excel</div>
+
         <script>
             // --------------------------------------------function
             function testClass(element) {
 
-                if (element.classList.contains("selected")) {
+                if (element.classList.contains("selected")) { //enleve la class selected de la selection []
                     element.classList.remove("selected")
                     var push = element.classList[1].match(/\d+/g)[0]
-                    // console.log(element.classList[1].match(/\d+/g)[0])
+
                     for (let a = 0; selection.length > a; a++) {
                         if (selection[a] == push) {
                             selection.splice(a, 1)
                         }
                     }
 
-                } else {
+                } else { //ajoute la class selected et recupere l'id du cv pour le mettre dans la selection []
                     var push = element.classList[1].match(/\d+/g)[0]
-                    // console.log(element.classList[1].match(/\d+/g)[0])
                     element.classList.add("selected")
                     selection.push(push)
 
@@ -89,27 +88,49 @@ wp_head();
                 console.log(selection)
 
             }
+            // ----------------------------------------------------fonction d'envoi de download en csv------------------------------------
 
+
+            // transformation de la selection en multidimensionnal array [[...][...]]
             function selectionToExcel() {
-                console.log(selection)
-                selection.forEach(function(element, e) {
-                    // console.log(selection2d)
-                    let idCV = [element]
-                    selection2d.push(idCV)
-                    // console.log(selection2d)
-                });
-                selection2d.forEach(function(element, e) {
 
+                selection.forEach(function(elem, e) {
+                    // boucle pour rechercher les info contact
+                    for (let i = 0; i < requete.length; i++) {
+                        if (requete[i][0] == elem) {
+
+                            push = Object.keys(requete[i]).map((k) => requete[i][k])
+                            selection2d.push(push.splice(0, 7))
+                            break
+                        }
+                    }
 
                 });
                 console.log(selection2d)
+                // console.log(requete)
+                // csv------
+
+                let csvContent = "data:text/csv;charset=utf-8,";
+
+                selection2d.forEach(function(rowArray) {
+                    console.log(rowArray)
+                    let row = rowArray.join(";");
+                    csvContent += row + "\r\n";
+                });
+
+                var encodedUri = encodeURI(csvContent);
+                window.open(encodedUri);
+                console.log(csvContent)
+                // ---------
+
                 selection2d = []
+                selection = []
             }
 
             let containerCV = document.getElementById('containerCV');
 
             for (y = 0; y < Object.keys(requete).length; y++) {
-                containerCV.innerHTML += "<div value='1' onclick='testClass(this)' class='cv cv" + requete[y]['id_user'] + "'>" + requete[y]['id'] + requete[y]['nom'] + " " + requete[y]['prenom'] + " :" + requete[y]['intro'] + "</div>"
+                containerCV.innerHTML += "<div value='1' onclick='testClass(this)' class='cv cv" + requete[y]['id'] + "'>" + requete[y]['id'] + requete[y]['nom'] + " " + requete[y]['prenom'] + " :" + requete[y]['intro'] + "</div>"
 
 
             }
@@ -117,9 +138,9 @@ wp_head();
     </div>
     <!-- ------------------------------------------partie selection -->
 
-    <div class="containerSelection">
+    <object class="pdf" data="" type="application/pdf" title="cv">
 
-    </div>
+    </object>
 </div>
 <?php
 echo "<pre>";
