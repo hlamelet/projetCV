@@ -31,6 +31,7 @@ wp_head(); ?>
                 <!-- couleurs -->
                 <h5>Couleur du CV</h5>
                 <button onclick="gfg_Run()" class="yellow_color"></button>
+                <button onclick="gfg_Run()" id="yellow_color"></button>
                 <button onclick="blue_Run()" id="blue_color"></button>
                 <button onclick="green_Run()" id="green_color"></button>
                 <button onclick="grey_Run()" id="grey_color"></button>
@@ -53,116 +54,144 @@ wp_head(); ?>
 
         <!-- THEO -->
 
-        <div class="card mx-5 mt-3" id="invoice" class="invoice">
-            <div class="card-header">
-
+        <div id="javascript_header"></div>
+        <form method="POST">
+            <div class="form__header">
+                <h1>Fabriquez votre CV</h1>
+                <p>Remplissez les champs demandés</p>
             </div>
-            <div class="card-body">
-                <div class="container">
 
-                    <div class="row">
-                        <div class="col-md-6">
-                            <!-- premier col -->
-                            <div class="form-group mt-3">
-                                <label for="">Sélectionnez votre photo</label>
-                                <input id="imgField" type="file" class="form-control" />
-                            </div>
-                            <!-- CHANGEMENT -->
-                            <h3 class="text">Renseignements personnels</h3>
+            <h2>Informations personnelles</h2>
 
-                            <div class="form-group">
-                                <label for="nameField"></label>
-                                <input type="text" id="nameField" placeholder="John Morroy" class="form-control" />
-                            </div>
+            <div class="form-group">
+                <label for="name">Nom<span>*</span></label>
+                <input type="text" name="name" id="name" placeholder="Robert">
+                <div id="name__error" class="error"></div>
+            </div>  
 
-                            <div class="form-group mt-2">
-                                <label for="contactField"></label>
-                                <input type="text" id="contactField" placeholder="0658453623" class="form-control" />
-                            </div>
+            <div class="form-group">
+                <label for="firstname">Prénom</label>
+                <input type="text" name="firstname" id="firstname" placeholder="Robert">
+                <div id="name__error" class="error"></div>
+            </div>
 
-                            <div class="form-group mt-2">
-                                <label for="addressField"></label>
-                                <textarea id="addressField" placeholder="189 avenue Jean rondeaux 76100 , France" class="form-control" rows="5"></textarea>
-                            </div>
+            <div class="form-group">
+                <label for="address">Addresse</label>
+                <input type="text" name="address" id="address" placeholder="12 rue du Renard, 75001 Paris">
+            </div>
 
+            <div class="form-group">
+                <label for="phone">Téléphone</label>
+                <input type="text" name="phone" id="phone" placeholder="+33 2 35 76 80 91">
+            </div>
 
-                            <p class="text-secondary my-3">Mes réseaux sociaux</p>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" name="email" id="email" placeholder="example@mail.com">
+                <div id="email__error" class="error"></div>
+            </div>
 
-                            <div class="form-group mt-2">
-                                <label for="fbField"></label>
-                                <input type="text" id="fbField" placeholder="Facebook" class="form-control" />
-                            </div>
-                            <div class="form-group mt-2">
-                                <label for="instaField"></label>
-                                <input type="text" id="instaField" class="input_cv" placeholder="Instagram" class="form-control" />
-                            </div>
-                            <div class="form-group mt-2">
-                                <label for="linkedField"></label>
-                                <input type="text" id="linkedField" class="input_cv" placeholder="LinkedIn" class="form-control" />
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <!-- seconde col -->
-                            <h3>Information professionnelle</h3>
+            <div class="form-group">
+                <label for="about">A propos de vous</label>
+                <textarea name="about" id="about" placeholder="Trois ou quatre phrases sur votre personnalité, éthique professionnelle, intérêts..."></textarea>
+            </div>
 
-                            <div class="form-group mt-2">
-                                <label for="">OBJECTIFS</label>
-                                <textarea id="objectiveField" rows="5" placeholder="Présentation" class="form-control"></textarea>
-                            </div>
+            <div class="form-group">
+                <label for="career">Objectifs de carrière</label>
+                <textarea name="career" id="career" placeholder="Une ou deux phrases sur ce que vous souhaitez accomplir durant votre carrière"></textarea>
+            </div>
 
-                            <div class="form-group mt-2" id="we">
-                                <label for="">
-                                    EXPERIENCES</label>
-                                <textarea placeholder="Enter here" class="form-control weField" rows="3"></textarea>
+            <div class="form-group">
+                <label for="education">Education</label>
+                <textarea name="education" id="education" placeholder="Listez tout lycée, université, école ou autre programme éducatif que vous auriez suivi"></textarea>
+            </div>
 
-                                <!-- textarea -->
+            <div class="line-break"></div>
 
-                                <div class="container text-center mt-2" id="weAddButton">
-                                    <button onclick="addNewWEField()" class="btn btn-primary btn-sm">
-                                        Ajouter
-                                    </button>
-                                </div>
-                            </div>
+            <h2>Expérience professionnelle</h2>
 
-                            <div class="form-group mt-2" id="aq">
-                                <label for="">
-                                    FORMATIONS</label>
-                                <textarea placeholder="Enter here" class="form-control eqField" rows="3"></textarea>
+            <h3>Mon dernier emploi</h3>
 
-                                <div class="container text-center mt-2" id="aqAddButton">
-                                    <button onclick="addNewAQField()" class="btn btn-primary btn-sm">
-                                        Ajouter
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="container text-center mt-3">
-                        <button onclick="generateCV()" class="btn btn-primary btn-lg">
-                            Créer mon CV
-                        </button>
-                    </div>
+            <div class="form-date-group">
+                <div class="form-group">
+                    <label for="job-1__start">Date de début</label>
+                    <input type="date" name="job-1__start" id="job-1__start">
                 </div>
-            </div class="card-body">
-
-
-
-            <div class="container mt-3 text-center">
+                <div class="form-group">
+                    <label for="job-1__end">Date de fin</label>
+                    <input type="date" name="job-1__end" id="job-1__end">
+                </div>
             </div>
-        </div>
-    </div>
-    <!-- Fin THEO -->
 
-    <div id="telechargement">
-        <button onclick="printCV()" class="btn background">Imprimer</button>
-        <button class="btn background" id="download">Télécharger</button>
-    </div>
+            <div class="form-group">
+                <label for="job-1__details">Détails concernant ce poste</label>
+                <textarea name="job-1__details" id="job-1__details"></textarea>
+            </div>
+
+            <div class="line-break"></div>
+
+            <h3>Emploi précédent</h3>
+
+            <div class="form-date-group">
+                <div class="form-group">
+                    <label for="job-2__start">Date de début</label>
+                    <input type="date" name="job-2__start" id="job-2__start">
+                </div>
+                <div class="form-group">
+                    <label for="job-2__end">Date de fin</label>
+                    <input type="date" name="job-2__end" id="job-2__end">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="job-2__details">Détails concernant ce poste</label>
+                <textarea name="job-2__details" id="job-2__details"></textarea>
+            </div>
+
+            <div class="line-break"></div>
+
+            <h3>Un autre emploi précédent</h3>
+
+            <div class="form-date-group">
+                <div class="form-group">
+                    <label for="job-3__start">Date de début</label>
+                    <input type="date" name="job-3__start" id="job-3__start">
+                </div>
+                <div class="form-group">
+                    <label for="job-3__end">Date de fin</label>
+                    <input type="date" name="job-3__end" id="job-3__end">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="job-3__details">Détails concernant ce poste</label>
+                <textarea name="job-3__details" id="job-3__details"></textarea>
+            </div>
+
+            <div class="line-break"></div>
+
+            <div class="form-group">
+                <label for="references">Recommandations</label>
+                <textarea name="references" id="references"></textarea>
+            </div>
+
+            <div class="line-break"></div>
+
+            <input type="submit" value="Créer mon CV" id="create-resume">
+        </form>
+        <!-- Fin THEO -->
+
+        <div id="telechargement">
+            <button onclick="printCV()" class="btn background">Print CV</button>
+            <button class="btn background" id="download">Télécharger</button>
+        </div>
 
 </div>
 
 
 </body>
+    </div>
+    
 
 
-<?php wp_footer(); ?>
+<?php  wp_footer(); ?>

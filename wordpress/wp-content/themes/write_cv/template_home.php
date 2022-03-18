@@ -20,9 +20,14 @@ if (!empty($_POST["email"]) && !empty($_POST["mdp"])) {
 
     if ((!empty($users)) && (password_verify($password, $users["user_mdp"]))) {
         session_start();
-
         $_SESSION["id"] = $users["id"];
-        header("Location: http://localhost/projCV/wordpress/espace-utilisateur/");
+
+        if (($users["user_role"]) == 1) {
+            header("Location: http://localhost/projCV/wordpress/espace-utilisateur/");
+        }
+        if (($users["admin_role"]) == 1) {
+            header("Location: http://localhost/projCV/wordpress/espace-administrateur/");
+        }
     } else {
         $erreur = true;
     }
@@ -40,15 +45,22 @@ if (empty($_POST["name-register"]) || empty($_POST["surname-register"]) || empty
     $surnameReg = $_POST["surname-register"];
     $emailReg = $_POST["email-register"];
     $passwordReg = $_POST["mdp-register"];
+    $passwordRegConf = $_POST["mdp-register-confirm"];
     $passwordHash = password_hash($passwordReg, PASSWORD_DEFAULT);
+    $roleUser = 1;
 
-    $req = $db->prepare("INSERT INTO user (user_name, user_surname,user_email,user_mdp) VALUES ('$nameReg', '$surnameReg', '$emailReg', '$passwordHash')");
-    $req->execute();
+    if (($passwordReg == $passwordRegConf) && (strlen($passwordReg) >= 8) && (preg_match('#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W)#', $passwordReg))) {
+
+        $req = $db->prepare("INSERT INTO user (user_name, user_surname,user_email,user_mdp,user_role) VALUES ('$nameReg', '$surnameReg', '$emailReg', '$passwordHash','$roleUser')");
+        $req->execute();
+    }
 }
+
 wp_head();
 get_header();
 
 ?>
+
 
 <body onload="myFunction()">
     <div class="center">
@@ -87,11 +99,11 @@ get_header();
                 </div>
                 <div class="register-text ">
 
-                    <form action="" method="post" class="form-register">
+                    <form action="" method="post" class="form-register" onsubmit="return validateForm()" name="register" id="register">
 
                         <label for="name-register">Nom: </label>
                         <input type="text" name="name-register" id="name-register">
-
+                        <div id="demo"></div>
                         <label for="email-register">Prenom: </label>
                         <input type="text" name="surname-register" id="surname-register">
 
@@ -100,12 +112,17 @@ get_header();
 
                         <label for="mdp-register">Mot de passe: </label>
                         <input type="password" name="mdp-register" id="mdp-register">
+                        <div id="erreur-mdp">
+                            <p>Votre mot de passe doit contenir au moins 8 caractères ainsi qu’une majuscule, une minuscule, un chiffre et un symbole.</p>
+                        </div>
 
-                        <label for="mdp-register-confirm"> Confirmation Mot de passe: </label>
+                        <label id="label-mdpconf" for="mdp-register-confirm"> Confirmation Mot de passe: </label>
                         <input type="password" name="mdp-register-confirm" id="mdp-register-confirm">
                         <div id="erreurChamp-text" class="erreur"></div>
+
                         <input type="submit" value="Valider" id="submit-register" name="submit-register">
                         <p id="button-login">Vous avez déja un compte ?</p>
+
 
                     </form>
                 </div>
@@ -126,6 +143,95 @@ get_header();
     var register = document.getElementById("button-register");
     var login = document.getElementById("button-login");
 
+    const name = document.getElementById("name-register");
+    const surname = document.getElementById("surname-register");
+    const email = document.getElementById("email-register");
+    const mdp = document.getElementById("mdp-register");
+    const mdpConf = document.getElementById("mdp-register-confirm");
+    const erreurmdp = document.getElementById("erreur-mdp");
+
+
+    $(function ValideEmail() {
+            $(email).keyup(function() {
+                emailAjax = $(email).val();
+                $.ajax({
+                    type: "POST",
+                    url: "/projCV/wordpress/wp-content/themes/write_cv/inscriptionAjax.php",
+                    data: "email-register=" + emailAjax,
+                    success: function(data) {
+                        if (data == 1) {
+                            $('#erreurChamp-text').html("<p>mail déja utilisé</p>");
+                            emailvalid = true;
+                        } else {
+                            $('#erreurChamp-text').html("");
+                            emailvalid = false;
+                        }
+
+
+                    }
+                });
+
+
+            })
+        }
+
+    );
+
+
+    register.addEventListener("click", pageRegister);
+    login.addEventListener("click", showPage);
+    mdp.addEventListener('input', passwordChange);
+
+
+    function validateForm() {
+        var x = document.forms["register"]["name-register", "surname-register", "email-register", "mdp-register", "mdp-register-confirm"].value;
+
+        if (x == "") {
+            erreurchamp.innerHTML = "<p>Tout les champs ne sont pas remplies</p>";
+            return false;
+        }
+        if (mdpConf.value != mdp.value) {
+            erreurchamp.innerHTML = "<p>Les mots de passes sont différents</p>";
+            return false;
+        }
+
+        if (emailvalid == true) {
+            return false;
+        }
+    }
+
+    function passwordChange() {
+
+        if ((mdp.value.length >= 8) && (hasLowerCase(mdp.value) == true) && (hasUpperCase(mdp.value) == true) &&
+            (hasNumber(mdp.value) == true) && (hasSpecial(mdp.value) == true)) {
+
+            erreurmdp.style.color = "green";
+        } else {
+            erreurmdp.style.color = "red";
+        }
+    }
+
+    function hasLowerCase(str) {
+        return (/[a-z]/.test(str));
+    }
+
+    function hasUpperCase(str) {
+        return (/[A-Z]/.test(str));
+    }
+
+    function hasNumber(str) {
+        return (/[0-9]/.test(str));
+    }
+
+    function hasSpecial(str) {
+        return (/[!-/]|[:-@]|[[-`]|[{-~]/.test(str));
+
+    }
+
+
+
+
+
 
     function myFunction() {
         myVar = setTimeout(showPage, 000);
@@ -136,8 +242,7 @@ get_header();
         document.getElementsByClassName("container-login")[0].style.display = "flex";
         document.getElementsByClassName("container-register")[0].style.display = "none";
     }
-    register.addEventListener("click", pageRegister);
-    login.addEventListener("click", showPage);
+
 
 
     function pageRegister() {
@@ -151,14 +256,8 @@ get_header();
     <?php if ($erreur == true) {
     ?> erreur.innerHTML = "<p>E-mail ou mot de passe incorrect</p>";
     <?php } ?>
-
-    <?php if ($erreurchamp == true) {
-    ?> erreurchamp.innerHTML = "<p>Tout les champs ne sont pas remplies</p>";
-    <?php } ?>
 </script>
 
 <?php
 get_footer();
 ?>
-
-
