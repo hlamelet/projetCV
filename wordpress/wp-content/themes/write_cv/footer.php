@@ -16,40 +16,40 @@
 	<div class="footer">
 		<div class="container-footer">
 
-			<div class="Services">
-				<h3>Services</h3>
+			<div class="Reseau">
+				<h3>Reseaux sociaux</h3>
 				<ul>
-					<li><a href=" #">Web design</a></li>
-					<li><a href="#">Development</a></li>
-					<li><a href="#">Hosting</a></li>
+					<li><a href=" #">Facebook</a></li>
+					<li><a href="#">Twitter</a></li>
+					<li><a href="#">Linkedin</a></li>
+				</ul>
+			</div>
+			<div class="Societe">
+				<h3>Société</h3>
+				<ul>
+					<li><a href="#">L'agence</a></li>
+					<li><a href="#">L'Equipe</a></li>
+					<li><a href="#">Developpement web</a></li>
 				</ul>
 			</div>
 			<div class="About">
-				<h3>About</h3>
+				<h3>A propos</h3>
 				<ul>
-					<li><a href="#">Company</a></li>
-					<li><a href="#">Team</a></li>
-					<li><a href="#">Legacy</a></li>
+					<li><a href="#">Mentions Légales</a></li>
+					<li><a href="#">Conditions générales d'utilisation</a></li>
+					<li><a href="#">Mise a jour du site</a></li>
 				</ul>
 			</div>
-			<div class="Careers">
-				<h3>Careers</h3>
-				<ul>
-					<li><a href="#">Job openings</a></li>
-					<li><a href="#">Employee success</a></li>
-					<li><a href="#">Benefits</a></li>
-				</ul>
-			</div>
-			<div class="Social Media"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a>
-				<p class="copyright">Company Name © 2018</p>
+
+			<p class="copyright">Bertolucci Agency © 2021</p>
 
 
 
 
-				<!-- FOOTER ICI PROJET  -->
+			<!-- FOOTER ICI PROJET  -->
 
 
-			</div>
+
 		</div>
 	</div>
 
