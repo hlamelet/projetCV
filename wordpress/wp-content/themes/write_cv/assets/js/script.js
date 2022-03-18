@@ -209,7 +209,7 @@ h1, p {
   createGroup(state.job3.date.start + ' to ' + state.job3.date.end, state.job3.details)
   createGroup('REFERENCES', state.references)
   $('</div>')
-  $('<div class="instructions">Right click the page and "Save As..." to make a copy of this resume</div>')
+  $('<div class="instructions">Pour enregistrer votre CV : clic droit > enregistrer sous</div>')
   $('</body></html>')
   document.close()
 }
@@ -223,7 +223,7 @@ const checkName = () => {
   if (!isValid) {
     name.classList.add("error__input")
     name_error.style.display = "block"
-    name_error.innerHTML = "The name field is required"
+    name_error.innerHTML = "Ce champ est obligatoire"
     console.log("error")
   } else {
     name.classList.remove("error__input")
@@ -240,12 +240,12 @@ const checkEmail = () => {
   if (!email.value) {
     email.classList.add("error__input")
     email_error.style.display = "block"
-    email_error.innerHTML = "The email field is required"
+    email_error.innerHTML = "Ce champ est obligatoire"
   } else {
     if (!isValid) {
       email.classList.add("error__input")
       email_error.style.display = "block"
-      email_error.innerHTML = "The email entered is invalid"
+      email_error.innerHTML = "Ce champ est obligatoire"
     } else {
       email.classList.remove("error__input")
       email_error.style.display = "none"
@@ -265,11 +265,11 @@ const checkValidity = () => {
   return nameIsValid && emailIsValid
 }
 
-document.getElementById('create-resume').addEventListener("click", (e) => {
+/*document.getElementById('create-resume').addEventListener("click", (e) => {
   e.preventDefault()
   const isValid = checkValidity()
   if (isValid) buildResume(getState())
-})
+})*/
 
 document.getElementById('name').addEventListener('blur', checkName)
 
@@ -320,14 +320,29 @@ function grey_Run() {
 
 // Requete Ajax
 
-$("#submit").click(function() {
+$("#create-resume").click(function() {
  
-  var name = $("#nameField").val();
-  var tel = $("#contactField").val();
+  var name = $("#name").val();
+  var firstname = $("#firstname").val();
+  var email = $("#email").val();
+  var phone = $("#phone").val();
+  var address = $("#address").val();
+  var about = $("#about").val();
+  var career = $("#career").val();
+  var education = $("#education").val();
+  var job1__start = $("#job-1__start").val();
+  var job1__end = $("#job-1__end").val();
+  var job1__details = $("#job-1__details").val();
+  var job2__start = $("#job-2__start").val();
+  var job2__end = $("#job-2__end").val();
+  var job2__details = $("#job-2__details").val();
+  var job3__start = $("#job-3__start").val();
+  var job3__end = $("#job-3__end").val();
+  var job3__details = $("#job-3__details").val();
+  var references = $("#references").val();
 
-
-  if(name == '' || tel == '') {
-      alert("Veuillez remplir tous les champs.");
+  if(name == '' || phone == '' || email == '' || firstname == '' || address == '' || about == '' || career == '' || education == '') {
+      alert("Veuillez remplir tous les champs obligatoires.");
       return false;
   }
 
@@ -335,8 +350,24 @@ $("#submit").click(function() {
       type: "POST",
       url: "/ProjCV/wordpress/wp-content/themes/write_cv/formToBd.php",
       data: {
-          name: name,
-          tel: tel
+          name : name,
+          firstname : firstname,
+          phone : phone,
+          email : email,
+          adress : adress,
+          about : about,
+          career : career, 
+          education : education, 
+          job1__start : job1__start,
+          job1__end : job1__end, 
+          job1__details : job1__details, 
+          job2__start : job2__start,
+          job2__end : job2__end, 
+          job2__details : job2__details,
+          job3__start : job3__start,
+          job3__end : job3__end, 
+          job3__details : job3__details, 
+          references : references
       },
       cache: false,
       success: function(data) {
@@ -347,5 +378,7 @@ $("#submit").click(function() {
       }
   });
    
+  const isValid = checkValidity()
+  if (isValid) buildResume(getState())
 });
 

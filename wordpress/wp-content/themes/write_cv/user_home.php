@@ -55,54 +55,53 @@ wp_head(); ?>
     <!-- THEO -->
     <div id="feuille_cv">
         <div id="javascript_header"></div>
-        <form method="POST">
             <div class="form__header">
                 <h1>Fabriquez votre CV</h1>
-                <p>Remplissez les champs demandés</p>
+                <p>Remplissez le formulaire. Les champs marqués d'une * sont obligatoires.</p>
             </div>
 
             <h2>Informations personnelles</h2>
 
             <div class="form-group">
-                <label for="name">Nom<span>*</span></label>
-                <input type="text" name="name" id="name" placeholder="Robert">
+                <label for="name">Nom <span>*</span></label>
+                <input type="text" name="name" id="name" placeholder="Ross">
                 <div id="name__error" class="error"></div>
             </div>
 
             <div class="form-group">
-                <label for="firstname">Prénom</label>
+                <label for="firstname">Prénom <span>*</span></label>
                 <input type="text" name="firstname" id="firstname" placeholder="Robert">
                 <div id="name__error" class="error"></div>
             </div>
 
             <div class="form-group">
-                <label for="address">Addresse</label>
+                <label for="address">Addresse <span>*</span></label>
                 <input type="text" name="address" id="address" placeholder="12 rue du Renard, 75001 Paris">
             </div>
 
             <div class="form-group">
-                <label for="phone">Téléphone</label>
+                <label for="phone">Téléphone <span>*</span></label>
                 <input type="text" name="phone" id="phone" placeholder="+33 2 35 76 80 91">
             </div>
 
             <div class="form-group">
-                <label for="email">Email</label>
+                <label for="email">Email <span>*</span></label>
                 <input type="text" name="email" id="email" placeholder="example@mail.com">
                 <div id="email__error" class="error"></div>
             </div>
 
             <div class="form-group">
-                <label for="about">A propos de vous</label>
+                <label for="about">A propos de vous <span>*</span></label>
                 <textarea name="about" id="about" placeholder="Trois ou quatre phrases sur votre personnalité, éthique professionnelle, intérêts..."></textarea>
             </div>
 
             <div class="form-group">
-                <label for="career">Objectifs de carrière</label>
+                <label for="career">Objectifs de carrière <span>*</span></label>
                 <textarea name="career" id="career" placeholder="Une ou deux phrases sur ce que vous souhaitez accomplir durant votre carrière"></textarea>
             </div>
 
             <div class="form-group">
-                <label for="education">Education</label>
+                <label for="education">Education <span>*</span></label>
                 <textarea name="education" id="education" placeholder="Listez tout lycée, université, école ou autre programme éducatif que vous auriez suivi"></textarea>
             </div>
 
@@ -177,8 +176,7 @@ wp_head(); ?>
 
             <div class="line-break"></div>
 
-
-        </form>
+            <button id="create-resume">Créer mon CV</button>
         <!-- Fin THEO -->
 
 
