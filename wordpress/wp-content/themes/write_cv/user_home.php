@@ -50,10 +50,10 @@ wp_head(); ?>
 
     <span id="bouton_rideau" onclick="openNav()"><i class="fas fa-bars"></i></span>
     <div id="white"></div>
+
+
+    <!-- THEO -->
     <div id="feuille_cv">
-
-        <!-- THEO -->
-
         <div id="javascript_header"></div>
         <form method="POST">
             <div class="form__header">
@@ -67,7 +67,7 @@ wp_head(); ?>
                 <label for="name">Nom<span>*</span></label>
                 <input type="text" name="name" id="name" placeholder="Robert">
                 <div id="name__error" class="error"></div>
-            </div>  
+            </div>
 
             <div class="form-group">
                 <label for="firstname">Prénom</label>
@@ -177,21 +177,22 @@ wp_head(); ?>
 
             <div class="line-break"></div>
 
-            <input type="submit" value="Créer mon CV" id="create-resume">
+
         </form>
         <!-- Fin THEO -->
 
-        <div id="telechargement">
-            <button onclick="printCV()" class="btn background">Print CV</button>
-            <button class="btn background" id="download">Télécharger</button>
-        </div>
 
+
+    </div>
+    <div id="telechargement">
+        <input type="submit" value="Prévisualiser" id="create-resume">
+        <button onclick="printCV()" class="btn background">Imprimer</button>
+        <button class="btn background" id="download">Télécharger</button>
+    </div>
+
+    </body>
 </div>
 
 
-</body>
-    </div>
-    
 
-
-<?php  wp_footer(); ?>
+<?php wp_footer(); ?>

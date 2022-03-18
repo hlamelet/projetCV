@@ -112,6 +112,11 @@ span.is-search-icon {
 
 /* feuille cv */
 
+#feuille_cv {
+    background-color: white;
+    padding: 67px;
+}
+
 #white {
   width: 24%;
   height: 100%;

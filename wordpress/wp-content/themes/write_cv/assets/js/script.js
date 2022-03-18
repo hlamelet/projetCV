@@ -284,9 +284,7 @@ document.getElementById('email').addEventListener('blur', checkEmail)
 window.onload = function () {
     document.getElementById("download")
         .addEventListener("click", () => {
-            const invoice = this.document.getElementById("invoice");
-            console.log(invoice);
-            console.log(window);
+            const invoice = this.document.getElementById("feuille_cv");
             var opt = {
                 margin: 1,
                 filename: 'monCv.pdf',
@@ -301,7 +299,7 @@ window.onload = function () {
 // palette de couleur
 
 function changeColor(color) {
-    document.getElementById("invoice").style.background = color;
+    document.getElementById("feuille_cv").style.background = color;
 }
   
 function gfg_Run() {
@@ -320,27 +318,7 @@ function grey_Run() {
     changeColor('#8f8f8f');
 }
 
-// palette input
-
-function changeColorInput(color) {
-    document.getElementsByClassName("form-control").style.background = color;
-}
-
-function gfg_Run_input() {
-    changeColor('#ffff9a');
-} 
-function blue_Run_input() {
-    changeColor('#7fb1ff');
-} 
-function pink_Run_input() {
-    changeColor('rgb(252, 146, 225)');
-} 
-function green_Run_input() {
-    changeColor('#87ffcc');
-}
-function grey_Run_input() {
-    changeColor('#8f8f8f');
-}
+// Requete Ajax
 
 $("#submit").click(function() {
  
