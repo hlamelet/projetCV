@@ -112,8 +112,11 @@ get_header();
 
                         <label for="mdp-register">Mot de passe: </label>
                         <input type="password" name="mdp-register" id="mdp-register">
+                        <div id="erreur-mdp">
+                            <p>Votre mot de passe doit contenir au moins 8 caractères ainsi qu’une majuscule, une minuscule, un chiffre et un symbole.</p>
+                        </div>
 
-                        <label for="mdp-register-confirm"> Confirmation Mot de passe: </label>
+                        <label id="label-mdpconf" for="mdp-register-confirm"> Confirmation Mot de passe: </label>
                         <input type="password" name="mdp-register-confirm" id="mdp-register-confirm">
                         <div id="erreurChamp-text" class="erreur"></div>
 
@@ -145,14 +148,39 @@ get_header();
     const email = document.getElementById("email-register");
     const mdp = document.getElementById("mdp-register");
     const mdpConf = document.getElementById("mdp-register-confirm");
+    const erreurmdp = document.getElementById("erreur-mdp");
 
 
+    $(function ValideEmail() {
+            $(email).keyup(function() {
+                emailAjax = $(email).val();
+                $.ajax({
+                    type: "POST",
+                    url: "/projCV/wordpress/wp-content/themes/write_cv/inscriptionAjax.php",
+                    data: "email-register=" + emailAjax,
+                    success: function(data) {
+                        if (data == 1) {
+                            $('#erreurChamp-text').html("<p>mail déja utilisé</p>");
+                            emailvalid = true;
+                        } else {
+                            $('#erreurChamp-text').html("");
+                            emailvalid = false;
+                        }
 
 
+                    }
+                });
+
+
+            })
+        }
+
+    );
 
 
     register.addEventListener("click", pageRegister);
     login.addEventListener("click", showPage);
+    mdp.addEventListener('input', passwordChange);
 
 
     function validateForm() {
@@ -167,8 +195,42 @@ get_header();
             return false;
         }
 
+        if (emailvalid == true) {
+            return false;
+        }
+    }
+
+    function passwordChange() {
+
+        if ((mdp.value.length >= 8) && (hasLowerCase(mdp.value) == true) && (hasUpperCase(mdp.value) == true) &&
+            (hasNumber(mdp.value) == true) && (hasSpecial(mdp.value) == true)) {
+
+            erreurmdp.style.color = "green";
+        } else {
+            erreurmdp.style.color = "red";
+        }
+    }
+
+    function hasLowerCase(str) {
+        return (/[a-z]/.test(str));
+    }
+
+    function hasUpperCase(str) {
+        return (/[A-Z]/.test(str));
+    }
+
+    function hasNumber(str) {
+        return (/[0-9]/.test(str));
+    }
+
+    function hasSpecial(str) {
+        return (/[!-/]|[:-@]|[[-`]|[{-~]/.test(str));
 
     }
+
+
+
+
 
 
     function myFunction() {
