@@ -552,3 +552,25 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
     background-color: #7267CB;
     margin-top: 10px;
 }
+/* FOOTER */
+.footer{
+
+  margin-top: 50px;
+  width: 100%;
+  height: 100px;
+}
+.footer a {
+  color: white;
+}
+.container-footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+.container-footer ul{
+  margin:0;
+}
+.page{
+  margin-bottom: 0;
+}
