@@ -54,129 +54,129 @@ wp_head(); ?>
 
 
         <div id="javascript_header"></div>
-        <form>
+        <form method="POST">
             <div class="form__header">
-                <h1>Build Your Resume</h1>
-                <p>Enter the fields below to generate an html resume</p>
+                <h1>Fabriquez votre CV</h1>
+                <p>Remplissez les champs demandés</p>
             </div>
 
-            <h2>Personal Details</h2>
+            <h2>Informations personnelles</h2>
 
             <div class="form-group">
                 <label for="name">Nom<span>*</span></label>
                 <input type="text" name="name" id="name" placeholder="Robert">
                 <div id="name__error" class="error"></div>
-            </div>
+            </div>  
 
             <div class="form-group">
-                <label for="name">Prenom<span>*</span></label>
-                <input type="text" name="firstname" id="firstname" placeholder="Ross">
+                <label for="firstname">Prénom</label>
+                <input type="text" name="firstname" id="firstname" placeholder="Robert">
                 <div id="name__error" class="error"></div>
             </div>
 
             <div class="form-group">
-                <label for="address">Address</label>
-                <input type="text" name="address" id="address" placeholder="4059 Mt Lee Dr. Hollywood, CA 90068">
+                <label for="address">Addresse</label>
+                <input type="text" name="address" id="address" placeholder="12 rue du Renard, 75001 Paris">
             </div>
 
             <div class="form-group">
-                <label for="phone">Phone</label>
-                <input type="text" name="phone" id="phone" placeholder="+1  123 456 7890">
+                <label for="phone">Téléphone</label>
+                <input type="text" name="phone" id="phone" placeholder="+33 2 35 76 80 91">
             </div>
 
             <div class="form-group">
-                <label for="email">Email <span>*</span></label>
+                <label for="email">Email</label>
                 <input type="text" name="email" id="email" placeholder="example@mail.com">
                 <div id="email__error" class="error"></div>
             </div>
 
             <div class="form-group">
-                <label for="about">About You</label>
-                <textarea name="about" id="about" placeholder="Three or four sentences about your personality, work ethic, interests, and/or more"></textarea>
+                <label for="about">A propos de vous</label>
+                <textarea name="about" id="about" placeholder="Trois ou quatre phrases sur votre personnalité, éthique professionnelle, intérêts..."></textarea>
             </div>
 
             <div class="form-group">
-                <label for="career">Career Objectives</label>
-                <textarea name="career" id="career" placeholder="One or two sentences about what you wish to accomplish in your career"></textarea>
+                <label for="career">Objectifs de carrière</label>
+                <textarea name="career" id="career" placeholder="Une ou deux phrases sur ce que vous souhaitez accomplir durant votre carrière"></textarea>
             </div>
 
             <div class="form-group">
                 <label for="education">Education</label>
-                <textarea name="education" id="education" placeholder="List any completed high school, college, or other educational programs"></textarea>
+                <textarea name="education" id="education" placeholder="Listez tout lycée, université, école ou autre programme éducatif que vous auriez suivi"></textarea>
             </div>
 
             <div class="line-break"></div>
 
-            <h2>Work Experience</h2>
+            <h2>Expérience professionnelle</h2>
 
-            <h3>Most Recent Job</h3>
+            <h3>Mon dernier emploi</h3>
 
             <div class="form-date-group">
                 <div class="form-group">
-                    <label for="job-1__start">Start Date</label>
+                    <label for="job-1__start">Date de début</label>
                     <input type="date" name="job-1__start" id="job-1__start">
                 </div>
                 <div class="form-group">
-                    <label for="job-1__end">End Date</label>
+                    <label for="job-1__end">Date de fin</label>
                     <input type="date" name="job-1__end" id="job-1__end">
                 </div>
             </div>
 
             <div class="form-group">
-                <label for="job-1__details">Position Details</label>
+                <label for="job-1__details">Détails concernant ce poste</label>
                 <textarea name="job-1__details" id="job-1__details"></textarea>
             </div>
 
             <div class="line-break"></div>
 
-            <h3>Past Job</h3>
+            <h3>Emploi précédent</h3>
 
             <div class="form-date-group">
                 <div class="form-group">
-                    <label for="job-2__start">Start Date</label>
+                    <label for="job-2__start">Date de début</label>
                     <input type="date" name="job-2__start" id="job-2__start">
                 </div>
                 <div class="form-group">
-                    <label for="job-2__end">End Date</label>
+                    <label for="job-2__end">Date de fin</label>
                     <input type="date" name="job-2__end" id="job-2__end">
                 </div>
             </div>
 
             <div class="form-group">
-                <label for="job-2__details">Position Details</label>
+                <label for="job-2__details">Détails concernant ce poste</label>
                 <textarea name="job-2__details" id="job-2__details"></textarea>
             </div>
 
             <div class="line-break"></div>
 
-            <h3>Another Past Job</h3>
+            <h3>Un autre emploi précédent</h3>
 
             <div class="form-date-group">
                 <div class="form-group">
-                    <label for="job-3__start">Start Date</label>
+                    <label for="job-3__start">Date de début</label>
                     <input type="date" name="job-3__start" id="job-3__start">
                 </div>
                 <div class="form-group">
-                    <label for="job-3__end">End Date</label>
+                    <label for="job-3__end">Date de fin</label>
                     <input type="date" name="job-3__end" id="job-3__end">
                 </div>
             </div>
 
             <div class="form-group">
-                <label for="job-3__details">Position Details</label>
+                <label for="job-3__details">Détails concernant ce poste</label>
                 <textarea name="job-3__details" id="job-3__details"></textarea>
             </div>
 
             <div class="line-break"></div>
 
             <div class="form-group">
-                <label for="references">References</label>
+                <label for="references">Recommandations</label>
                 <textarea name="references" id="references"></textarea>
             </div>
 
             <div class="line-break"></div>
 
-            <input type="submit" value="Create Resume" id="create-resume">
+            <input type="submit" value="Créer mon CV" id="create-resume">
         </form>
         <!-- Fin THEO -->
 
