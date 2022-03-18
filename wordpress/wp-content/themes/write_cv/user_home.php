@@ -27,16 +27,17 @@ wp_head(); ?>
                 <?php echo do_shortcode('[ivory-search id="18" title="Rechercher des thèmes"]'); ?>
             </div>
             <div id="box_templates">
-                <a href="#" class="base" draggable="true"><img src="<?php echo get_template_directory_uri() ?>/assets/img/template1.png" width="auto" alt=""></a>
+
                 <!-- couleurs -->
-                <button onclick = "gfg_Run()" id="yellow_color"></button>
-                <button onclick = "blue_Run()" id="blue_color"></button>
-                <button onclick = "green_Run()" id="green_color"></button>
-                <button onclick = "grey_Run()" id="grey_color"></button>
-                <button onclick = "pink_Run()" id="purple_color"></button>
+                <h5>Couleur du CV</h5>
+                <button onclick="gfg_Run()" class="yellow_color"></button>
+                <button onclick="blue_Run()" id="blue_color"></button>
+                <button onclick="green_Run()" id="green_color"></button>
+                <button onclick="grey_Run()" id="grey_color"></button>
+                <button onclick="pink_Run()" id="purple_color"></button>
 
                 <!-- fin couleurs -->
-
+                <a href="#" class="base" draggable="true"><img src="<?php echo get_template_directory_uri() ?>/assets/img/template1.png" width="auto" alt=""></a>
                 <a href="#"><img src="<?php echo get_template_directory_uri() ?>/assets/img/template2.png" width="auto" alt=""></a>
                 <a href="#"><img src="<?php echo get_template_directory_uri() ?>/assets/img/template1.png" width="auto" alt=""></a>
                 <a href="#"><img src="<?php echo get_template_directory_uri() ?>/assets/img/template1.png" width="auto" alt=""></a>
@@ -93,11 +94,11 @@ wp_head(); ?>
                             </div>
                             <div class="form-group mt-2">
                                 <label for="instaField"></label>
-                                <input type="text" id="instaField" placeholder="Instagram" class="form-control" />
+                                <input type="text" id="instaField" class="input_cv" placeholder="Instagram" class="form-control" />
                             </div>
                             <div class="form-group mt-2">
                                 <label for="linkedField"></label>
-                                <input type="text" id="linkedField" placeholder="LinkedIn" class="form-control" />
+                                <input type="text" id="linkedField" class="input_cv" placeholder="LinkedIn" class="form-control" />
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -154,14 +155,14 @@ wp_head(); ?>
     <!-- Fin THEO -->
 
     <div id="telechargement">
-        <button onclick="printCV()" class="btn background">Print CV</button>
+        <button onclick="printCV()" class="btn background">Imprimer</button>
         <button class="btn background" id="download">Télécharger</button>
     </div>
 
 </div>
-          
-          
-    </body> 
+
+
+</body>
 
 
 <?php wp_footer(); ?>
