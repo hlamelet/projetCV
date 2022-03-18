@@ -1,5 +1,7 @@
 /* IMPORTS */
 @import url("https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css");
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Fredoka&display=swap");
 
 /* PARTIE UTILISATEURS */
 
@@ -25,7 +27,7 @@
   width: 55px;
   height: auto;
   line-height: 100px;
-  background-color: #7267cb;
+  background-image: linear-gradient(19deg, #21b2fd 0%, #7267cb 100%);
   text-align: center;
   font-size: 1em;
   padding-top: 35px;
@@ -40,18 +42,18 @@
   z-index: 1;
   left: 0;
   top: 0;
-  background-color: #7267cb;
+  background-image: linear-gradient(19deg, #21b2fd 0%, #7267cb 100%);
   overflow-x: hidden;
   transition: 0.2s;
 }
 
 #overlay-content1 {
-  position: relative;
-  height: 100%;
-  width: 25%;
-  text-align: center;
-  background-color: #6e3cbc;
-  border-radius: 0px 0px 10px;
+    position: relative;
+    height: 627px;
+    width: auto;
+    text-align: center;
+    background-color: #150f5a;
+    border-radius: 0px 10px 10px 0px;
 }
 #overlay-content2 {
   width: 100%;
@@ -67,7 +69,7 @@
 }
 
 .overlay a {
-  padding: 8px;
+  padding: 1px;
   text-decoration: none;
   display: block;
   transition: 0.3s;
@@ -77,11 +79,11 @@
 }
 
 .overlay .closebtn {
-  position: absolute;
-  top: -28px;
-  right: -4px;
-  font-size: 30px;
-  color: white;
+    position: absolute;
+    top: -14px;
+    right: 19px;
+    font-size: 30px;
+    color: white;
 }
 
 .fa-solid {
@@ -163,8 +165,6 @@ a#btn_telecharger {
   background: #f4f4f4;
   border-style: dashed;
 }
-
-@import url("https://fonts.googleapis.com/css2?family=Fredoka&display=swap");
 
 body {
   background: linear-gradient(#b8e4f0, #98bae7);
@@ -573,4 +573,38 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
 }
 .page{
   margin-bottom: 0;
+}
+/* DASHBORD */
+
+.titre_dash{
+    text-align: center;
+    margin-top: 15px;
+}
+
+#bloc_dashbord {
+    display: flex; 
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 95%;
+    height: 85%;
+    margin: 30px;
+    border-radius: 20px;
+    background-image: linear-gradient(19deg, #21b2fd 0%, #7267cb 100%);
+    font-family: 'PT Serif', serif;
+    color: black;
+}
+.dash {
+    background-color: white;
+    width: 25%;
+    margin: 50px;
+    border-radius: 20px;
+    
+    color: black;
+}
+.dash h3 {
+    text-align: center;
+    font-family: 'PT Serif', serif;
+}
+#dashbord_body{
+    background: linear-gradient(#b8e4f0, #98bae7);
 }
