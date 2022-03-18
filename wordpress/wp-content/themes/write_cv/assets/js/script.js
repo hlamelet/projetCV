@@ -354,7 +354,7 @@ $("#create-resume").click(function() {
           firstname : firstname,
           phone : phone,
           email : email,
-          adress : adress,
+          address : address,
           about : about,
           career : career, 
           education : education, 

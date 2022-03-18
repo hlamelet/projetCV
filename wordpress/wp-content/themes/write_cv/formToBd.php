@@ -85,8 +85,9 @@
     }
 
     if (
-           (mysqli_query($conn, "INSERT INTO cv (nom) VALUES('" . $name . "')"))
-        && (mysqli_query($conn, "INSERT INTO user (user_email, user_tel) VALUES('" . $email . "', '" . $phone . "')"))
+           (mysqli_query($conn, "INSERT INTO cv (nom, prenom, intro, objectifs, education) VALUES ('" . $name . "', '" . $firstname . "', '" . $about . "', '" . $career . "', '" . $education . "')"))
+        && (mysqli_query($conn, "INSERT INTO user (adresse, user_email, user_tel) VALUES ('" . $address . "', '" . $email . "', '" . $phone . "')"))
+        && (mysqli_query($conn, "INSERT INTO experience (debut, fin, info) VALUES ('" . $job1__start . "', '" . $job1__end . "', '" . $job1__details . "')"))
         ) {
     } else {
        echo "Error: " . $sql . "" . mysqli_error($conn);
