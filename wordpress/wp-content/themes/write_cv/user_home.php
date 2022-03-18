@@ -63,8 +63,14 @@ wp_head(); ?>
             <h2>Personal Details</h2>
 
             <div class="form-group">
-                <label for="name">Full Name <span>*</span></label>
-                <input type="text" name="name" id="name" placeholder="Robert Norman Ross">
+                <label for="name">Nom<span>*</span></label>
+                <input type="text" name="name" id="name" placeholder="Robert">
+                <div id="name__error" class="error"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="name">Prenom<span>*</span></label>
+                <input type="text" name="firstname" id="firstname" placeholder="Ross">
                 <div id="name__error" class="error"></div>
             </div>
 
