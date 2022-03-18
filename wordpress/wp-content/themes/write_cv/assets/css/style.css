@@ -112,6 +112,11 @@ span.is-search-icon {
 
 /* feuille cv */
 
+#feuille_cv {
+    background-color: white;
+    padding: 67px;
+}
+
 #white {
   width: 24%;
   height: 100%;
@@ -520,7 +525,30 @@ textarea.form-control.eqField {
   border: none;
 }
 #grey_color {
-  border-radius: 50px;
-  background-color: #8f8f8f;
-  border: none;
+    border-radius: 50px;
+    background-color: #8f8f8f;
+    border: none;
+}
+
+button, input[type="button"], input[type="reset"], input[type="submit"] {
+    border: 1px solid;
+    border-color: #ccc #ccc #bbb;
+    border-radius: 3px;
+    background: #e6e6e6;
+    color: white;
+    line-height: 1;
+    padding: 0.6em 1em 0.4em;
+    background-color: #7267CB;
+}
+
+button, input[type="button"], input[type="reset"], input[type="submit"] {
+    border: none;
+    border-color: #ccc #ccc #bbb;
+    border-radius: 3px;
+    background: #e6e6e6;
+    color: white;
+    line-height: 1;
+    padding: 0.6em 1em 0.4em;
+    background-color: #7267CB;
+    margin-top: 10px;
 }
