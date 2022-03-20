@@ -1,4 +1,5 @@
 <?php
+    print_r($_POST);
 
     $servername='localhost';
     $username='root';
@@ -28,6 +29,11 @@
     $job2__details = '';
     $job3__details = '';
     $references = '';
+    
+    date_default_timezone_set('Europe/Paris');
+    $myDateString = date('d/m/Y H:i:s');
+    $date = DateTime::createFromFormat('d/m/Y H:i:s', $myDateString);
+    $creationDate = $date->format('Y-m-d H:i:s');     
     
     if (!empty($_POST['name'])) {
         $name = mysqli_real_escape_string($conn, $_POST['name']);
@@ -85,7 +91,7 @@
     }
 
     if (
-           (mysqli_query($conn, "INSERT INTO cv (nom, prenom, intro, objectifs, education) VALUES ('" . $name . "', '" . $firstname . "', '" . $about . "', '" . $career . "', '" . $education . "')"))
+           (mysqli_query($conn, "INSERT INTO cv (nom, prenom, intro, objectifs, education, date) VALUES ('" . $name . "', '" . $firstname . "', '" . $about . "', '" . $career . "', '" . $education . "', '" . $creationDate . "')"))
         && (mysqli_query($conn, "INSERT INTO user (adresse, user_email, user_tel) VALUES ('" . $address . "', '" . $email . "', '" . $phone . "')"))
         && (mysqli_query($conn, "INSERT INTO experience (debut, fin, info) VALUES ('" . $job1__start . "', '" . $job1__end . "', '" . $job1__details . "')"))
         ) {

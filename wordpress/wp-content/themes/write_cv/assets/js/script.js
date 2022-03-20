@@ -341,10 +341,10 @@ $("#create-resume").click(function() {
   var job3__details = $("#job-3__details").val();
   var references = $("#references").val();
 
-  if(name == '' || phone == '' || email == '' || firstname == '' || address == '' || about == '' || career == '' || education == '') {
-      alert("Veuillez remplir tous les champs obligatoires.");
-      return false;
-  }
+  // if(name == '' || phone == '' || email == '' || firstname == '' || address == '' || about == '' || career == '' || education == '') {
+  //     alert("Veuillez remplir tous les champs obligatoires.");
+  //     return false;
+  // }
 
   $.ajax({
       type: "POST",
@@ -367,7 +367,7 @@ $("#create-resume").click(function() {
           job3__start : job3__start,
           job3__end : job3__end, 
           job3__details : job3__details, 
-          references : references
+          references : references, 
       },
       cache: false,
       success: function(data) {

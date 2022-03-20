@@ -3,7 +3,7 @@
 Template Name: User Accueil
 
 */
-
+include('fonctions.php');
 $db = new PDO('mysql:host=localhost;dbname=cvtheque;charset=utf8', 'root', '');
 wp_head(); ?>
 
@@ -174,7 +174,7 @@ wp_head(); ?>
         </div>
 
         <div class="line-break"></div>
-        
+
 
         </form>
         <!-- Fin THEO -->
@@ -183,8 +183,8 @@ wp_head(); ?>
 
     </div>
     <div id="telechargement">
-        <button id="create-resume"title="Attention: Cela va envoyer ton CV au recruteur">Sauvegarder & Envoyer</button>
-        <button class="btn background" id="sauvegarder" >Sauvegarder le brouillon</button>
+        <button id="create-resume" title="Attention: Cela va envoyer ton CV au recruteur">Sauvegarder & Envoyer</button>
+        <button class="btn background" id="sauvegarder">Sauvegarder le brouillon</button>
         <button onclick="printCV()" class="btn background">Imprimer <i class="fi fi-rr-print"></i></button>
     </div>
 
