@@ -245,7 +245,7 @@ const checkEmail = () => {
     if (!isValid) {
       email.classList.add("error__input")
       email_error.style.display = "block"
-      email_error.innerHTML = "Ce champ est obligatoire"
+      email_error.innerHTML = "Ce champ n'est pas valide"
     } else {
       email.classList.remove("error__input")
       email_error.style.display = "none"
@@ -341,10 +341,18 @@ $("#create-resume").click(function() {
   var job3__details = $("#job-3__details").val();
   var references = $("#references").val();
 
-  // if(name == '' || phone == '' || email == '' || firstname == '' || address == '' || about == '' || career == '' || education == '') {
-  //     alert("Veuillez remplir tous les champs obligatoires.");
-  //     return false;
-  // }
+  if(     name == '' 
+       || phone == '' 
+       || email == '' 
+       || firstname == '' 
+       || address == '' 
+       || about == '' 
+       || career == '' 
+       || education == ''
+  ) {
+      alert("Veuillez remplir tous les champs obligatoires.");
+      return false;
+  }
 
   $.ajax({
       type: "POST",
