@@ -16,119 +16,90 @@ wp_head(); ?>
 
         <div id="overlay-content1">
             <a href="#"><img src="<?php echo get_template_directory_uri() ?>/assets/img/logo.png" width="50px" alt=""></a>
-            <a href="<?php the_permalink() ?>dashbord" title=""><i class="fi fi-rr-edit"></i><br>CVthèque</a>
-            <a href="#"><i class="fi fi-rr-apps"></i><br>Modèles</a>
-            <a href="#"><i class="fi fi-rr-pencil"></i><br>Style</a>
-            <a href="#" id="download"><i class="fi fi-rr-download"></i><br>Télécharger</a>
-            <a href="#" value="Rafraîchir" onclick="history.go(0)"><i class="fi fi-rr-add"></i><br>Nouveau</a>
+            <a href="#" class="style_bouton" onclick="changeCvtheque()"><i class="fi fi-rr-edit"></i><br>CVthèque</a>
+            <a href="#" class="style_bouton" onclick="changeModele()"><i class="fi fi-rr-apps"></i><br>Modèles</a>
+            <a href="#" onclick="changeStyle()" class="style_bouton"><i class="fi fi-rr-pencil"></i><br>Style</a>
+            <a href="#" class="style_bouton"><i class="fi fi-rr-picture"></i><br>Importer</a>
+            <a href="#" id="telecharger" class="style_bouton"><i class="fi fi-rr-download"></i><br>Télécharger</a>
+            <a href="#" class="style_bouton" value="Rafraîchir" onclick="history.go(0)"><i class="fi fi-rr-add"></i><br>Nouveau</a>
         </div>
 
         <div id="overlay-content2">
-            <input type="text" value="rechercher">
-            <div id="box_templates">
-
-                <!-- couleurs -->
-                <h5 style="color: white;">Couleur du CV</h5>
-                <button onclick="gfg_Run()" class="yellow_color"></button>
-                <button onclick="gfg_Run()" id="yellow_color"></button>
-                <button onclick="blue_Run()" id="blue_color"></button>
-                <button onclick="green_Run()" id="green_color"></button>
-                <button onclick="grey_Run()" id="grey_color"></button>
-                <button onclick="pink_Run()" id="purple_color"></button>
-
-                <!-- fin couleurs -->
-                <a href="#" class="base" draggable="true"><img src="<?php echo get_template_directory_uri() ?>/assets/img/template1.png" width="auto" alt=""></a>
-                <a href="#"><img src="<?php echo get_template_directory_uri() ?>/assets/img/template2.png" width="auto" alt=""></a>
-                <a href="#"><img src="<?php echo get_template_directory_uri() ?>/assets/img/template1.png" width="auto" alt=""></a>
-                <a href="#"><img src="<?php echo get_template_directory_uri() ?>/assets/img/template1.png" width="auto" alt=""></a>
-            </div>
+            <h5 style="color: white;">Ma Cvthèque</h5>
         </div>
         <div id="overlay-content3">
         </div>
     </div>
 
-    <span id="bouton_rideau" onclick="openNav()"> <i class="fas fa-bars"></i> </span>
+    <div id="bouton_rideau" onclick="openNav()"><i class="fi fi-rr-magic-wand"></i></div>
+
     <div id="white"></div>
 
 
     <!-- THEO -->
-    <div id="feuille_cv">
-        <div id="javascript_header"></div>
-        <div class="form__header">
-            <h1>Fabriquez votre CV</h1>
-            <p>Remplissez le formulaire. Les champs marqués d'une * sont obligatoires.</p>
-        </div>
+    <div id="feuille">
 
-        <h2>Informations personnelles</h2>
+        <h4>Informations personnelles</h4>
 
         <div class="form-group">
-            <label for="name">Nom <span>*</span></label>
-            <input type="text" name="name" id="name" placeholder="Ross">
+            <input type="text" name="name" id="name" placeholder="Nom*">
             <div id="name__error" class="error"></div>
         </div>
 
         <div class="form-group">
-            <label for="firstname">Prénom <span>*</span></label>
-            <input type="text" name="firstname" id="firstname" placeholder="Robert">
+            <input type="text" name="firstname" id="firstname" placeholder="Prénom*">
             <div id="name__error" class="error"></div>
         </div>
 
         <div class="form-group">
-            <label for="address">Addresse <span>*</span></label>
-            <input type="text" name="address" id="address" placeholder="12 rue du Renard, 75001 Paris">
+            <input type="text" name="address" id="address" placeholder="Ville & Code Postale*">
         </div>
 
         <div class="form-group">
-            <label for="phone">Téléphone <span>*</span></label>
-            <input type="text" name="phone" id="phone" placeholder="+33 2 35 76 80 91">
+            <input type="text" name="phone" id="phone" placeholder="Téléphone*">
         </div>
 
         <div class="form-group">
-            <label for="email">Email <span>*</span></label>
-            <input type="text" name="email" id="email" placeholder="example@mail.com">
+            <input type="text" name="email" id="email" placeholder="E-mail *">
             <div id="email__error" class="error"></div>
         </div>
 
         <div class="form-group">
-            <label for="about">A propos de vous <span>*</span></label>
-            <textarea name="about" id="about" placeholder="Trois ou quatre phrases sur votre personnalité, éthique professionnelle, intérêts..."></textarea>
+            <textarea name="about" id="about" placeholder="Trois ou quatre phrases sur votre personnalité, éthique professionnelle, intérêts... *"></textarea>
         </div>
 
         <div class="form-group">
-            <label for="career">Objectifs de carrière <span>*</span></label>
-            <textarea name="career" id="career" placeholder="Une ou deux phrases sur ce que vous souhaitez accomplir durant votre carrière"></textarea>
+            <textarea name="career" id="career" placeholder="Une ou deux phrases sur ce que vous souhaitez accomplir durant votre carrière *"></textarea>
         </div>
 
         <div class="form-group">
-            <label for="education">Education <span>*</span></label>
-            <textarea name="education" id="education" placeholder="Listez tout lycée, université, école ou autre programme éducatif que vous auriez suivi"></textarea>
+            <textarea name="education" id="education" placeholder="Listez tout lycée, université, école ou autre programme éducatif que vous auriez suivi *"></textarea>
         </div>
 
         <div class="line-break"></div>
 
-        <h2>Expérience professionnelle</h2>
+        <h4>Expérience professionnelle</h4>
 
-        <h3>Mon dernier emploi</h3>
+        <h5>Mon dernier emploi</h5>
 
         <div class="form-date-group">
             <div class="form-group">
-                <label for="job-1__start">Date de début</label>
-                <input type="date" name="job-1__start" id="job-1__start">
+                <label for="job-1__start">Du</label>
+                <input type="date" name="job-1__start" id="job-1__start" placeholder="début">
             </div>
             <div class="form-group">
-                <label for="job-1__end">Date de fin</label>
+                <label for="job-1__end">au</label>
                 <input type="date" name="job-1__end" id="job-1__end">
             </div>
         </div>
 
         <div class="form-group">
-            <label for="job-1__details">Détails concernant ce poste</label>
-            <textarea name="job-1__details" id="job-1__details"></textarea>
+            <textarea name="job-1__details" id="job-1__details" placeholder="Détails concernant ce poste"></textarea>
         </div>
 
         <div class="line-break"></div>
 
-        <h3>Emploi précédent</h3>
+        <h5>Emploi précédent</h5>
 
         <div class="form-date-group">
             <div class="form-group">
@@ -142,13 +113,12 @@ wp_head(); ?>
         </div>
 
         <div class="form-group">
-            <label for="job-2__details">Détails concernant ce poste</label>
-            <textarea name="job-2__details" id="job-2__details"></textarea>
+            <textarea name="job-2__details" id="job-2__details" placeholder="Détails concernant ce poste"></textarea>
         </div>
 
         <div class="line-break"></div>
 
-        <h3>Un autre emploi précédent</h3>
+        <h5>Un autre emploi précédent</h5>
 
         <div class="form-date-group">
             <div class="form-group">
@@ -162,35 +132,32 @@ wp_head(); ?>
         </div>
 
         <div class="form-group">
-            <label for="job-3__details">Détails concernant ce poste</label>
-            <textarea name="job-3__details" id="job-3__details"></textarea>
+            <textarea name="job-3__details" id="job-3__details" placeholder="Détails concernant ce poste"></textarea>
         </div>
 
         <div class="line-break"></div>
 
         <div class="form-group">
-            <label for="references">Recommandations</label>
-            <textarea name="references" id="references"></textarea>
+            <textarea name="references" id="references" placeholder="Notes supplémentaires"></textarea>
         </div>
 
         <div class="line-break"></div>
 
-
-        </form>
         <!-- Fin THEO -->
 
-
-
     </div>
+
     <div id="telechargement">
-        <button id="create-resume" title="Attention: Cela va envoyer ton CV au recruteur">Sauvegarder & Envoyer</button>
-        <button class="btn background" id="sauvegarder">Sauvegarder le brouillon</button>
-        <button onclick="printCV()" class="btn background">Imprimer <i class="fi fi-rr-print"></i></button>
+
+        <button id="create-resume" class="cursor" title="Attention: Cela va envoyer ton CV au recruteur">Sauvegarder & Envoyer</button>
+        <button class="cursor" title="Sauvegarder mon CV dans ma CVthèque">Sauvegarder le brouillon</button>
+        <button onclick="printCV()" class="cursor" class="btn background">Imprimer <i class="fi fi-rr-print"></i></button>
     </div>
 
+    <div id="compte_user">
+        <button id="mon_compte"><i class="fi fi-rr-user"></i></button>
+    </div>
     </body>
 </div>
-
-
 
 <?php wp_footer(); ?>

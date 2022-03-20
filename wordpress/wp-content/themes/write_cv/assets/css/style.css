@@ -2,6 +2,10 @@
 @import url("https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css");
 @import url('https://fonts.googleapis.com/css2?family=PT+Serif&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=Fredoka&display=swap");
+@import url('https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css');
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&display=swap');
 
 /* PARTIE UTILISATEURS */
 
@@ -56,10 +60,11 @@
     border-radius: 0px 10px 10px 0px;
 }
 #overlay-content2 {
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  margin-left: 18;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    margin-left: 18;
+    margin-top: 10%;
 }
 #overlay-content3 {
   position: relative;
@@ -114,11 +119,6 @@ span.is-search-icon {
 
 /* feuille cv */
 
-#feuille_cv {
-  background-color: white;
-  padding: 67px;
-}
-
 #white {
   width: 24%;
   height: 100%;
@@ -126,12 +126,13 @@ span.is-search-icon {
 
 /* TELECHARGEMENT */
 #telechargement {
-  width: 17%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  padding: 20px;
+    width: 17%;
+    /* height: 100%; */
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    margin-left: 10%;
 }
 
 #btn_telecharger {
@@ -463,6 +464,8 @@ input {
 }
 /* theo */
 
+
+
 input#nameField,
 input#contactField,
 textarea#addressField,
@@ -476,11 +479,13 @@ textarea.form-control.eqField {
   background-color: none;
   color: black;
 }
-#invoice {
+#feuille {
   background-color: white;
   width: 794px;
   height: 1122px;
   margin: 25px;
+  padding: 20px;
+  color: black;
 }
 #cv_colonne {
   display: flex;
@@ -504,27 +509,42 @@ textarea.form-control.eqField {
   border-radius: 50px;
   background-color: #ffff9a;
   border: none;
+  padding: 12px;
+  margin-left: 10px;
+  cursor: pointer;
 }
 
 #blue_color {
   border-radius: 50px;
   background-color: #7fb1ff;
   border: none;
+  padding: 12px;
+  margin-left: 10px;
+  cursor: pointer;
 }
 #purple_color {
   border-radius: 50px;
   background-color: rgb(252, 146, 225);
   border: none;
+  padding: 12px;
+  margin-left: 10px;
+  cursor: pointer;
 }
 #green_color {
   border-radius: 50px;
   background-color: #87ffcc;
   border: none;
+  padding: 12px;
+  margin-left: 10px;
+  cursor: pointer;
 }
 #grey_color {
   border-radius: 50px;
   background-color: #8f8f8f;
   border: none;
+  padding: 12px;
+  margin-left: 10px;
+  cursor: pointer;
 }
 
 button,
@@ -626,8 +646,13 @@ input[type="submit"] {
 #dashbord_body{
     background: linear-gradient(#b8e4f0, #98bae7);
 }
-
-
+.cursor
+{
+    cursor: pointer;
+}
+#create-resume.cursor{
+    background-color: rgb(255, 145, 118);
+}
 /* MEDIAQUERYS FOOTER */
 @media (max-width: 900px) {
   .container-footer {
@@ -640,4 +665,59 @@ input[type="submit"] {
   .About {
     margin-bottom: 15px;
   }
+}
+
+/* COMPTE USER */
+
+#mon_compte {
+    background-color: lightgray;
+    color: white;
+    border-radius: 100%;
+    padding: 15;
+    border: 3px solid white;
+    font-size: 20;
+    margin-right: 10px;
+    cursor: pointer;
+}
+/* Fonts Change*/
+#sacramento{
+    font-family: 'Sacramento', cursive;
+    background-color: white;
+    margin-top: 10px;
+    font-size: 100%;
+    color: black;
+    width: 100%;
+    cursor: pointer;
+}
+#gochi{
+    font-family: 'Gochi Hand', cursive;
+    background-color: white;
+    margin-top: 10px;
+    font-size: 100%;
+    color: black;
+    width: 100%;
+    cursor: pointer;
+}
+#annie{
+    font-family: 'Annie Use Your Telescope', cursive;
+    background-color: white;
+    margin-top: 10px;
+    font-size: 100%;
+    color: black;
+    width: 100%;
+    cursor: pointer;
+}
+input[type="text"], input[type="email"], input[type="url"], input[type="password"], input[type="search"], input[type="number"], input[type="tel"], input[type="range"], input[type="date"], input[type="month"], input[type="week"], input[type="time"], input[type="datetime"], input[type="datetime-local"], input[type="color"], textarea {
+    color: #000;
+    border: none;
+    border-radius: 3px;
+    padding: 0px;
+}
+
+.style_bouton:hover {
+    
+    background-image: linear-gradient(19deg, #3fc4d6 0%, #8c4fec 100%);
+    padding: 10px;
+    margin: 25% 7px 7px 7px;
+    border-radius: 10px 10px 10px 10px;
 }
