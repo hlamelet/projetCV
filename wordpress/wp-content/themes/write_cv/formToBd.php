@@ -1,5 +1,6 @@
 <?php
-    print_r($_POST);
+    include('fonctions.php');
+    session_start();
 
     $servername='localhost';
     $username='root';
@@ -91,7 +92,7 @@
     }
 
     if (
-           (mysqli_query($conn, "INSERT INTO cv (nom, prenom, intro, objectifs, education, date) VALUES ('" . $name . "', '" . $firstname . "', '" . $about . "', '" . $career . "', '" . $education . "', '" . $creationDate . "')"))
+           (mysqli_query($conn, "INSERT INTO cv (id_user, nom, prenom, intro, objectifs, education, date) VALUES ($_SESSION[id], '" . $name . "', '" . $firstname . "', '" . $about . "', '" . $career . "', '" . $education . "', '" . $creationDate . "')"))
         && (mysqli_query($conn, "INSERT INTO user (adresse, user_email, user_tel) VALUES ('" . $address . "', '" . $email . "', '" . $phone . "')"))
         && (mysqli_query($conn, "INSERT INTO experience (debut, fin, info) VALUES ('" . $job1__start . "', '" . $job1__end . "', '" . $job1__details . "')"))
         ) {

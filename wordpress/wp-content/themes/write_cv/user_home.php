@@ -47,8 +47,9 @@ wp_head(); ?>
         </div>
 
         <div class="form-group">
-            <input type="text" name="firstname" id="firstname" placeholder="Prénom*">
-            <div id="name__error" class="error"></div>
+            <label for="firstname">Prénom <span>*</span></label>
+            <input type="text" name="firstname" id="firstname" placeholder="Robert">
+            <div id="firstname__error" class="error"></div>
         </div>
 
         <div class="form-group">

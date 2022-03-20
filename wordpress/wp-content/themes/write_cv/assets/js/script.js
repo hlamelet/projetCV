@@ -63,42 +63,43 @@ function closeNav() {
 // THEO
 
 const getState = () => {
-    const $ = (element) => {
-        return document.getElementById(element).value
-    }
+  const $ = (element) => {
+    return document.getElementById(element).value
+  }
 
-    const state = {
-        name: $('name'),
-        address: $('address'),
-        phone: $('phone'),
-        email: $('email'),
-        about: $('about'),
-        career: $('career'),
-        education: $('education'),
-        job1: {
-            date: {
-                start: $('job-1__start'),
-                end: $('job-1__end')
-            },
-            details: $('job-1__details')
-        },
-        job2: {
-            date: {
-                start: $('job-2__start'),
-                end: $('job-2__end')
-            },
-            details: $('job-2__details')
-        },
-        job3: {
-            date: {
-                start: $('job-3__start'),
-                end: $('job-3__end')
-            },
-            details: $('job-3__details')
-        },
-        references: $('references')
-    }
-    return state
+  const state = {
+    name: $('name'),
+    firstname: $('firstname'),
+    address: $('address'),
+    phone: $('phone'),
+    email: $('email'),
+    about: $('about'),
+    career: $('career'),
+    education: $('education'),
+    job1: {
+      date: {
+        start: $('job-1__start'),
+        end: $('job-1__end')
+      },
+      details: $('job-1__details')
+    },
+    job2: {
+      date: {
+        start: $('job-2__start'),
+        end: $('job-2__end')
+      },
+      details: $('job-2__details')
+    },
+    job3: {
+      date: {
+        start: $('job-3__start'),
+        end: $('job-3__end')
+      },
+      details: $('job-3__details')
+    },
+    references: $('references')
+  }
+  return state
 }
 
 const buildResume = (state) => {
@@ -226,6 +227,22 @@ const checkName = () => {
     return isValid
 }
 
+const checkfirstName = () => {
+  const firstname = document.getElementById('firstname')
+  const firstname_error = document.getElementById('firstname__error')
+  const isValid = !!firstname.value
+  if (!isValid) {
+    firstname.classList.add("error__input")
+    firstname_error.style.display = "block"
+    firstname_error.innerHTML = "Ce champ est obligatoire"
+    console.log("error")
+  } else {
+    firstname.classList.remove("error__input")
+    firstname_error.style.display = "none"
+  }
+  return isValid
+}
+
 const checkEmail = () => {
     const email = document.getElementById('email')
     const email_error = document.getElementById('email__error')
@@ -249,14 +266,17 @@ const checkEmail = () => {
 }
 
 const checkValidity = () => {
-    const nameIsValid = checkName()
-    const emailIsValid = checkEmail()
-    if (!nameIsValid) {
-        location.hash = "#name"
-    } else if (!emailIsValid) {
-        location.hash = "#email"
-    }
-    return nameIsValid && emailIsValid
+  const firstnameIsValid = checkfirstName()
+  const nameIsValid = checkName()
+  const emailIsValid = checkEmail()
+  if (!nameIsValid) {
+    location.hash = "#name"
+  } else if (!emailIsValid) {
+    location.hash = "#email"
+  } else if (!firstnameIsValid) {
+    location.hash = "#firstname"
+  }
+  return nameIsValid && emailIsValid
 }
 
 /*document.getElementById('create-resume').addEventListener("click", (e) => {
@@ -265,12 +285,14 @@ const checkValidity = () => {
   if (isValid) buildResume(getState())
 })*/
 
-document.getElementById('name').addEventListener('blur', checkName);
-document.getElementById('email').addEventListener('blur', checkEmail);
+document.getElementById('name').addEventListener('blur', checkName)
+document.getElementById('firstname').addEventListener('blur', checkfirstName)
+document.getElementById('email').addEventListener('blur', checkEmail)
+
 
 //print cv
 function printCV() {
-    window.print();
+  window.print();
 }
 
 //   TELECHARGEMENT PDF
@@ -347,66 +369,74 @@ function changeAnnie() {
 
 // Requete Ajax
 
-$("#create-resume").click(function () {
+$("#create-resume").click(function() {
+ 
+  var name = $("#name").val();
+  var firstname = $("#firstname").val();
+  var email = $("#email").val();
+  var phone = $("#phone").val();
+  var address = $("#address").val();
+  var about = $("#about").val();
+  var career = $("#career").val();
+  var education = $("#education").val();
+  var job1__start = $("#job-1__start").val();
+  var job1__end = $("#job-1__end").val();
+  var job1__details = $("#job-1__details").val();
+  var job2__start = $("#job-2__start").val();
+  var job2__end = $("#job-2__end").val();
+  var job2__details = $("#job-2__details").val();
+  var job3__start = $("#job-3__start").val();
+  var job3__end = $("#job-3__end").val();
+  var job3__details = $("#job-3__details").val();
+  var references = $("#references").val();
 
-    var name = $("#name").val();
-    var firstname = $("#firstname").val();
-    var email = $("#email").val();
-    var phone = $("#phone").val();
-    var address = $("#address").val();
-    var about = $("#about").val();
-    var career = $("#career").val();
-    var education = $("#education").val();
-    var job1__start = $("#job-1__start").val();
-    var job1__end = $("#job-1__end").val();
-    var job1__details = $("#job-1__details").val();
-    var job2__start = $("#job-2__start").val();
-    var job2__end = $("#job-2__end").val();
-    var job2__details = $("#job-2__details").val();
-    var job3__start = $("#job-3__start").val();
-    var job3__end = $("#job-3__end").val();
-    var job3__details = $("#job-3__details").val();
-    var references = $("#references").val();
+  // if(     name == '' 
+  //      || phone == '' 
+  //      || email == '' 
+  //      || firstname == '' 
+  //      || address == '' 
+  //      || about == '' 
+  //      || career == '' 
+  //      || education == ''
+  // ) {
+  //     alert("Veuillez remplir tous les champs obligatoires.");
+  //     return false;
+  // }
 
-    if (name == '' || phone == '' || email == '' || firstname == '' || address == '' || about == '' || career == '' || education == '') {
-        alert("Veuillez remplir tous les champs obligatoires.");
-        return false;
-    }
-
-    $.ajax({
-        type: "POST",
-        url: "/ProjCV/wordpress/wp-content/themes/write_cv/formToBd.php",
-        data: {
-            name: name,
-            firstname: firstname,
-            phone: phone,
-            email: email,
-            address: address,
-            about: about,
-            career: career,
-            education: education,
-            job1__start: job1__start,
-            job1__end: job1__end,
-            job1__details: job1__details,
-            job2__start: job2__start,
-            job2__end: job2__end,
-            job2__details: job2__details,
-            job3__start: job3__start,
-            job3__end: job3__end,
-            job3__details: job3__details,
-            references: references
-        },
-        cache: false,
-        success: function (data) {
-            alert(data);
-        },
-        error: function (xhr, status, error) {
-            console.error(xhr);
-        }
-    });
-
-    const isValid = checkValidity()
-    if (isValid) buildResume(getState())
+  $.ajax({
+      type: "POST",
+      url: "/ProjCV/wordpress/wp-content/themes/write_cv/formToBd.php",
+      data: {
+          name : name,
+          firstname : firstname,
+          phone : phone,
+          email : email,
+          address : address,
+          about : about,
+          career : career, 
+          education : education, 
+          job1__start : job1__start,
+          job1__end : job1__end, 
+          job1__details : job1__details, 
+          job2__start : job2__start,
+          job2__end : job2__end, 
+          job2__details : job2__details,
+          job3__start : job3__start,
+          job3__end : job3__end, 
+          job3__details : job3__details, 
+          references : references, 
+      },
+      cache: false,
+      success: function(data) {
+          // alert(data);
+      },
+      error: function(xhr, status, error) {
+          console.error(xhr);
+      }
+  });
+   
+  const isValid = checkValidity()
+  if (isValid) buildResume(getState())
 });
 
 // CHANGEMENT DES DIVS USERS
