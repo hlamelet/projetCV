@@ -57,6 +57,7 @@ wp_head(); ?>
 
         <div class="form-group">
             <input type="text" name="phone" id="phone" placeholder="Téléphone*">
+            <div id="phone__error" class="error"></div>
         </div>
 
         <div class="form-group">

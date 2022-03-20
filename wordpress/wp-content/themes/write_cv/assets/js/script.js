@@ -265,18 +265,43 @@ const checkEmail = () => {
     return isValid
 }
 
+const checkPhone = () => {
+  const phone = document.getElementById('phone')
+    const phone_error = document.getElementById('phone__error')
+    const phoneRegex = /^(?:(?:\+|00)33[\s.-]{0,3}(?:\(0\)[\s.-]{0,3})?|0)[1-9](?:(?:[\s.-]?\d{2}){4}|\d{2}(?:[\s.-]?\d{3}){2})$/
+    const isValid = phoneRegex.test(String(phone.value).toLowerCase())
+    if (!phone.value) {
+        phone.classList.add("error__input")
+        phone_error.style.display = "block"
+        phone_error.innerHTML = "Ce champ est obligatoire"
+    } else {
+        if (!isValid) {
+            phone.classList.add("error__input")
+            phone_error.style.display = "block"
+            phone_error.innerHTML = "Ce champ n'est pas valide"
+        } else {
+            phone.classList.remove("error__input")
+            phone_error.style.display = "none"
+        }
+    }
+    return isValid
+}
+
 const checkValidity = () => {
   const firstnameIsValid = checkfirstName()
   const nameIsValid = checkName()
   const emailIsValid = checkEmail()
+  const phoneIsValid = checkPhone()
   if (!nameIsValid) {
     location.hash = "#name"
   } else if (!emailIsValid) {
     location.hash = "#email"
   } else if (!firstnameIsValid) {
     location.hash = "#firstname"
+  } else if (!phoneIsValid) {
+    location.hash = "#phone"
   }
-  return nameIsValid && emailIsValid
+  return nameIsValid && emailIsValid && firstnameIsValid && phoneIsValid
 }
 
 /*document.getElementById('create-resume').addEventListener("click", (e) => {
@@ -288,6 +313,7 @@ const checkValidity = () => {
 document.getElementById('name').addEventListener('blur', checkName)
 document.getElementById('firstname').addEventListener('blur', checkfirstName)
 document.getElementById('email').addEventListener('blur', checkEmail)
+document.getElementById('phone').addEventListener('blur', checkPhone)
 
 
 //print cv
