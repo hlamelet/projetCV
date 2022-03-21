@@ -47,8 +47,9 @@
 				<?php endif; ?>
 			</div><!-- .site-branding -->
 			<div class="header-nav">
-				<img src="/projCV/wordpress/wp-content/themes/write_cv/assets/img/logo.png" alt="logo" id="logo">
-				<h1 id="titre">CV WRITER</h1>
+
+				<img src="/projCV/wordpress/wp-content/themes/write_cv/assets/img/Bertolucci.png" alt="logo" id="logo">
+				<h1 id="titre">Bertolucci Agency CV</h1>
 				<nav id="site-navigation" class="main-navigation">
 					<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e('Primary Menu', 'write_cv'); ?></button>
 					<?php

@@ -1,11 +1,11 @@
 /* IMPORTS */
 @import url("https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css");
-@import url('https://fonts.googleapis.com/css2?family=PT+Serif&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Fredoka&display=swap");
-@import url('https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css');
-@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&display=swap');
+@import url("https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css");
+@import url("https://fonts.googleapis.com/css2?family=Sacramento&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&display=swap");
 
 /* PARTIE UTILISATEURS */
 
@@ -53,18 +53,18 @@
 
 #overlay-content1 {
     position: relative;
-    height: 627px;
+    height: 646px;
     width: auto;
     text-align: center;
     background-color: #150f5a;
     border-radius: 0px 10px 10px 0px;
 }
 #overlay-content2 {
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    margin-left: 18;
-    margin-top: 10%;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  margin-left: 18;
+  margin-top: 10%;
 }
 #overlay-content3 {
   position: relative;
@@ -84,11 +84,11 @@
 }
 
 .overlay .closebtn {
-    position: absolute;
-    top: -14px;
-    right: 19px;
-    font-size: 30px;
-    color: white;
+  position: absolute;
+  top: -14px;
+  right: 19px;
+  font-size: 30px;
+  color: white;
 }
 
 .fa-solid {
@@ -126,13 +126,13 @@ span.is-search-icon {
 
 /* TELECHARGEMENT */
 #telechargement {
-    width: 17%;
-    /* height: 100%; */
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    padding: 20px;
-    margin-left: 10%;
+  width: 17%;
+  /* height: 100%; */
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 20px;
+  margin-left: 10%;
 }
 
 #btn_telecharger {
@@ -196,9 +196,15 @@ body {
   margin-left: 5px;
 }
 #titre {
-  font-size: 30px;
+  font-size: 27px;
   width: 30%;
   margin-left: 5px;
+}
+
+@media (max-width: 1100px) {
+  #titre {
+    font-size: 20px;
+  }
 }
 
 /* TEMPLATE HOME */
@@ -211,7 +217,7 @@ body {
 .laptop {
   width: 1000px;
   height: 540px;
-  background: #7267cb;
+  background-image: linear-gradient(19deg, #21b2fd 0%, #7267cb 100%);
   border: 16px solid #262626;
   border-radius: 5px;
   box-shadow: 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0#fff;
@@ -241,6 +247,11 @@ body {
   animation-name: animatebottom;
   animation-duration: 1s;
   color: white;
+}
+
+.form-login h1,
+.form-login h2 {
+  margin-bottom: 0px;
 }
 
 .container-login {
@@ -387,11 +398,12 @@ input {
     font-size: 20px;
   }
   .form-login h2 {
-    margin: 0;
+    margin-bottom: 20px;
     font-size: 15px;
   }
   .form-login h3 {
     margin-bottom: 0;
+    margin-top: 0px;
   }
   .form-login {
     margin-bottom: 0;
@@ -463,8 +475,6 @@ input {
   padding-left: 300px;
 }
 /* theo */
-
-
 
 input#nameField,
 input#contactField,
@@ -587,7 +597,7 @@ input[type="submit"] {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #7267cb;
+  background-image: linear-gradient(19deg, #21b2fd 0%, #7267cb 100%);
   padding: 50px;
 }
 .footer h3 {
@@ -614,44 +624,43 @@ input[type="submit"] {
 }
 /* DASHBORD */
 
-.titre_dash{
-    text-align: center;
-    margin-top: 15px;
+.titre_dash {
+  text-align: center;
+  margin-top: 15px;
 }
 
 #bloc_dashbord {
-    display: flex; 
-    justify-content: center;
-    flex-wrap: wrap;
-    width: 95%;
-    height: 85%;
-    margin: 30px;
-    border-radius: 20px;
-    background-image: linear-gradient(19deg, #21b2fd 0%, #7267cb 100%);
-    font-family: 'PT Serif', serif;
-    color: black;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 95%;
+  height: 85%;
+  margin: 30px;
+  border-radius: 20px;
+  background-image: linear-gradient(19deg, #21b2fd 0%, #7267cb 100%);
+  font-family: "PT Serif", serif;
+  color: black;
 }
 .dash {
-    background-color: white;
-    width: 25%;
-    margin: 50px;
-    border-radius: 20px;
-    
-    color: black;
+  background-color: white;
+  width: 25%;
+  margin: 50px;
+  border-radius: 20px;
+
+  color: black;
 }
 .dash h3 {
-    text-align: center;
-    font-family: 'PT Serif', serif;
+  text-align: center;
+  font-family: "PT Serif", serif;
 }
-#dashbord_body{
-    background: linear-gradient(#b8e4f0, #98bae7);
+#dashbord_body {
+  background: linear-gradient(#b8e4f0, #98bae7);
 }
-.cursor
-{
-    cursor: pointer;
+.cursor {
+  cursor: pointer;
 }
-#create-resume.cursor{
-    background-color: rgb(255, 145, 118);
+#create-resume.cursor {
+  background-color: rgb(255, 145, 118);
 }
 /* MEDIAQUERYS FOOTER */
 @media (max-width: 900px) {
@@ -670,54 +679,68 @@ input[type="submit"] {
 /* COMPTE USER */
 
 #mon_compte {
-    background-color: lightgray;
-    color: white;
-    border-radius: 100%;
-    padding: 15;
-    border: 3px solid white;
-    font-size: 20;
-    margin-right: 10px;
-    cursor: pointer;
+  background-color: lightgray;
+  color: white;
+  border-radius: 100%;
+  padding: 15;
+  border: 3px solid white;
+  font-size: 20;
+  margin-right: 10px;
+  cursor: pointer;
 }
 /* Fonts Change*/
-#sacramento{
-    font-family: 'Sacramento', cursive;
-    background-color: white;
-    margin-top: 10px;
-    font-size: 100%;
-    color: black;
-    width: 100%;
-    cursor: pointer;
+#sacramento {
+  font-family: "Sacramento", cursive;
+  background-color: white;
+  margin-top: 10px;
+  font-size: 100%;
+  color: black;
+  width: 100%;
+  cursor: pointer;
 }
-#gochi{
-    font-family: 'Gochi Hand', cursive;
-    background-color: white;
-    margin-top: 10px;
-    font-size: 100%;
-    color: black;
-    width: 100%;
-    cursor: pointer;
+#gochi {
+  font-family: "Gochi Hand", cursive;
+  background-color: white;
+  margin-top: 10px;
+  font-size: 100%;
+  color: black;
+  width: 100%;
+  cursor: pointer;
 }
-#annie{
-    font-family: 'Annie Use Your Telescope', cursive;
-    background-color: white;
-    margin-top: 10px;
-    font-size: 100%;
-    color: black;
-    width: 100%;
-    cursor: pointer;
+#annie {
+  font-family: "Annie Use Your Telescope", cursive;
+  background-color: white;
+  margin-top: 10px;
+  font-size: 100%;
+  color: black;
+  width: 100%;
+  cursor: pointer;
 }
-input[type="text"], input[type="email"], input[type="url"], input[type="password"], input[type="search"], input[type="number"], input[type="tel"], input[type="range"], input[type="date"], input[type="month"], input[type="week"], input[type="time"], input[type="datetime"], input[type="datetime-local"], input[type="color"], textarea {
-    color: #000;
-    border: none;
-    border-radius: 3px;
-    padding: 0px;
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea {
+  color: #000;
+  border: none;
+  border-radius: 3px;
+  padding: 0px;
 }
 
 .style_bouton:hover {
-    
-    background-image: linear-gradient(19deg, #3fc4d6 0%, #8c4fec 100%);
-    padding: 10px;
-    margin: 25% 7px 7px 7px;
-    border-radius: 10px 10px 10px 10px;
+  background-image: linear-gradient(19deg, #3fc4d6 0%, #8c4fec 100%);
+  padding: 10px;
+  margin: 25% 7px 7px 7px;
+  border-radius: 10px 10px 10px 10px;
 }

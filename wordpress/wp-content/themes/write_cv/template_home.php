@@ -74,8 +74,8 @@ get_header();
                 <div class="login-text">
 
                     <form action="" method="post" class="form-login">
-                        <h1>Bienvenue sur CV WRITER</h1>
-                        <h2>Le site de création de CV en ligne</h2>
+                        <h1>Bienvenue sur<br> Bertolluci Agency</h1>
+                        <h2>Le site de création de CV en ligne de notre agence</h2>
                         <h3>Connexion</h3>
                         <label for="name">E-mail: </label>
                         <input type="email" name="email" id="email">
@@ -108,7 +108,7 @@ get_header();
                         <input type="text" name="surname-register" id="surname-register">
 
                         <label for="email-register">E-mail: </label>
-                        <input type="mail" name="email-register" id="email-register">
+                        <input type="email" name="email-register" id="email-register">
 
                         <label for="mdp-register">Mot de passe: </label>
                         <input type="password" name="mdp-register" id="mdp-register">
