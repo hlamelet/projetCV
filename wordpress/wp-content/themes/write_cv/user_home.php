@@ -3,6 +3,7 @@
 Template Name: User Accueil
 
 */
+
 include('fonctions.php');
 $db = new PDO('mysql:host=localhost;dbname=cvtheque;charset=utf8', 'root', '');
 
@@ -184,6 +185,7 @@ wp_head(); ?>
             </div>
         </div>
         </body>
+
     </div>
 
     <?php wp_footer(); ?>
