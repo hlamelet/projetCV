@@ -113,7 +113,7 @@
 
     if (
            (mysqli_query($conn, "INSERT INTO cv (id_user, nom, prenom, intro, objectifs, education, date) VALUES ($_SESSION[id], '" . $name . "', '" . $firstname . "', '" . $about . "', '" . $career . "', '" . $education . "', '" . $creationDate . "')"))
-        && (mysqli_query($conn, "INSERT INTO user (user_name, user_surname, adresse, user_email, user_tel) VALUES ('" . $name . "', '" . $firstname . "', '" . $address . "', '" . $email . "', '" . $phone . "')"))
+        && (mysqli_query($conn, "INSERT INTO user_infos (id_user, user_name, user_firstname, user_adresse, user_email, user_tel) VALUES ($_SESSION[id], '" . $name . "', '" . $firstname . "', '" . $address . "', '" . $email . "', '" . $phone . "')"))
         ) {
     } else {
        echo "Error: " . $sql . "" . mysqli_error($conn);
