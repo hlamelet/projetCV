@@ -1,11 +1,19 @@
+const dateInfLimite = '1970-01-01'
+
+var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = today.getFullYear();
+today = yyyy + '-' + mm + '-' + dd;
+
 // Rideau d'ouverture partie users
 
 function openNav() {
-    document.getElementById('myNav').style.width = "25%";
+  document.getElementById('myNav').style.width = "25%";
 }
 
 function closeNav() {
-    document.getElementById('myNav').style.width = "0%";
+  document.getElementById('myNav').style.width = "0%";
 }
 
 // drag & drop
@@ -103,11 +111,11 @@ const getState = () => {
 }
 
 const buildResume = (state) => {
-    const $ = (value) => {
-        document.write(value)
-    }
+  const $ = (value) => {
+    document.write(value)
+  }
 
-    const styleText = `
+  const styleText = `
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap');
 
 body {
@@ -175,56 +183,56 @@ h1, p {
 `
 
 
-    const createGroup = (left, right) => {
-        $('<div class="resume-group">')
-        $('<div class="left-col">')
-        $('<p>' + left + '</p>')
-        $('</div>')
-        $('<div class="right-col">')
-        $('<p>' + right + '</p>')
-        $('</div>')
-        $('</div>')
-    }
-
-    document.open()
-    $('<html><head>')
-    $('<title>' + state.name + "'s Resume </title>")
-    $('<style>' + styleText + '</style>')
-    $('</head><body><div class="resume">')
-    $('<h1>' + state.name + '</h1>')
-    $('<p>' + state.email + '</p>')
-    $('<p>' + state.phone + '</p>')
-    $('<p>' + state.address + '</p>')
-    $('<div class="line-break"></div>')
-    createGroup('ABOUT ME', state.about)
-    createGroup("CAREER OBJECTIVES", state.career)
-    createGroup('EDUCATION', state.education)
-    createGroup('EMPLOYMENT EXPERIENCE', '')
-    createGroup(state.job1.date.start + ' to ' + state.job1.date.end, state.job1.details)
-    createGroup(state.job2.date.start + ' to ' + state.job2.date.end, state.job2.details)
-    createGroup(state.job3.date.start + ' to ' + state.job3.date.end, state.job3.details)
-    createGroup('REFERENCES', state.references)
+  const createGroup = (left, right) => {
+    $('<div class="resume-group">')
+    $('<div class="left-col">')
+    $('<p>' + left + '</p>')
     $('</div>')
-    $('<div class="instructions">Pour enregistrer votre CV : clic droit > enregistrer sous</div>')
-    $('</body></html>')
-    document.close()
+    $('<div class="right-col">')
+    $('<p>' + right + '</p>')
+    $('</div>')
+    $('</div>')
+  }
+
+  document.open()
+  $('<html><head>')
+  $('<title>' + state.name + "'s Resume </title>")
+  $('<style>' + styleText + '</style>')
+  $('</head><body><div class="resume">')
+  $('<h1>' + state.name + '</h1>')
+  $('<p>' + state.email + '</p>')
+  $('<p>' + state.phone + '</p>')
+  $('<p>' + state.address + '</p>')
+  $('<div class="line-break"></div>')
+  createGroup('ABOUT ME', state.about)
+  createGroup("CAREER OBJECTIVES", state.career)
+  createGroup('EDUCATION', state.education)
+  createGroup('EMPLOYMENT EXPERIENCE', '')
+  createGroup(state.job1.date.start + ' to ' + state.job1.date.end, state.job1.details)
+  createGroup(state.job2.date.start + ' to ' + state.job2.date.end, state.job2.details)
+  createGroup(state.job3.date.start + ' to ' + state.job3.date.end, state.job3.details)
+  createGroup('REFERENCES', state.references)
+  $('</div>')
+  $('<div class="instructions">Pour enregistrer votre CV : clic droit > enregistrer sous</div>')
+  $('</body></html>')
+  document.close()
 }
 
 
 const checkName = () => {
-    const name = document.getElementById('name')
-    const name_error = document.getElementById('name__error')
-    const isValid = !!name.value
-    if (!isValid) {
-        name.classList.add("error__input")
-        name_error.style.display = "block"
-        name_error.innerHTML = "Ce champ est obligatoire"
-        console.log("error")
-    } else {
-        name.classList.remove("error__input")
-        name_error.style.display = "none"
-    }
-    return isValid
+  const name = document.getElementById('name')
+  const name_error = document.getElementById('name__error')
+  const isValid = !!name.value
+  if (!isValid) {
+    name.classList.add("error__input")
+    name_error.style.display = "block"
+    name_error.innerHTML = "Ce champ est obligatoire"
+    console.log("error")
+  } else {
+    name.classList.remove("error__input")
+    name_error.style.display = "none"
+  }
+  return isValid
 }
 
 const checkfirstName = () => {
@@ -244,47 +252,158 @@ const checkfirstName = () => {
 }
 
 const checkEmail = () => {
-    const email = document.getElementById('email')
-    const email_error = document.getElementById('email__error')
-    const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    const isValid = emailRegex.test(String(email.value).toLowerCase())
-    if (!email.value) {
-        email.classList.add("error__input")
-        email_error.style.display = "block"
-        email_error.innerHTML = "Ce champ est obligatoire"
+  const email = document.getElementById('email')
+  const email_error = document.getElementById('email__error')
+  const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+  const isValid = emailRegex.test(String(email.value).toLowerCase())
+  if (!email.value) {
+    email.classList.add("error__input")
+    email_error.style.display = "block"
+    email_error.innerHTML = "Ce champ est obligatoire"
+  } else {
+    if (!isValid) {
+      email.classList.add("error__input")
+      email_error.style.display = "block"
+      email_error.innerHTML = "Ce champ n'est pas valide"
     } else {
-        if (!isValid) {
-            email.classList.add("error__input")
-            email_error.style.display = "block"
-            email_error.innerHTML = "Ce champ est obligatoire"
-        } else {
-            email.classList.remove("error__input")
-            email_error.style.display = "none"
-        }
+      email.classList.remove("error__input")
+      email_error.style.display = "none"
     }
-    return isValid
+  }
+  return isValid
 }
 
 const checkPhone = () => {
   const phone = document.getElementById('phone')
-    const phone_error = document.getElementById('phone__error')
-    const phoneRegex = /^(?:(?:\+|00)33[\s.-]{0,3}(?:\(0\)[\s.-]{0,3})?|0)[1-9](?:(?:[\s.-]?\d{2}){4}|\d{2}(?:[\s.-]?\d{3}){2})$/
-    const isValid = phoneRegex.test(String(phone.value).toLowerCase())
-    if (!phone.value) {
-        phone.classList.add("error__input")
-        phone_error.style.display = "block"
-        phone_error.innerHTML = "Ce champ est obligatoire"
+  const phone_error = document.getElementById('phone__error')
+  const phoneRegex = /^(?:(?:\+|00)33[\s.-]{0,3}(?:\(0\)[\s.-]{0,3})?|0)[1-9](?:(?:[\s.-]?\d{2}){4}|\d{2}(?:[\s.-]?\d{3}){2})$/
+  const isValid = phoneRegex.test(String(phone.value).toLowerCase())
+  if (!phone.value) {
+    phone.classList.add("error__input")
+    phone_error.style.display = "block"
+    phone_error.innerHTML = "Ce champ est obligatoire"
+  } else {
+    if (!isValid) {
+      phone.classList.add("error__input")
+      phone_error.style.display = "block"
+      phone_error.innerHTML = "Ce champ n'est pas valide"
     } else {
-        if (!isValid) {
-            phone.classList.add("error__input")
-            phone_error.style.display = "block"
-            phone_error.innerHTML = "Ce champ n'est pas valide"
-        } else {
-            phone.classList.remove("error__input")
-            phone_error.style.display = "none"
-        }
+      phone.classList.remove("error__input")
+      phone_error.style.display = "none"
     }
-    return isValid
+  }
+  return isValid
+}
+
+const checkJob_1_Start = () => {
+  const job1_start = document.getElementById('job-1__start')
+  const job1_error = document.getElementById('job-1_start__error')
+  let isValid = true
+  if (job1_start.value) {
+    isValid = (job1_start.value > dateInfLimite)
+    if (!isValid) {
+      job1_start.classList.add("error__input")
+      job1_error.style.display = "block"
+      job1_error.innerHTML = "La date de début de contrat ne peut être inférieure au 01/01/1970"
+    } else {
+      job1_start.classList.remove("error__input")
+      job1_error.style.display = "none"
+    }
+  } 
+  return isValid
+}
+
+const checkJob_2_Start = () => {
+  const job2_start = document.getElementById('job-2__start')
+  const job2_error = document.getElementById('job-2_start__error')
+  let isValid = true
+  if (job2_start.value) {
+    isValid = (job2_start.value > dateInfLimite)
+    if (!isValid) {
+      job2_start.classList.add("error__input")
+      job2_error.style.display = "block"
+      job2_error.innerHTML = "La date de début de contrat ne peut être inférieure au 01/01/1970"
+    } else {
+      job2_start.classList.remove("error__input")
+      job2_error.style.display = "none"
+    }
+  } 
+  return isValid
+}
+
+const checkJob_3_Start = () => {
+  const job3_start = document.getElementById('job-3__start')
+  const job3_error = document.getElementById('job-3_start__error')
+  let isValid = true
+  if (job3_start.value) {
+    isValid = (job3_start.value > dateInfLimite)
+    if (!isValid) {
+      job3_start.classList.add("error__input")
+      job3_error.style.display = "block"
+      job3_error.innerHTML = "La date de début de contrat ne peut être inférieure au 01/01/1970"
+    } else {
+      job3_start.classList.remove("error__input")
+      job3_error.style.display = "none"
+    }
+  } 
+  return isValid
+}
+
+const checkJob_1_End = () => {
+  const job1_start = document.getElementById('job-1__start')
+  const job1_end = document.getElementById('job-1__end')
+  const job1_error = document.getElementById('job-1_end__error')
+  let isValid = true
+  if (job1_end.value) {
+    isValid = ((job1_end.value < today) && (job1_end.value > job1_start.value))
+    if (!isValid) {
+      job1_end.classList.add("error__input")
+      job1_error.style.display = "block"
+      job1_error.innerHTML = "La date de fin de contrat doit être comprise entre la date de début et aujourd'hui"
+    } else {
+      job1_end.classList.remove("error__input")
+      job1_error.style.display = "none"
+    }
+  } 
+  return isValid
+}
+
+const checkJob_2_End = () => {
+  const job2_start = document.getElementById('job-2__start')
+  const job2_end = document.getElementById('job-2__end')
+  const job2_error = document.getElementById('job-2_end__error')
+  let isValid = true
+  if (job2_end.value) {
+    isValid = ((job2_end.value < today) && (job2_end.value > job2_start.value))
+    if (!isValid) {
+      job2_end.classList.add("error__input")
+      job2_error.style.display = "block"
+      job2_error.innerHTML = "La date de fin de contrat doit être comprise entre la date de début et aujourd'hui"
+    } else {
+      job2_end.classList.remove("error__input")
+      job2_error.style.display = "none"
+    }
+  } 
+  return isValid
+}
+
+const checkJob_3_End = () => {
+  const job3_start = document.getElementById('job-3__start')
+  const job3_end = document.getElementById('job-3__end')
+  const job3_error = document.getElementById('job-3_end__error')
+  let isValid = true
+  if (job3_end.value) {
+    isValid = ((job3_end.value < today) && (job3_end.value > job3_start.value))
+    if (!isValid) {
+      job3_end.classList.add("error__input")
+      job3_error.style.display = "block"
+      job3_error.innerHTML = "La date de fin de contrat doit être comprise entre la date de début et aujourd'hui"
+    } else {
+      job3_end.classList.remove("error__input")
+      job3_error.style.display = "none"
+    }
+  } 
+  return isValid
 }
 
 const checkValidity = () => {
@@ -292,16 +411,45 @@ const checkValidity = () => {
   const nameIsValid = checkName()
   const emailIsValid = checkEmail()
   const phoneIsValid = checkPhone()
+  const job1_startIsValid = checkJob_1_Start()
+  const job2_startIsValid = checkJob_2_Start()
+  const job3_startIsValid = checkJob_3_Start()
+  const job1_endIsValid = checkJob_1_End()
+  const job2_endIsValid = checkJob_2_End()
+  const job3_endIsValid = checkJob_3_End()
+
   if (!nameIsValid) {
     location.hash = "#name"
   } else if (!emailIsValid) {
     location.hash = "#email"
   } else if (!firstnameIsValid) {
     location.hash = "#firstname"
-  } else if (!phoneIsValid) {
+  } else if (!phoneIsValid) { 
     location.hash = "#phone"
+  } else if (!job1_startIsValid) {
+    location.hash = "#job-1__start"
+  } else if (!job2_startIsValid) {
+    location.hash = "#job-2__start"
+  } else if (!job3_startIsValid) {
+    location.hash = "#job-3__start"
+  } else if (!job1_endIsValid) {
+    location.hash = "#job-1__end"
+  } else if (!job2_endIsValid) {
+    location.hash = "#job-2__end"
+  } else if (!job3_endIsValid) {
+    location.hash = "#job-3__end"
   }
-  return nameIsValid && emailIsValid && firstnameIsValid && phoneIsValid
+  return ( nameIsValid 
+        && emailIsValid 
+        && firstnameIsValid 
+        && phoneIsValid 
+        && job1_startIsValid 
+        && job2_startIsValid 
+        && job3_startIsValid 
+        && job1_endIsValid
+        && job2_endIsValid
+        && job3_endIsValid
+         )
 }
 
 /*document.getElementById('create-resume').addEventListener("click", (e) => {
@@ -314,7 +462,12 @@ document.getElementById('name').addEventListener('blur', checkName)
 document.getElementById('firstname').addEventListener('blur', checkfirstName)
 document.getElementById('email').addEventListener('blur', checkEmail)
 document.getElementById('phone').addEventListener('blur', checkPhone)
-
+document.getElementById('job-1__start').addEventListener('blur', checkJob_1_Start)
+document.getElementById('job-2__start').addEventListener('blur', checkJob_2_Start)
+document.getElementById('job-3__start').addEventListener('blur', checkJob_3_Start)
+document.getElementById('job-1__end').addEventListener('blur', checkJob_1_End)
+document.getElementById('job-2__end').addEventListener('blur', checkJob_2_End)
+document.getElementById('job-3__end').addEventListener('blur', checkJob_3_End)
 
 //print cv
 function printCV() {
@@ -324,79 +477,79 @@ function printCV() {
 //   TELECHARGEMENT PDF
 
 window.onload = function () {
-    document.getElementById("telecharger").addEventListener("click", () => {
-            const invoice = this.document.getElementById("feuille");
-            console.log(invoice);
-            console.log(window);
-            var opt = {
-                margin: 1,
-                filename: 'monCV.pdf',
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2 },
-                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
-            };
-            html2pdf().from(invoice).set(opt).save();
-        })
+  document.getElementById("telecharger").addEventListener("click", () => {
+    const invoice = this.document.getElementById("feuille");
+    console.log(invoice);
+    console.log(window);
+    var opt = {
+      margin: 1,
+      filename: 'monCV.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+    html2pdf().from(invoice).set(opt).save();
+  })
 }
 
 // palette de couleur
 
 function changeColor(color) {
-    document.getElementById("feuille").style.background = color;
-    document.getElementById("name").style.background = color;
-    document.getElementById("firstname").style.background = color;
-    document.getElementById("address").style.background = color;
-    document.getElementById("phone").style.background = color;
-    document.getElementById("email").style.background = color;
-    document.getElementById("about").style.background = color;
-    document.getElementById("career").style.background = color;
-    document.getElementById("education").style.background = color;
-    document.getElementById("job-1__start").style.background = color;
-    document.getElementById("job-1__end").style.background = color;
-    document.getElementById("job-1__details").style.background = color;
-    document.getElementById("job-2__start").style.background = color;
-    document.getElementById("job-2__end").style.background = color;
-    document.getElementById("job-2__details").style.background = color;
-    document.getElementById("job-3__start").style.background = color;
-    document.getElementById("job-3__end").style.background = color;
-    document.getElementById("job-3__details").style.background = color;
-    document.getElementById("references").style.background = color;
+  document.getElementById("feuille").style.background = color;
+  document.getElementById("name").style.background = color;
+  document.getElementById("firstname").style.background = color;
+  document.getElementById("address").style.background = color;
+  document.getElementById("phone").style.background = color;
+  document.getElementById("email").style.background = color;
+  document.getElementById("about").style.background = color;
+  document.getElementById("career").style.background = color;
+  document.getElementById("education").style.background = color;
+  document.getElementById("job-1__start").style.background = color;
+  document.getElementById("job-1__end").style.background = color;
+  document.getElementById("job-1__details").style.background = color;
+  document.getElementById("job-2__start").style.background = color;
+  document.getElementById("job-2__end").style.background = color;
+  document.getElementById("job-2__details").style.background = color;
+  document.getElementById("job-3__start").style.background = color;
+  document.getElementById("job-3__end").style.background = color;
+  document.getElementById("job-3__details").style.background = color;
+  document.getElementById("references").style.background = color;
 }
 
 function gfg_Run() {
-    changeColor('#ffff9a');
+  changeColor('#ffff9a');
 }
 function blue_Run() {
-    changeColor('#7fb1ff');
+  changeColor('#7fb1ff');
 }
 function pink_Run() {
-    changeColor('rgb(252, 146, 225)');
+  changeColor('rgb(252, 146, 225)');
 }
 function green_Run() {
-    changeColor('#87ffcc');
+  changeColor('#87ffcc');
 }
 function grey_Run() {
-    changeColor('#8f8f8f');
+  changeColor('#8f8f8f');
 }
 
 // Changement font
 
 
 function changeSacramento() {
-    document.getElementById('feuille').style.fontFamily = "Sacramento";
+  document.getElementById('feuille').style.fontFamily = "Sacramento";
 }
 function changeGochi() {
-    document.getElementById('feuille').style.fontFamily = "Gochi Hand";
+  document.getElementById('feuille').style.fontFamily = "Gochi Hand";
 }
 function changeAnnie() {
-    document.getElementById('feuille').style.fontFamily = "Annie Use Your Telescope";
+  document.getElementById('feuille').style.fontFamily = "Annie Use Your Telescope";
 }
 
 
 // Requete Ajax
 
-$("#create-resume").click(function() {
- 
+$("#create-resume").click(function () {
+
   var name = $("#name").val();
   var firstname = $("#firstname").val();
   var email = $("#email").val();
@@ -416,51 +569,51 @@ $("#create-resume").click(function() {
   var job3__details = $("#job-3__details").val();
   var references = $("#references").val();
 
-  if(     name == '' 
-       || phone == '' 
-       || email == '' 
-       || firstname == '' 
-       || address == '' 
-       || about == '' 
-       || career == '' 
-       || education == ''
+  if (name == ''
+    || phone == ''
+    || email == ''
+    || firstname == ''
+    || address == ''
+    || about == ''
+    || career == ''
+    || education == ''
   ) {
-      alert("Veuillez remplir tous les champs obligatoires.");
-      return false;
+    alert("Veuillez remplir tous les champs obligatoires.");
+    return false;
   }
 
   $.ajax({
-      type: "POST",
-      url: "/ProjCV/wordpress/wp-content/themes/write_cv/formToBd.php",
-      data: {
-          name : name,
-          firstname : firstname,
-          phone : phone,
-          email : email,
-          address : address,
-          about : about,
-          career : career, 
-          education : education, 
-          job1__start : job1__start,
-          job1__end : job1__end, 
-          job1__details : job1__details, 
-          job2__start : job2__start,
-          job2__end : job2__end, 
-          job2__details : job2__details,
-          job3__start : job3__start,
-          job3__end : job3__end, 
-          job3__details : job3__details, 
-          references : references, 
-      },
-      cache: false,
-      success: function(data) {
-          // alert(data);
-      },
-      error: function(xhr, status, error) {
-          console.error(xhr);
-      }
+    type: "POST",
+    url: "/ProjCV/wordpress/wp-content/themes/write_cv/formToBd.php",
+    data: {
+      name: name,
+      firstname: firstname,
+      phone: phone,
+      email: email,
+      address: address,
+      about: about,
+      career: career,
+      education: education,
+      job1__start: job1__start,
+      job1__end: job1__end,
+      job1__details: job1__details,
+      job2__start: job2__start,
+      job2__end: job2__end,
+      job2__details: job2__details,
+      job3__start: job3__start,
+      job3__end: job3__end,
+      job3__details: job3__details,
+      references: references,
+    },
+    cache: false,
+    success: function (data) {
+      // alert(data);
+    },
+    error: function (xhr, status, error) {
+      console.error(xhr);
+    }
   });
-   
+
   const isValid = checkValidity()
   if (isValid) buildResume(getState())
 });
@@ -468,28 +621,28 @@ $("#create-resume").click(function() {
 // CHANGEMENT DES DIVS USERS
 
 function changeCvtheque() {
-    document.getElementById("overlay-content2").innerHTML = '<h5 style="color: white;">Ma Cvthèque</h5><h5 style="color: white;">Mes brouillons</h5>';
+  document.getElementById("overlay-content2").innerHTML = '<h5 style="color: white;">Ma Cvthèque</h5><h5 style="color: white;">Mes brouillons</h5>';
 
 }
 
 function changeModele() {
-    document.getElementById("overlay-content2").innerHTML = '<h5 style="color: white;">Templates de CV</h5>';
+  document.getElementById("overlay-content2").innerHTML = '<h5 style="color: white;">Templates de CV</h5>';
 
 }
 
 function changeStyle() {
-    document.getElementById("overlay-content2").innerHTML = '<h5 style="color: white;">Couleur du CV</h5><button onclick="gfg_Run()" id="yellow_color"></button><button onclick="blue_Run()" id="blue_color"></button><button onclick="green_Run()" id="green_color"></button><button onclick="grey_Run()" id="grey_color"></button><button onclick="pink_Run()" id="purple_color"></button><h5 style="color: white;">Polices de caractères</h5><button onclick="changeSacramento()" id="sacramento">Je suis un beau CV</button><button onclick="changeGochi()" id="gochi">Je suis un beau CV</button><button onclick="changeAnnie()" id="annie">Je suis un beau CV</button>';
+  document.getElementById("overlay-content2").innerHTML = '<h5 style="color: white;">Couleur du CV</h5><button onclick="gfg_Run()" id="yellow_color"></button><button onclick="blue_Run()" id="blue_color"></button><button onclick="green_Run()" id="green_color"></button><button onclick="grey_Run()" id="grey_color"></button><button onclick="pink_Run()" id="purple_color"></button><h5 style="color: white;">Polices de caractères</h5><button onclick="changeSacramento()" id="sacramento">Je suis un beau CV</button><button onclick="changeGochi()" id="gochi">Je suis un beau CV</button><button onclick="changeAnnie()" id="annie">Je suis un beau CV</button>';
 }
 
 // Interieur d'une div bouge
 
 function mouseOver(event) {
-    document.querySelector(".text").style.borderColor = "red";
-    document.querySelector(".map").style.borderColor = "red";
+  document.querySelector(".text").style.borderColor = "red";
+  document.querySelector(".map").style.borderColor = "red";
 
-    let x = event.clientX;
+  let x = event.clientX;
 
-    get_map.width = x+"px";
+  get_map.width = x + "px";
 }
 
 

@@ -107,10 +107,12 @@ wp_head(); ?>
             <div class="form-group">
                 <label for="job-1__start">Du</label>
                 <input type="date" name="job-1__start" id="job-1__start" placeholder="début">
+                <div id="job-1_start__error" class="job_start__error"></div>
             </div>
             <div class="form-group">
                 <label for="job-1__end">au</label>
                 <input type="date" name="job-1__end" id="job-1__end">
+                <div id="job-1_end__error" class="job_end__error"></div>
             </div>
         </div>
 
@@ -126,10 +128,12 @@ wp_head(); ?>
             <div class="form-group">
                 <label for="job-2__start">Date de début</label>
                 <input type="date" name="job-2__start" id="job-2__start">
+                <div id="job-2_start__error" class="job_start__error"></div>
             </div>
             <div class="form-group">
                 <label for="job-2__end">Date de fin</label>
                 <input type="date" name="job-2__end" id="job-2__end">
+                <div id="job-2_end__error" class="job_end__error"></div>
             </div>
         </div>
 
@@ -145,10 +149,12 @@ wp_head(); ?>
             <div class="form-group">
                 <label for="job-3__start">Date de début</label>
                 <input type="date" name="job-3__start" id="job-3__start">
+                <div id="job-3_start__error" class="job_start__error"></div>
             </div>
             <div class="form-group">
                 <label for="job-3__end">Date de fin</label>
                 <input type="date" name="job-3__end" id="job-3__end">
+                <div id="job-3_end__error" class="job_end__error"></div>
             </div>
         </div>
 
