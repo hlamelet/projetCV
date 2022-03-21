@@ -52,12 +52,12 @@
 }
 
 #overlay-content1 {
-    position: relative;
-    height: 646px;
-    width: auto;
-    text-align: center;
-    background-color: #150f5a;
-    border-radius: 0px 10px 10px 0px;
+  position: relative;
+  height: 646px;
+  width: auto;
+  text-align: center;
+  background-color: #150f5a;
+  border-radius: 0px 10px 10px 0px;
 }
 #overlay-content2 {
   width: 100%;
@@ -170,6 +170,33 @@ a#btn_telecharger {
 body {
   background: linear-gradient(#b8e4f0, #98bae7);
   font-family: "Fredoka", sans-serif;
+}
+
+/* PROFIL USER */
+.overlayProfil {
+  height: 25%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  right: 0;
+  top: 0;
+  background-image: linear-gradient(19deg, #21b2fd 0%, #7267cb 100%);
+  overflow-x: hidden;
+  transition: 0.2s;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  border-radius: 5px;
+}
+.overlayProfil a {
+  margin: 0;
+}
+.overlayProfil p {
+  color: white;
+  font-size: 20px;
+  margin-bottom: 0px;
 }
 
 /* HEADER */

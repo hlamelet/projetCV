@@ -491,3 +491,18 @@ function mouseOver(event) {
 
     get_map.width = x+"px";
 }
+
+
+
+
+// MODIFICATION COMPTE
+
+
+
+function openProfil() {
+  document.querySelector('.overlayProfil').style.width = "10%";
+}
+function closeProfil() {
+  document.querySelector('.overlayProfil').style.width = "0";
+}
+
