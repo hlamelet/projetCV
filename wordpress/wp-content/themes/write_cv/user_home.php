@@ -15,7 +15,7 @@ wp_head(); ?>
 
 
         <div id="overlay-content1">
-            <a href="#"><img src="<?php echo get_template_directory_uri() ?>/assets/img/logo.png" width="50px" alt=""></a>
+            <a href="#"><img src="<?php echo get_template_directory_uri() ?>/assets/img/logo.png" width="70px" alt=""></a>
             <a href="#" class="style_bouton" onclick="changeCvtheque()"><i class="fi fi-rr-edit"></i><br>CVthèque</a>
             <a href="#" class="style_bouton" onclick="changeModele()"><i class="fi fi-rr-apps"></i><br>Modèles</a>
             <a href="#" onclick="changeStyle()" class="style_bouton"><i class="fi fi-rr-pencil"></i><br>Style</a>
@@ -157,6 +157,7 @@ wp_head(); ?>
 
     <div id="compte_user">
         <button id="mon_compte"><i class="fi fi-rr-user"></i></button>
+        
     </div>
     </body>
 </div>
