@@ -16,6 +16,13 @@ $requestUtilisateur = $db->prepare("SELECT * FROM user WHERE id = '$id'");
 $requestUtilisateur->execute();
 $users = $requestUtilisateur->fetch();
 
+if (!empty($_POST["submit-modif"])) {
+    $nameModif = $_POST["name-modif"];
+    $surnameModif = $_POST["surname-modif"];
+    $emailModif = $_POST["email-modif"];
+    $req = $db->prepare("UPDATE user SET user_name='$nameModif',user_surname='$surnameModif',user_email='$emailModif' WHERE id = '$id'");
+    $req->execute();
+}
 
 wp_head(); ?>
 
@@ -179,13 +186,29 @@ wp_head(); ?>
             <div class="overlayProfil">
                 <p><?php echo $users["user_surname"] . " " . $users["user_name"]; ?></p>
                 <a href="javascript:void(0)" class="closebtn" onclick="closeProfil()">&times;</a>
-                <a href="#" class="button-modif" onclick=""><i class=""></i><br>Modifier Compte</a>
+                <a href="#" id="button-modif-open" onclick="ModifAccount()"><i class=""></i><br>Modifier Compte</a>
+                <a href="#" id="button-modif-close" onclick="ModifAccountClose()"><i class=""></i><br>Modifier Compte</a>
+                <div class="modifProfil">
+                    <form action="" method="post" class="formModif">
+
+                        <label for="name-modif">Nom: </label>
+                        <input type="text" name="name-modif" id="name-modif" value="<?php echo $users["user_name"] ?>">
+
+                        <label for="email-modif">Prenom: </label>
+                        <input type="text" name="surname-modif" id="surname-modif" value="<?php echo $users["user_surname"] ?>">
+
+                        <label for="email-modif">E-mail: </label>
+                        <input type="email" name="email-modif" id="email-modif" value="<?php echo $users["user_email"] ?>">
+                        <input type="submit" value="Valider" id="submit-modif" name="submit-modif">
+                    </form>
+                </div>
                 <a href="#" class=" button-deconnexion" onclick="location.href='localhost/projCV/wordpress/accueil'"><i class=""></i><br>Deconnexion</a>
-
             </div>
+
+
         </div>
-        </body>
-
     </div>
+    </body>
+</div>
 
-    <?php wp_footer(); ?>
+<?php wp_footer(); ?>

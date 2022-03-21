@@ -188,7 +188,7 @@ body {
   flex-direction: column;
   align-items: center;
   margin: 0;
-  border-radius: 5px;
+  border-radius: 1px;
 }
 .overlayProfil a {
   margin: 0;
@@ -197,6 +197,22 @@ body {
   color: white;
   font-size: 20px;
   margin-bottom: 0px;
+}
+.modifProfil {
+  display: none;
+}
+.formModif {
+  display: flex;
+  flex-direction: column;
+}
+#submit-modif {
+  cursor: pointer;
+}
+#button-modif-open {
+  display: flex;
+}
+#button-modif-close {
+  display: none;
 }
 
 /* HEADER */

@@ -493,16 +493,33 @@ function mouseOver(event) {
 }
 
 
-
+buttonModif=document.querySelector(".button-modif");
 
 // MODIFICATION COMPTE
 
 
 
 function openProfil() {
-  document.querySelector('.overlayProfil').style.width = "10%";
+  document.querySelector('.overlayProfil').style.width = "17%";
 }
 function closeProfil() {
   document.querySelector('.overlayProfil').style.width = "0";
 }
+function ModifAccount(){
+  document.querySelector('.modifProfil').style.display = "flex";
+  document.querySelector('.overlayProfil').style.height = "50%";
+  document.querySelector('#button-modif-open').style.display = "none";
+  document.querySelector('#button-modif-close').style.display = "flex";
+
+}
+function ModifAccountClose(){
+  document.querySelector('.modifProfil').style.display = "none";
+  document.querySelector('.overlayProfil').style.height = "17%";
+  document.querySelector('#button-modif-open').style.display = "flex";
+  document.querySelector('#button-modif-close').style.display = "none";
+
+}
+  
+  
+
 
