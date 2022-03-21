@@ -264,7 +264,7 @@ const checkEmail = () => {
     if (!isValid) {
       email.classList.add("error__input")
       email_error.style.display = "block"
-      email_error.innerHTML = "Ce champ est obligatoire"
+      email_error.innerHTML = "Ce champ n'est pas valide"
     } else {
       email.classList.remove("error__input")
       email_error.style.display = "none"
