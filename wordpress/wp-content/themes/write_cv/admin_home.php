@@ -118,8 +118,7 @@ $requete = $requete->fetchall();
                     csvContent += row + "\r\n";
                 });
 
-                var encodedUri = encodeURI(csvContent);
-                window.open(encodedUri);
+                // --------------CSV content a telecharger (à faire)
                 console.log(csvContent)
                 // ---------
 
@@ -138,9 +137,12 @@ $requete = $requete->fetchall();
     </div>
     <!-- ------------------------------------------partie selection -->
 
-    <object class="pdf" data="" type="application/pdf" title="cv">
 
+
+    <object data='http://localhost/projCV/wordpress/wp-content/themes/write_cv/inc/cv/pdf-exemple.pdf' type="application/pdf" width="2500">
     </object>
+    <?php echo  GET_THEME_FILE_URI() . "/inc/cv/pdf-exemple.pdf" ?>
+
 </div>
 <?php
 echo "<pre>";
