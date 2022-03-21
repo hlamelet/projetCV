@@ -8,7 +8,7 @@ get_header();
 $db = new PDO('mysql:host=localhost;dbname=cvtheque;charset=utf8', 'root', '');
 // ---------------------------------requete
 
-$requete = $db->prepare("SELECT cv.id,id_user,intro,nom,prenom,user_email,user_tel FROM `cv` INNER JOIN `user` ON cv.id_user = user.id");
+$requete = $db->prepare("SELECT cv.id,id_user,intro,nom,prenom,user_email,user_tel,lien FROM `cv` INNER JOIN `user` ON cv.id_user = user.id");
 $requete->execute();
 $requete = $requete->fetchall();
 
@@ -38,13 +38,29 @@ $requete = $requete->fetchall();
             background-color: green;
         }
 
+        .cvBloc {
+            display: flex;
+        }
+
         .cv {
             background-color: white;
             margin-bottom: 10px;
+            width: 70%;
+
+        }
+
+        .boutonShow {
+            width: 30%;
+
         }
 
         .selected {
             background-color: grey;
+        }
+
+        #pdfShow {
+            width: 80%;
+            height: 1000px;
         }
     </style>
 </head>
@@ -88,6 +104,20 @@ $requete = $requete->fetchall();
                 console.log(selection)
 
             }
+            // ----------------------------------------------------fonction show
+
+            function show(element) {
+                let pdfShow = document.getElementById('pdfShow');
+                // alert(element.classList[1].match(/\d+/g)[0])    
+                requete.forEach(function(elem, e) {
+                    console.log("foreach")
+                    if (elem[0] == (element.classList[1].match(/\d+/g)[0])) {
+                        // alert(elem[7])
+                        pdfShow.innerHTML = "<object data=" + elem[7] + "type='application/pdf' width='2500' height='600' zoom='50'> </object>"
+                    }
+                });
+            }
+            // http://localhost/projCV/wordpress/wp-content/themes/write_cv/inc/cv/pdf-exemple.pdf'
             // ----------------------------------------------------fonction d'envoi de download en csv------------------------------------
 
 
@@ -129,7 +159,7 @@ $requete = $requete->fetchall();
             let containerCV = document.getElementById('containerCV');
 
             for (y = 0; y < Object.keys(requete).length; y++) {
-                containerCV.innerHTML += "<div value='1' onclick='testClass(this)' class='cv cv" + requete[y]['id'] + "'>" + requete[y]['id'] + requete[y]['nom'] + " " + requete[y]['prenom'] + " :" + requete[y]['intro'] + "</div>"
+                containerCV.innerHTML += "<div class=cvBloc><div onclick='testClass(this)' class='cv cv" + requete[y]['id'] + "'>" + requete[y]['id'] + requete[y]['nom'] + " " + requete[y]['prenom'] + " :" + requete[y]['intro'] + "</div> <div onclick='show(this)' class='boutonShow show" + requete[y]['id'] + "'>Show cv</div></div>"
 
 
             }
@@ -138,11 +168,11 @@ $requete = $requete->fetchall();
     <!-- ------------------------------------------partie selection -->
 
 
-
-    <object data='http://localhost/projCV/wordpress/wp-content/themes/write_cv/inc/cv/pdf-exemple.pdf' type="application/pdf" width="2500">
-    </object>
-    <?php echo  GET_THEME_FILE_URI() . "/inc/cv/pdf-exemple.pdf" ?>
-
+    <div id='pdfShow'>
+        <!-- <object data='http://localhost/projCV/wordpress/wp-content/themes/write_cv/inc/cv/pdf-exemple.pdf' type="application/pdf" width="2500">
+            </object> -->
+        <?php echo  GET_THEME_FILE_URI() . "/inc/cv/pdf-exemple.pdf" ?>
+    </div>
 </div>
 <?php
 echo "<pre>";
