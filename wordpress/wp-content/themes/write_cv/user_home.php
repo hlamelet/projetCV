@@ -5,7 +5,19 @@ Template Name: User Accueil
 */
 include('fonctions.php');
 $db = new PDO('mysql:host=localhost;dbname=cvtheque;charset=utf8', 'root', '');
+
+
+
+//Compte User
+session_start();
+$id = $_SESSION["id"];
+$requestUtilisateur = $db->prepare("SELECT * FROM user WHERE id = '$id'");
+$requestUtilisateur->execute();
+$users = $requestUtilisateur->fetch();
+
+
 wp_head(); ?>
+
 
 
 <div id="bloc_principal_user">
@@ -155,11 +167,23 @@ wp_head(); ?>
         <button onclick="printCV()" class="cursor" class="btn background">Imprimer <i class="fi fi-rr-print"></i></button>
     </div>
 
+    <!-- Modification Compte -->
     <div id="compte_user">
-        <button id="mon_compte"><i class="fi fi-rr-user"></i></button>
-        
-    </div>
-    </body>
-</div>
+        <button id="mon_compte"><i class="fi fi-rr-user" onclick="openProfil()"></i></button>
+        <div id="myNav" class="overlay overAccount">
 
-<?php wp_footer(); ?>
+
+            <a href="#"><img src="<?php echo get_template_directory_uri() ?>/assets/img/logo.png" width="50px" alt=""></a>
+
+            <div class="overlayProfil">
+                <p><?php echo $users["user_surname"] . " " . $users["user_name"]; ?></p>
+                <a href="javascript:void(0)" class="closebtn" onclick="closeProfil()">&times;</a>
+                <a href="#" class="button-modif" onclick=""><i class=""></i><br>Modifier Compte</a>
+                <a href="#" class=" button-deconnexion" onclick="location.href='localhost/projCV/wordpress/accueil'"><i class=""></i><br>Deconnexion</a>
+
+            </div>
+        </div>
+        </body>
+    </div>
+
+    <?php wp_footer(); ?>
