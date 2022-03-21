@@ -29,6 +29,7 @@
     $job1__details = '';
     $job2__details = '';
     $job3__details = '';
+    $nb_jobs = 0;
     $references = '';
     
     date_default_timezone_set('Europe/Paris');
@@ -62,6 +63,13 @@
     }
     if (!empty($_POST['job1__start'])) {
         $job1__start = mysqli_real_escape_string($conn, $_POST['job1__start']);
+        // debug($job1__start);
+        // $myDateString = $job1__start;
+        // debug($myDateString);
+        // $date = DateTime::createFromFormat('Y-m-d', $myDateString);
+        // debug($date);
+        // $job1__start = $date->format('Y-m-d');
+        // debug($job1__start);
     }
     if (!empty($_POST['job2__start'])) {
         $job2__start = mysqli_real_escape_string($conn, $_POST['job2__start']);
@@ -91,16 +99,53 @@
         $references = mysqli_real_escape_string($conn, $_POST['references']);
     }
 
+    if (!empty($_POST['job1__start']) && !empty($_POST['job1__end'])) {
+        $nb_jobs++;
+    }
+
+    if (!empty($_POST['job2__start']) && !empty($_POST['job2__end'])) {
+        $nb_jobs++;
+    }
+
+    if (!empty($_POST['job3__start']) && !empty($_POST['job3__end'])) {
+        $nb_jobs++;
+    }
+
     if (
            (mysqli_query($conn, "INSERT INTO cv (id_user, nom, prenom, intro, objectifs, education, date) VALUES ($_SESSION[id], '" . $name . "', '" . $firstname . "', '" . $about . "', '" . $career . "', '" . $education . "', '" . $creationDate . "')"))
-        && (mysqli_query($conn, "INSERT INTO user (adresse, user_email, user_tel) VALUES ('" . $address . "', '" . $email . "', '" . $phone . "')"))
-        && (mysqli_query($conn, "INSERT INTO experience (debut, fin, info) VALUES ('" . $job1__start . "', '" . $job1__end . "', '" . $job1__details . "')"))
+        && (mysqli_query($conn, "INSERT INTO user_infos (id_user, user_name, user_firstname, user_adresse, user_email, user_tel) VALUES ($_SESSION[id], '" . $name . "', '" . $firstname . "', '" . $address . "', '" . $email . "', '" . $phone . "')"))
         ) {
     } else {
        echo "Error: " . $sql . "" . mysqli_error($conn);
     }
 
+    if ($nb_jobs == 1) {
+        if ((mysqli_query($conn, "INSERT INTO experience (id_user, debut, fin, info) VALUES ($_SESSION[id], '" . $job1__start . "', '" . $job1__end . "', '" . $job1__details . "')"))) {
+        } else {
+            echo "Error: " . $sql . "" . mysqli_error($conn);
+        }
+    }
 
+    if ($nb_jobs == 2) {
+        if (
+               (mysqli_query($conn, "INSERT INTO experience (id_user, debut, fin, info) VALUES ($_SESSION[id], '" . $job1__start . "', '" . $job1__end . "', '" . $job1__details . "')"))
+            && (mysqli_query($conn, "INSERT INTO experience (id_user, debut, fin, info) VALUES ($_SESSION[id], '" . $job2__start . "', '" . $job2__end . "', '" . $job2__details . "')"))
+        ) {
+        } else {
+            echo "Error: " . $sql . "" . mysqli_error($conn);
+        }
+    }
+
+    if ($nb_jobs == 3) {
+        if (
+               (mysqli_query($conn, "INSERT INTO experience (id_user, debut, fin, info) VALUES ($_SESSION[id], '" . $job1__start . "', '" . $job1__end . "', '" . $job1__details . "')"))
+            && (mysqli_query($conn, "INSERT INTO experience (id_user, debut, fin, info) VALUES ($_SESSION[id], '" . $job2__start . "', '" . $job2__end . "', '" . $job2__details . "')"))
+            && (mysqli_query($conn, "INSERT INTO experience (id_user, debut, fin, info) VALUES ($_SESSION[id], '" . $job3__start . "', '" . $job3__end . "', '" . $job3__details . "')"))
+        ) {
+        } else {
+            echo "Error: " . $sql . "" . mysqli_error($conn);
+        }
+    }
  
     mysqli_close($conn);
  
