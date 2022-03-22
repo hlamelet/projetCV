@@ -16,11 +16,11 @@ $requete = $requete->fetchall();
 
 <head>
     <style>
-        #container {
+        #containerAdmin {
             display: flex;
         }
 
-        #containerCV {
+        #containerCVAdmin {
             width: 49.5%;
             height: 1000px;
         }
@@ -41,7 +41,7 @@ $requete = $requete->fetchall();
             display: flex;
         }
 
-        .cv {
+        .cvAdmin {
             background-color: white;
             margin-bottom: 10px;
             width: 70%;
@@ -73,9 +73,9 @@ $requete = $requete->fetchall();
 <!-- --------------------------- -->
 
 <h1>Admin Accueil</h1>
-<div id="container">
+<div id="containerAdmin">
     <!-- ------------------------------------------partie CV -->
-    <div id="containerCV">
+    <div id="containerCVAdmin">
         <!-- bouton pour envoyer en excel -->
 
         <div onclick="selectionToExcel()" class="selectionToExcelBtn">selection to excel</div>
@@ -167,10 +167,10 @@ $requete = $requete->fetchall();
                 selection = []
             }
 
-            let containerCV = document.getElementById('containerCV');
+            let containerCV = document.getElementById('containerCVAdmin');
 
             for (y = 0; y < Object.keys(requete).length; y++) {
-                containerCV.innerHTML += "<div class=cvBloc><div onclick='testClass(this)' class='cv cv" + requete[y]['id'] + "'>" + requete[y]['id'] + requete[y]['user_firstname'] + " " + requete[y]['user_name'] + "</div> <div onclick='show(this)' class='boutonShow show" + requete[y]['id'] + "'>Voir le cv</div><div onclick='sendMail(this)' class='cv" + requete[y]['user_email'] + "'> envoyer un message</div></div >"
+                containerCV.innerHTML += "<div class=cvBloc><div onclick='testClass(this)' class='cvAdmin cv" + requete[y]['id'] + "'>" + requete[y]['id'] + requete[y]['user_firstname'] + " " + requete[y]['user_name'] + "</div> <div onclick='show(this)' class='boutonShow show" + requete[y]['id'] + "'>Voir le cv</div><div onclick='sendMail(this)' class='cv" + requete[y]['user_email'] + "'> envoyer un message</div></div >"
 
 
             }
