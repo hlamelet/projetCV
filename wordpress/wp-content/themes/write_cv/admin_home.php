@@ -25,6 +25,10 @@ get_header();
 </script>
 <!-- --------------------------- -->
 
+<!--Requete dataTable --->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+
 <h1>Admin Accueil</h1>
 <div id="containerAdmin">
     <!-- ------------------------------------------partie CV -->
@@ -152,7 +156,30 @@ get_header();
 
 
             }
+
+            $(document).ready(function() {
+                $('#table_id').DataTable();
+            });
         </script>
+
+        <table id="table_id" class="display">
+            <thead>
+                <tr>
+                    <th>Column 1</th>
+                    <th>Column 2</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>antoine</td>
+                    <td>Salaün</td>
+                </tr>
+                <tr>
+                    <td>Luc</td>
+                    <td>Boulanger</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
     <!-- ------------------------------------------partie selection -->
 
@@ -160,9 +187,9 @@ get_header();
     <div id='pdfShow'></div>
 </div>
 <?php
-// echo "<pre>";
-// print_r($requete);
-// echo "</pre>";
+echo "<pre>";
+print_r($requete);
+echo "</pre>";
 ?>
 </section>
 
