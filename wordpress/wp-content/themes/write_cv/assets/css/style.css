@@ -75,13 +75,13 @@
 }
 
 .overlay a {
-	padding: 1px;
-	text-decoration: none;
-	display: block;
-	transition: 0.3s;
-	color: white;
-	top: 72px;
-	margin-top: 44px;
+    padding: 1px;
+    text-decoration: none;
+    display: block;
+    transition: 0.3s;
+    color: white;
+    top: 72px;
+    margin-top: 38px;
 }
 
 .overlay .closebtn {
