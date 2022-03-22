@@ -5,7 +5,7 @@ Template Name: Admin Accueil
 */
 session_start();
 if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
-    
+
     $db = new PDO('mysql:host=localhost;dbname=cvtheque;charset=utf8', 'root', '');
     // ---------------------------------requete
 
