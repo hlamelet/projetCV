@@ -482,11 +482,11 @@ window.onload = function () {
     console.log(invoice);
     console.log(window);
     var opt = {
-      margin: 1,
+      margin: 0,
       filename: 'monCV.pdf',
       image: { type: 'jpeg', quality: 0.98 },
-      html2canvas: { scale: 2 },
-      jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+      html2canvas: { scale: 1 },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait', precision: '2' }
     };
     html2pdf().from(invoice).set(opt).save();
   })
@@ -622,8 +622,7 @@ $("#create-resume").click(function () {
 // CHANGEMENT DES DIVS USERS
 
 function changeCvtheque() {
-  document.getElementById("overlay-content2").innerHTML = '<h5 style="color: white;">Ma Cvthèque</h5><h5 style="color: white;">Mes brouillons</h5>';
-
+  document.getElementById("overlay-content2").innerHTML = `<h5 style="color: white;">Mes Brouillons</h5><?php foreach ($brouillonCv as $brouillon) : ?><div id="brouillon_liste"><?= $brouillon['date'] ?></div> <br><?php endforeach; ?>`;
 }
 
 function changeModele() {
@@ -677,3 +676,87 @@ function ModifAccountClose() {
 
 
 
+// brouillon
+
+$("#brouillon").click(function() {
+ 
+    var name = $("#name").val();
+    var firstname = $("#firstname").val();
+    var email = $("#email").val();
+    var phone = $("#phone").val();
+    var address = $("#address").val();
+    var about = $("#about").val();
+    var career = $("#career").val();
+    var education = $("#education").val();
+    var job1__start = $("#job-1__start").val();
+    var job1__end = $("#job-1__end").val();
+    var job1__details = $("#job-1__details").val();
+    var job2__start = $("#job-2__start").val();
+    var job2__end = $("#job-2__end").val();
+    var job2__details = $("#job-2__details").val();
+    var job3__start = $("#job-3__start").val();
+    var job3__end = $("#job-3__end").val();
+    var job3__details = $("#job-3__details").val();
+    var references = $("#references").val();
+  
+    if(     name == '' 
+         || phone == '' 
+         || email == '' 
+         || firstname == '' 
+         || address == '' 
+         || about == '' 
+         || career == '' 
+         || education == ''
+    ) {
+        alert("Veuillez remplir tous les champs obligatoires.");
+        return false;
+    }
+  
+    $.ajax({
+        type: "POST",
+        url: "/ProjCV/wordpress/wp-content/themes/write_cv/brouillon_form.php",
+        data: {
+            name : name,
+            firstname : firstname,
+            phone : phone,
+            email : email,
+            address : address,
+            about : about,
+            career : career, 
+            education : education, 
+            job1__start : job1__start,
+            job1__end : job1__end, 
+            job1__details : job1__details, 
+            job2__start : job2__start,
+            job2__end : job2__end, 
+            job2__details : job2__details,
+            job3__start : job3__start,
+            job3__end : job3__end, 
+            job3__details : job3__details, 
+            references : references, 
+        },
+        cache: false,
+        success: function(data) {
+            // alert(data);
+        },
+        error: function(xhr, status, error) {
+            console.error(xhr);
+        }
+    });
+     
+    const isValid = checkValidity()
+    if (isValid) buildResume(getState())
+  });
+
+//   Zoom
+
+function zoomplus30() {
+    document.querySelector('#feuille').style.width = "1300px";
+}
+  
+function zoommoins30() {
+    document.querySelector('#feuille').style.width = "30%";
+}
+function zoomretour() {
+    document.querySelector('#feuille').style.width = "794px";
+}
