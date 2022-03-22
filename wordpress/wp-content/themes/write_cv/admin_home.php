@@ -16,51 +16,7 @@ $requete = $requete->fetchall();
 
 <head>
     <style>
-        #containerAdmin {
-            display: flex;
-        }
 
-        #containerCVAdmin {
-            width: 49.5%;
-            height: 1000px;
-        }
-
-        .pdf {
-            width: 49.5%;
-            height: 1000px;
-
-        }
-
-        .selectionToExcelBtn {
-            width: 100%;
-            height: 100px;
-            background-color: green;
-        }
-
-        .cvBloc {
-            display: flex;
-        }
-
-        .cvAdmin {
-            background-color: white;
-            margin-bottom: 10px;
-            width: 70%;
-
-        }
-
-        .boutonShow {
-            width: 30%;
-
-        }
-
-        .selected {
-            background-color: grey;
-        }
-
-        #pdfShow {
-            width: 80%;
-            height: 1000px;
-        }
     </style>
 </head>
 <script>
