@@ -6,6 +6,8 @@ Template Name: Admin Accueil
 wp_head();
 get_header();
 $db = new PDO('mysql:host=localhost;dbname=cvtheque;charset=utf8', 'root', '');
+
+
 // ---------------------------------requete
 
 $requete = $db->prepare("SELECT cv.id,user_infos.user_name,user_infos.user_firstname,user_infos.user_email,user_infos.user_tel,cv.lien FROM `cv` INNER JOIN user ON cv.id_user = user.id INNER JOIN `user_infos` ON cv.id_user=user_infos.id_user;");
@@ -196,4 +198,5 @@ echo "</pre>";
 /*test test */
 ?>
 
-<?php get_footer(); ?>
+<?php get_footer();
+} ?>
