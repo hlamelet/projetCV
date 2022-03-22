@@ -10,7 +10,6 @@ include('fonctions.php');
 $db = new PDO('mysql:host=localhost;dbname=cvtheque;charset=utf8', 'root', '');
 
 
-
 //Compte User
 session_start();
 if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
@@ -26,6 +25,33 @@ if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
         $req = $db->prepare("UPDATE user SET user_name='$nameModif',user_surname='$surnameModif',user_email='$emailModif' WHERE id = '$id'");
         $req->execute();
     }
+// affichage des brouillons dans la cvthèque
+
+$pdoStat = $db->prepare('SELECT * FROM brouillon_cv');
+$executeIsOk = $pdoStat->execute();
+$brouillonCv = $pdoStat->fetchAll();
+
+// envoi d'un pdf en bdd
+
+if (!empty($_FILES)) {
+    $file_name = $_FILES['fichier']['name'];
+    $file_extension = strrchr($file_name, ".");
+
+    $file_tmp_name = $_FILES['fichier']['tmp_name'];
+    $file_dest = 'assets/cv/' . $file_name;
+
+    $extentions_autorisees = array('.pdf', '.PDF');
+
+    if (in_array($file_extension, $extentions_autorisees)) {
+        if (move_uploaded_file($file_tmp_name, $file_dest)) {
+            $req = $db->prepare('INSERT INTO cv_pdf(cv_name, file_url) VALUES(?,?)');
+            $req->execute(array($file_name, $file_dest));
+            echo 'Votre CV a bien été envoyé !';
+        } else {
+            echo 'erreur lors de lenvoi';
+        }
+    } else 'erreur';
+}
 
     wp_head();
 ?>
@@ -49,18 +75,26 @@ if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
                 <a href="#" class="style_bouton" value="Rafraîchir" onclick="history.go(0)"><i class="fi fi-rr-add"></i><br>Nouveau</a>
             </div>
 
-            <div id="overlay-content2">
-                <h5 style="color: white;">Ma Cvthèque</h5>
-            </div>
-            <div id="overlay-content3">
-            </div>
+        <div id="overlay-content2">
+            <h5 style="color: white;">Mes Brouillons</h5>
+
+            <?php foreach ($brouillonCv as $brouillon) : ?>
+
+                <div id="brouillon_liste">
+                    <?= $brouillon['date'] ?>
+                </div> <br>
+
+            <?php endforeach; ?>
+
         </div>
+        <div id="overlay-content3">
+        </div>
+    </div>
 
-        <div id="bouton_rideau" onclick="openNav()"><i class="fi fi-rr-magic-wand"></i></div>
+    <div id="bouton_rideau" onclick="openNav()"><i class="fi fi-rr-magic-wand"></i></div>
 
-        <div id="white"></div>
-
-
+    <div id="white"></div>
+    <!-- THEO -->
         <!-- THEO -->
         <div id="feuille">
 
@@ -184,7 +218,29 @@ if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
             <button id="create-resume" class="cursor" title="Attention: Cela va envoyer ton CV au recruteur">Sauvegarder & Envoyer</button>
             <button class="cursor" title="Sauvegarder mon CV dans ma CVthèque">Sauvegarder le brouillon</button>
             <button onclick="printCV()" class="cursor" class="btn background">Imprimer <i class="fi fi-rr-print"></i></button>
+            <form action="" method="POST" action="" enctype="multipart/form-data">
+            <input type="file" name="fichier">
+            <input type="submit" value="Envoyer">
+        </form>
         </div>
+    </div>
+    <div id="zoom_box">
+        <button type="button" id="zoom" onclick="zoomplus30()">
+            +
+        </button>
+        <button type="button" id="zoom" onclick="zoomretour()">
+            o
+        </button>
+        <button type="button" id="zoom" onclick="zoommoins30()">
+            -
+        </button>
+    </div>
+   
+
+    <!-- Modification Compte -->
+    <div id="compte_user">
+        <button id="mon_compte"><i class="fi fi-rr-user" onclick="openProfil()"></i></button>
+        <div id="myNav" class="overlay overAccount">
 
         <!-- Modification Compte -->
         <div id="compte_user">
