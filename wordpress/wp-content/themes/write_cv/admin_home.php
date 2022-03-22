@@ -68,7 +68,7 @@ $requete = $requete->fetchall();
     let selection = []
     var requete =
         <?php echo json_encode($requete); ?>;
-    console.log(requete)
+    // console.log(requete)
 </script>
 <!-- --------------------------- -->
 
@@ -100,7 +100,7 @@ $requete = $requete->fetchall();
                     selection.push(push)
 
                 }
-                console.log(selection)
+                // console.log(selection)
 
             }
             // ----------------------------------------------------fonction show
@@ -109,7 +109,7 @@ $requete = $requete->fetchall();
                 let pdfShow = document.getElementById('pdfShow');
                 // alert(element.classList[1].match(/\d+/g)[0])    
                 requete.forEach(function(elem, e) {
-                    console.log("foreach")
+                    // console.log("foreach")
                     if (elem[0] == (element.classList[1].match(/\d+/g)[0])) {
                         // alert(elem[7])
                         pdfShow.innerHTML = "<object data=" + elem[5] + "type='application/pdf' width='2500' height='600' zoom='50'> </object>"
@@ -146,21 +146,46 @@ $requete = $requete->fetchall();
                     }
 
                 });
+                //create CSV file data in an array  
+                var csvFileData = selection2d
+                console.log("selec")
                 console.log(selection2d)
+                console.log("csvfile")
+                console.log(csvFileData)
                 // console.log(requete)
                 // csv------
 
-                let csvContent = "data:text/csv;charset=utf-8,";
+                //headers
+                var csv = 'id; nom; prenom; mail; tel\n';  
+                
+                //merge the data with CSV  
+                csvFileData.forEach(function(row) {  
+                        csv += row.join(';');  
+                        csv += "\n";  
+                });  
 
-                selection2d.forEach(function(rowArray) {
-                    console.log(rowArray)
-                    let row = rowArray.join(";");
-                    csvContent += row + "\r\n";
-                });
-                console.log(selection2d)
+                //display the created CSV data on the web browser   
+                // document.write(csv);  
+                
+                var hiddenElement = document.createElement('a');  
+                hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);  
+                hiddenElement.target = '_blank';  
+                    
+                //provide the name for the CSV file to be downloaded  
+                hiddenElement.download = 'cv.csv';  
+                hiddenElement.click();  
+  
+
+                // let csvContent = "data:text/csv;charset=utf-8,";
+
+                // selection2d.forEach(function(rowArray) {
+                //     // console.log(rowArray)
+                //     let row = rowArray.join(";");
+                //     csvContent += row + "\r\n";
+                // });
 
                 // --------------CSV content a telecharger (à faire)
-                console.log(csvContent)
+                // console.log(csvContent)
                 // ---------
 
                 selection2d = []

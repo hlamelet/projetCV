@@ -54,6 +54,9 @@
     }
     if (!empty($_POST['phone'])) {
         $phone = mysqli_real_escape_string($conn, $_POST['phone']);
+        $prefixe = '"=""';
+        $suffixe = '"""';
+        $phone = $prefixe . $phone . $suffixe;
     }
     if (!empty($_POST['career'])) {
         $career = mysqli_real_escape_string($conn, $_POST['career']);
@@ -113,7 +116,7 @@
 
     if (
            (mysqli_query($conn, "INSERT INTO cv (id_user, intro, objectifs, education, date) VALUES ($_SESSION[id], '" . $about . "', '" . $career . "', '" . $education . "', '" . $creationDate . "')"))
-        && (mysqli_query($conn, "INSERT INTO user_infos (id_user, user_name, user_firstname, user_adresse, user_email, user_tel) VALUES ($_SESSION[id], '" . $name . "', '" . $firstname . "', '" . $address . "', '" . $email . "', '" . $phone . "')"))
+        && (mysqli_query($conn, "INSERT INTO user_infos (id_user, user_name, user_firstname, user_adresse, user_email, user_tel) VALUES ($_SESSION[id], '" . $name . "', '" . $firstname . "', '" . $address . "', '" . $email . "', '" . $phone . "' )"))
         ) {
     } else {
        echo "Error: " . $sql . "" . mysqli_error($conn);
