@@ -309,7 +309,7 @@ const checkJob_1_Start = () => {
       job1_start.classList.remove("error__input")
       job1_error.style.display = "none"
     }
-  } 
+  }
   return isValid
 }
 
@@ -327,7 +327,7 @@ const checkJob_2_Start = () => {
       job2_start.classList.remove("error__input")
       job2_error.style.display = "none"
     }
-  } 
+  }
   return isValid
 }
 
@@ -345,7 +345,7 @@ const checkJob_3_Start = () => {
       job3_start.classList.remove("error__input")
       job3_error.style.display = "none"
     }
-  } 
+  }
   return isValid
 }
 
@@ -364,7 +364,7 @@ const checkJob_1_End = () => {
       job1_end.classList.remove("error__input")
       job1_error.style.display = "none"
     }
-  } 
+  }
   return isValid
 }
 
@@ -383,7 +383,7 @@ const checkJob_2_End = () => {
       job2_end.classList.remove("error__input")
       job2_error.style.display = "none"
     }
-  } 
+  }
   return isValid
 }
 
@@ -402,7 +402,7 @@ const checkJob_3_End = () => {
       job3_end.classList.remove("error__input")
       job3_error.style.display = "none"
     }
-  } 
+  }
   return isValid
 }
 
@@ -424,7 +424,7 @@ const checkValidity = () => {
     location.hash = "#email"
   } else if (!firstnameIsValid) {
     location.hash = "#firstname"
-  } else if (!phoneIsValid) { 
+  } else if (!phoneIsValid) {
     location.hash = "#phone"
   } else if (!job1_startIsValid) {
     location.hash = "#job-1__start"
@@ -439,17 +439,17 @@ const checkValidity = () => {
   } else if (!job3_endIsValid) {
     location.hash = "#job-3__end"
   }
-  return ( nameIsValid 
-        && emailIsValid 
-        && firstnameIsValid 
-        && phoneIsValid 
-        && job1_startIsValid 
-        && job2_startIsValid 
-        && job3_startIsValid 
-        && job1_endIsValid
-        && job2_endIsValid
-        && job3_endIsValid
-         )
+  return (nameIsValid
+    && emailIsValid
+    && firstnameIsValid
+    && phoneIsValid
+    && job1_startIsValid
+    && job2_startIsValid
+    && job3_startIsValid
+    && job1_endIsValid
+    && job2_endIsValid
+    && job3_endIsValid
+  )
 }
 
 /*document.getElementById('create-resume').addEventListener("click", (e) => {
@@ -646,33 +646,33 @@ function mouseOver(event) {
 }
 
 
-buttonModif=document.querySelector(".button-modif");
+buttonModif = document.querySelector(".button-modif");
 
 // MODIFICATION COMPTE
 
 
 
 function openProfil() {
-  document.querySelector('.overlayProfil').style.width = "17%";
+  document.querySelector('.overlayProfil').style.width = "20%";
 }
 function closeProfil() {
   document.querySelector('.overlayProfil').style.width = "0";
 }
-function ModifAccount(){
+function ModifAccount() {
   document.querySelector('.modifProfil').style.display = "flex";
-  document.querySelector('.overlayProfil').style.height = "50%";
+  document.querySelector('.overlayProfil').style.height = "60%";
   document.querySelector('#button-modif-open').style.display = "none";
   document.querySelector('#button-modif-close').style.display = "flex";
 
 }
-function ModifAccountClose(){
+function ModifAccountClose() {
   document.querySelector('.modifProfil').style.display = "none";
-  document.querySelector('.overlayProfil').style.height = "17%";
+  document.querySelector('.overlayProfil').style.height = "20%";
   document.querySelector('#button-modif-open').style.display = "flex";
   document.querySelector('#button-modif-close').style.display = "none";
 
 }
-  
-  
+
+
 
 

@@ -179,7 +179,7 @@ body {
   position: fixed;
   z-index: 1;
   right: 0;
-  top: 0;
+  top: 40px;
   background-image: linear-gradient(19deg, #21b2fd 0%, #7267cb 100%);
   overflow-x: hidden;
   transition: 0.2s;
@@ -204,6 +204,9 @@ body {
 .formModif {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0;
 }
 #submit-modif {
   cursor: pointer;
