@@ -16,7 +16,8 @@ if (isset($_SESSION["admin"]) && ($_SESSION["admin"] == 1)) {
                                     user_infos.user_firstname,
                                     user_infos.user_email,
                                     user_infos.user_tel,
-                                    cv_pdf.file_url 
+                                    cv_pdf.file_url,
+                                    user_infos.user_adresse
                             FROM `cv` INNER JOIN user ON cv.id_user = user.id 
                                       INNER JOIN `user_infos` ON cv.id_user = user_infos.id_user
                                       INNER JOIN cv_pdf ON cv_pdf.id_user = user.id;");
@@ -190,9 +191,12 @@ if (isset($_SESSION["admin"]) && ($_SESSION["admin"] == 1)) {
             <table id='table_id' class="display">
                 <thead>
                     <tr>
-                        <th>Id</th>
+
                         <th>Prénom</th>
                         <th>Nom</th>
+                        <th>Mail</th>
+                        <th>Tel</th>
+                        <th>Adresse</th>
                         <th>sélectionner</th>
                         <th>voir le cv</th>
                     </tr>
@@ -208,9 +212,12 @@ if (isset($_SESSION["admin"]) && ($_SESSION["admin"] == 1)) {
                 for (y = 0; y < Object.keys(requete).length; y++) {
                     // containerCV.innerHTML += "<div class=cvBloc><div onclick='testClass(this)' class='cvAdmin cv" + requete[y]['id'] + "'>" + requete[y]['id'] + requete[y]['user_firstname'] + " " + requete[y]['user_name'] + "</div> <div onclick='show(this)' class='boutonShow show" + requete[y]['id'] + "'>Voir le cv</div><div onclick='sendMail(this)' class='cv" + requete[y]['user_email'] + "'> envoyer un message</div></div >"
                     tbody.innerHTML += "<tr>" +
-                        "<td>" + requete[y]['id'] + "</td>" +
+
                         "<td>" + requete[y]['user_firstname'] + "</td>" +
                         "<td>" + requete[y]['user_name'] + "</td>" +
+                        "<td>" + requete[y]['user_mail'] + "</td>" +
+                        "<td>" + requete[y]['user_tel'].match(/\d+/g) + "</td>" +
+                        "<td>" + requete[y]['user_adresse'] + "</td>" +
                         "<td><button onclick='testClass(this)' class='cv" + requete[y]['id'] + "'></td>" +
                         "<td><button onclick='show(this)' class='boutonShow show" + requete[y]['id'] + "'> voir </td>" +
                         "</tr>"
