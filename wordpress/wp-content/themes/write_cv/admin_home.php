@@ -3,8 +3,7 @@
 Template Name: Admin Accueil
 
 */
-wp_head();
-get_header();
+
 $db = new PDO('mysql:host=localhost;dbname=cvtheque;charset=utf8', 'root', '');
 // ---------------------------------requete
 
@@ -12,13 +11,11 @@ $requete = $db->prepare("SELECT cv.id,user_infos.user_name,user_infos.user_first
 $requete->execute();
 $requete = $requete->fetchall();
 
+
+wp_head();
+get_header();
 ?>
 
-<head>
-    <style>
-
-    </style>
-</head>
 <script>
     let selection2d = []
     let selection = []
