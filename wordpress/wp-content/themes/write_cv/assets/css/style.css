@@ -68,28 +68,25 @@
 	margin-top: 10%;
 }
 #overlay-content3 {
-	position: relative;
-	top: 80px;
-	width: 11%;
-	text-align: center;
+    width: 17%;
+    text-align: center;
+    margin-top: 25px;
+    margin-right: 3px;
 }
 
 .overlay a {
-	padding: 1px;
-	text-decoration: none;
-	display: block;
-	transition: 0.3s;
-	color: white;
-	top: 72px;
-	margin-top: 44px;
+    padding: 1px;
+    text-decoration: none;
+    display: block;
+    transition: 0.3s;
+    color: white;
+    top: 72px;
+    margin-top: 38px;
 }
 
 .overlay .closebtn {
-	position: absolute;
-	top: -14px;
-	right: 19px;
-	font-size: 30px;
-	color: white;
+    font-size: 30px;
+    color: white;
 }
 
 .fa-solid {
@@ -174,21 +171,21 @@ body {
 
 /* PROFIL USER */
 .overlayProfil {
-	height: 25%;
-	width: 0;
-	position: fixed;
-	z-index: 1;
-	right: 0;
-	top: 20px;
-	background-image: linear-gradient(19deg, #21b2fd 0%, #7267cb 100%);
-	overflow-x: hidden;
-	transition: 0.2s;
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
-	align-items: center;
-	margin: 0;
-	border-radius: 1px;
+    height: 25%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    right: 5;
+    top: 38px;
+    background-image: linear-gradient(19deg, #21b2fd 0%, #7267cb 100%);
+    overflow-x: hidden;
+    transition: 0.2s;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    border-radius: 17px;
 }
 .overlayProfil a {
 	margin: 0;
@@ -697,13 +694,13 @@ textarea.form-control.eqField {
     background-color: lightgray;
     color: white;
     border-radius: 100%;
-    padding: 15;
-    border: 3px solid white;
+    /* padding: 15; */
+    border: 2px solid white;
     font-size: 20;
     margin-right: 10px;
     cursor: pointer;
     position: fixed;
-    top: 29px;
+    top: 40px;
     right: 0;
 }
 /* Fonts Change*/
@@ -851,4 +848,10 @@ h4 {
     position: fixed;
     bottom: 3px;
     right: 3px;
+}
+
+/* compte user modif */
+
+#name-modif, #surname-modif, #email-modif{
+	text-align: center;
 }
