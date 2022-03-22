@@ -112,7 +112,7 @@ $requete = $requete->fetchall();
                     console.log("foreach")
                     if (elem[0] == (element.classList[1].match(/\d+/g)[0])) {
                         // alert(elem[7])
-                        pdfShow.innerHTML = "<object data=" + elem[7] + "type='application/pdf' width='2500' height='600' zoom='50'> </object>"
+                        pdfShow.innerHTML = "<object data=" + elem[5] + "type='application/pdf' width='2500' height='600' zoom='50'> </object>"
                     }
                 });
             }
