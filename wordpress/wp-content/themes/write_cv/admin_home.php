@@ -156,25 +156,25 @@ $requete = $requete->fetchall();
                 // csv------
 
                 //headers
-                var csv = 'id; nom; prenom; mail; tel\n';  
-                
+                var csv = 'id; nom; prenom; mail; tel\n';
+
                 //merge the data with CSV  
-                csvFileData.forEach(function(row) {  
-                        csv += row.join(';');  
-                        csv += "\n";  
-                });  
+                csvFileData.forEach(function(row) {
+                    csv += row.join(';');
+                    csv += "\n";
+                });
 
                 //display the created CSV data on the web browser   
                 // document.write(csv);  
-                
-                var hiddenElement = document.createElement('a');  
-                hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);  
-                hiddenElement.target = '_blank';  
-                    
+
+                var hiddenElement = document.createElement('a');
+                hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);
+                hiddenElement.target = '_blank';
+
                 //provide the name for the CSV file to be downloaded  
-                hiddenElement.download = 'cv.csv';  
-                hiddenElement.click();  
-  
+                hiddenElement.download = 'cv.csv';
+                hiddenElement.click();
+
 
                 // let csvContent = "data:text/csv;charset=utf-8,";
 
@@ -211,9 +211,9 @@ $requete = $requete->fetchall();
     </div>
 </div>
 <?php
-echo "<pre>";
-print_r($requete);
-echo "</pre>";
+// echo "<pre>";
+// print_r($requete);
+// echo "</pre>";
 ?>
 </section>
 
