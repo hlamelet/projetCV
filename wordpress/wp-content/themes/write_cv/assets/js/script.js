@@ -667,7 +667,7 @@ function ModifAccount() {
 }
 function ModifAccountClose() {
   document.querySelector('.modifProfil').style.display = "none";
-  document.querySelector('.overlayProfil').style.height = "20%";
+  document.querySelector('.overlayProfil').style.height = "25%";
   document.querySelector('#button-modif-open').style.display = "flex";
   document.querySelector('#button-modif-close').style.display = "none";
 

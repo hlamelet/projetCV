@@ -179,7 +179,7 @@ body {
   position: fixed;
   z-index: 1;
   right: 0;
-  top: 40px;
+  top: 20px;
   background-image: linear-gradient(19deg, #21b2fd 0%, #7267cb 100%);
   overflow-x: hidden;
   transition: 0.2s;
