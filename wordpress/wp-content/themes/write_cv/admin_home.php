@@ -43,7 +43,7 @@ get_header();
 
                 if (element.classList.contains("selected")) { //enleve la class selected de la selection []
                     element.classList.remove("selected")
-                    var push = element.classList[1].match(/\d+/g)[0]
+                    var push = element.classList[0].match(/\d+/g)[0]
 
                     for (let a = 0; selection.length > a; a++) {
                         if (selection[a] == push) {
@@ -52,17 +52,18 @@ get_header();
                     }
 
                 } else { //ajoute la class selected et recupere l'id du cv pour le mettre dans la selection []
-                    var push = element.classList[1].match(/\d+/g)[0]
+                    var push = element.classList[0].match(/\d+/g)[0]
                     element.classList.add("selected")
                     selection.push(push)
 
                 }
-                // console.log(selection)
+                console.log(selection)
 
             }
             // ----------------------------------------------------fonction show
 
             function show(element) {
+                console.log("show")
                 let pdfShow = document.getElementById('pdfShow');
                 // alert(element.classList[1].match(/\d+/g)[0])    
                 requete.forEach(function(elem, e) {
@@ -150,36 +151,63 @@ get_header();
             }
 
             let containerCV = document.getElementById('containerCVAdmin');
-
-            for (y = 0; y < Object.keys(requete).length; y++) {
-                containerCV.innerHTML += "<div class=cvBloc><div onclick='testClass(this)' class='cvAdmin cv" + requete[y]['id'] + "'>" + requete[y]['id'] + requete[y]['user_firstname'] + " " + requete[y]['user_name'] + "</div> <div onclick='show(this)' class='boutonShow show" + requete[y]['id'] + "'>Voir le cv</div><div onclick='sendMail(this)' class='cv" + requete[y]['user_email'] + "'> envoyer un message</div></div >"
+            let table = document.getElementById('table_id')
 
 
-            }
 
+            // containerCV.innerHTML += "<table id='table_id'>" +
+            //         "<thead>" +
+            //             "<tr>" +
+            //                 "<th> Column 1 </th>" +
+            //                 "<th> Column 2 </th>" +
+            //                 "<th> Column 2 </th>" +
+            //             "</tr>" +
+            //         "</thead>" +
+            //         "<tbody id='tbody'>" +
+            //         "</tbody>" +
+            //     "</table>"
+
+
+            // let tbody = document.getElementById('tbody')
+            // for (y = 0; y < Object.keys(requete).length; y++) {
+            //     // containerCV.innerHTML += "<div class=cvBloc><div onclick='testClass(this)' class='cvAdmin cv" + requete[y]['id'] + "'>" + requete[y]['id'] + requete[y]['user_firstname'] + " " + requete[y]['user_name'] + "</div> <div onclick='show(this)' class='boutonShow show" + requete[y]['id'] + "'>Voir le cv</div><div onclick='sendMail(this)' class='cv" + requete[y]['user_email'] + "'> envoyer un message</div></div >"
+            //     table.tbody += "<tr>" +
+            //         "<td>" + requete[y]['user_firstname'] + "</td>" +
+            //         // "<td>" + requete[y]['user_name'] + "</td>" +
+            //         // "<td>" + requete[y]['id'] + "</td>" +
+            //         "</tr>"
+            // }
+        </script>
+        <table id='table_id' class="display">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Prénom</th>
+                    <th>Nom</th>
+                    <th>sélectionner</th>
+                    <th>voir le cv</th>
+                </tr>
+            </thead>
+            <tbody id='tbody'>
+            </tbody>
+        </table>
+        <script>
             $(document).ready(function() {
                 $('#table_id').DataTable();
             });
+            let tbody = document.getElementById('tbody')
+            for (y = 0; y < Object.keys(requete).length; y++) {
+                // containerCV.innerHTML += "<div class=cvBloc><div onclick='testClass(this)' class='cvAdmin cv" + requete[y]['id'] + "'>" + requete[y]['id'] + requete[y]['user_firstname'] + " " + requete[y]['user_name'] + "</div> <div onclick='show(this)' class='boutonShow show" + requete[y]['id'] + "'>Voir le cv</div><div onclick='sendMail(this)' class='cv" + requete[y]['user_email'] + "'> envoyer un message</div></div >"
+                tbody.innerHTML += "<tr>" +
+                    "<td>" + requete[y]['id'] + "</td>" +
+                    "<td>" + requete[y]['user_firstname'] + "</td>" +
+                    "<td>" + requete[y]['user_name'] + "</td>" +
+                    "<td><button onclick='testClass(this)' class='cv" + requete[y]['id'] + "'></td>" +
+                    "<td><button onclick='show(this)' class='boutonShow show" + requete[y]['id'] + "'> voir </td>" +
+                    "</tr>"
+            }
         </script>
 
-        <table id="table_id" class="display">
-            <thead>
-                <tr>
-                    <th>Column 1</th>
-                    <th>Column 2</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>antoine</td>
-                    <td>Salaün</td>
-                </tr>
-                <tr>
-                    <td>Luc</td>
-                    <td>Boulanger</td>
-                </tr>
-            </tbody>
-        </table>
     </div>
     <!-- ------------------------------------------partie selection -->
 
