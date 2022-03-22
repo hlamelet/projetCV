@@ -191,4 +191,8 @@ echo "</pre>";
 ?>
 </section>
 
+<?
+/*test test */
+?>
+
 <?php get_footer(); ?>
