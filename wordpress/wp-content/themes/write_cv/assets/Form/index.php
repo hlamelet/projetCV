@@ -1,3 +1,10 @@
+<?php
+include("testphpMailer.php");
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,14 +54,12 @@
                         <textarea name="message" rows="5" id="message" placeholder="Bonjour, nous avons retenu votre candidature..."></textarea>
                     </p>
                     <p class="full">
-                        <input type="submit">
+                        <input  name="submit" type="submit">
                     </p>
                 </form>
                 <?php
-                if (isset($_POST['message'])) {
-                    $retour = mail('gaggio880@gmail.com', 'Retour de votre cv', $_POST['message'], 'From: gaggio880@gmail.com' . "\r\n" . 'Reply-to: ' . $_POST['email']);
-                    if ($retour)
-                        echo '<p>Votre message a bien été envoyé.</p>';
+                if(!empty($_POST["submit"])){
+                    smtpMailer($_POST['email'], GMailUSER, 'Bertolucci Agency' , 'Retour candidature ',$_POST['message']);
                 }
                 ?>
             </div>

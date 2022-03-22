@@ -1,4 +1,8 @@
 <?php
+
+
+include('C:\xampp\htdocs\projCV\wordpress\wp-content\themes\write_cv\assets\Form\testphpMailer.php');
+
     include('fonctions.php');
     session_start();
 
@@ -31,6 +35,7 @@
     $job3__details = '';
     $nb_jobs = 0;
     $references = '';
+    $message='Votre candidature a bien été envoyée';
     
     date_default_timezone_set('Europe/Paris');
     $myDateString = date('d/m/Y H:i:s');
@@ -118,6 +123,7 @@
            (mysqli_query($conn, "INSERT INTO cv (id_user, intro, objectifs, education, date) VALUES ($_SESSION[id], '" . $about . "', '" . $career . "', '" . $education . "', '" . $creationDate . "')"))
         && (mysqli_query($conn, "INSERT INTO user_infos (id_user, user_name, user_firstname, user_adresse, user_email, user_tel) VALUES ($_SESSION[id], '" . $name . "', '" . $firstname . "', '" . $address . "', '" . $email . "', '" . $phone . "' )"))
         ) {
+                smtpMailer($email , GMailUSER, 'Bertolucci Agency' , 'Confirmation CV ', $message);
     } else {
        echo "Error: " . $sql . "" . mysqli_error($conn);
     }
@@ -151,5 +157,3 @@
     }
  
     mysqli_close($conn);
- 
-?>

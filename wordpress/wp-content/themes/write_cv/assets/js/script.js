@@ -607,6 +607,7 @@ $("#create-resume").click(function () {
     },
     cache: false,
     success: function (data) {
+      
       // alert(data);
     },
     error: function (xhr, status, error) {
