@@ -54,7 +54,7 @@ if (empty($_POST["name-register"]) || empty($_POST["surname-register"]) || empty
     $passwordHash = password_hash($passwordReg, PASSWORD_DEFAULT);
     $roleUser = 1;
 
-    if (($passwordReg == $passwordRegConf) && (strlen($passwordReg) >= 8) && (preg_match('#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W)#', $passwordReg))) {
+    if (($passwordReg == $passwordRegConf) && (strlen($passwordReg) >= 8) && (preg_match('#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W)#', $passwordReg)) &&  (filter_var($emailReg, FILTER_VALIDATE_EMAIL))) {
 
         $req = $db->prepare("INSERT INTO user (user_name, user_surname,user_email,user_mdp,user_role) VALUES ('$nameReg', '$surnameReg', '$emailReg', '$passwordHash','$roleUser')");
         $req->execute();
@@ -203,6 +203,14 @@ get_header();
         if (emailvalid == true) {
             return false;
         }
+        var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+        if ($(email).val().match(validRegex)) {
+            return true;
+        } else {
+            erreurchamp.innerHTML = "<p>L'email est invalide</p>";
+            return false;
+        }
+
     }
 
     function passwordChange() {
