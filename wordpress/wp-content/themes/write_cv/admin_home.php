@@ -158,7 +158,7 @@ $requete = $requete->fetchall();
             let containerCV = document.getElementById('containerCV');
 
             for (y = 0; y < Object.keys(requete).length; y++) {
-                containerCV.innerHTML += "<div class=cvBloc><div onclick='testClass(this)' class='cv cv" + requete[y]['id'] + "'>" + requete[y]['id'] + requete[y]['nom'] + " " + requete[y]['prenom'] + " :" + requete[y]['intro'] + "</div> <div onclick='show(this)' class='boutonShow show" + requete[y]['id'] + "'>Show cv</div></div>"
+                containerCV.innerHTML += "<div class=cvBloc><div onclick='testClass(this)' class='cv cv" + requete[y]['id'] + "'>" + requete[y]['id'] + requete[y]['user_firstname'] + " " + requete[y]['user_name'] + "</div> <div onclick='show(this)' class='boutonShow show" + requete[y]['id'] + "'>Show cv</div></div>"
 
 
             }
