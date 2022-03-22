@@ -8,7 +8,7 @@ get_header();
 $db = new PDO('mysql:host=localhost;dbname=cvtheque;charset=utf8', 'root', '');
 // ---------------------------------requete
 
-$requete = $db->prepare("SELECT cv.id,user_infos.user_name,user_infos.user_firstname,user_infos.user_email,user_infos.user_tel,lien FROM `cv` INNER JOIN user ON cv.id_user = user.id INNER JOIN `user_infos` ON cv.id_user=user_infos.id_user;");
+$requete = $db->prepare("SELECT cv.id,user_infos.user_name,user_infos.user_firstname,user_infos.user_email,user_infos.user_tel,cv.lien FROM `cv` INNER JOIN user ON cv.id_user = user.id INNER JOIN `user_infos` ON cv.id_user=user_infos.id_user;");
 $requete->execute();
 $requete = $requete->fetchall();
 
@@ -117,6 +117,16 @@ $requete = $requete->fetchall();
                 });
             }
             // http://localhost/projCV/wordpress/wp-content/themes/write_cv/inc/cv/pdf-exemple.pdf'
+            // ----------------------------------------------------function sendMail------------------------------------
+            function sendMail(element) {
+                console.log(element.classList[0].slice(2))
+
+                console.log("mail")
+                console.log("mail")
+                console.log("mail")
+                sessionStorage.setItem("email", element.classList[0].slice(2));
+                window.location.replace("http://localhost/projCV/wordpress/wp-content/themes/write_cv/assets/Formulaire%20contact/")
+            }
             // ----------------------------------------------------fonction d'envoi de download en csv------------------------------------
 
 
@@ -146,6 +156,7 @@ $requete = $requete->fetchall();
                     let row = rowArray.join(";");
                     csvContent += row + "\r\n";
                 });
+                console.log(selection2d)
 
                 // --------------CSV content a telecharger (à faire)
                 console.log(csvContent)
@@ -158,7 +169,7 @@ $requete = $requete->fetchall();
             let containerCV = document.getElementById('containerCV');
 
             for (y = 0; y < Object.keys(requete).length; y++) {
-                containerCV.innerHTML += "<div class=cvBloc><div onclick='testClass(this)' class='cv cv" + requete[y]['id'] + "'>" + requete[y]['id'] + requete[y]['user_firstname'] + " " + requete[y]['user_name'] + "</div> <div onclick='show(this)' class='boutonShow show" + requete[y]['id'] + "'>Show cv</div></div>"
+                containerCV.innerHTML += "<div class=cvBloc><div onclick='testClass(this)' class='cv cv" + requete[y]['id'] + "'>" + requete[y]['id'] + requete[y]['user_firstname'] + " " + requete[y]['user_name'] + "</div> <div onclick='show(this)' class='boutonShow show" + requete[y]['id'] + "'>Voir le cv</div><div onclick='sendMail(this)' class='cv" + requete[y]['user_email'] + "'> envoyer un message</div></div >"
 
 
             }
