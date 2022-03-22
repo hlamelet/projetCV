@@ -44,11 +44,11 @@ if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
 
         if (in_array($file_extension, $extentions_autorisees)) {
             if (move_uploaded_file($file_tmp_name, $file_dest)) {
-                $req = $db->prepare('INSERT INTO cv_pdf(cv_name, file_url) VALUES(?,?)');
-                $req->execute(array($file_name, $file_dest));
-                echo 'Votre CV a bien été envoyé !';
+                $req = $db->prepare('INSERT INTO cv_pdf(id_user, cv_name, file_url) VALUES(?,?,?)');
+                $req->execute(array($_SESSION['id'], $file_name, $file_dest));
+                // echo 'Votre CV a bien été envoyé !';
             } else {
-                echo 'erreur lors de lenvoi';
+                // echo 'erreur lors de lenvoi';
             }
         } else 'erreur';
     }
@@ -60,6 +60,7 @@ if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
 
 
     <div id="bloc_principal_user">
+        <div id="send_return"></div>
 
         <div id="myNav" class="overlay">
             
@@ -216,9 +217,9 @@ if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
         <div id="telechargement">
 
             <button id="create-resume" class="cursor" title="Attention: Cela va envoyer ton CV au recruteur">Sauvegarder & Envoyer</button>
-            <button class="cursor" title="Sauvegarder mon CV dans ma CVthèque">Sauvegarder le brouillon</button>
+            <button id="brouillon" class="cursor" title="Sauvegarder mon CV dans ma CVthèque">Sauvegarder le brouillon</button>
             <button onclick="printCV()" class="cursor" class="btn background">Imprimer <i class="fi fi-rr-print"></i></button>
-            <form action="" method="POST" action="" enctype="multipart/form-data">
+            <form action="" method="POST" enctype="multipart/form-data">
                 <input type="file" name="fichier">
                 <input type="submit" value="Envoyer">
             </form>

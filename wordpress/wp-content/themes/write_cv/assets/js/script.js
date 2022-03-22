@@ -760,3 +760,9 @@ function zoommoins30() {
 function zoomretour() {
     document.querySelector('#feuille').style.width = "794px";
 }
+
+// message de retour
+
+function displayResult() {
+  document.querySelector('#send_return').innerHTML = "Votre CV a bien été envoyé !";
+}

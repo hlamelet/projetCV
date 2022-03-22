@@ -3,6 +3,8 @@
 Template Name: Admin Accueil
 
 */
+
+include('fonctions.php');
 session_start();
 if (isset($_SESSION["admin"]) && ($_SESSION["admin"] == 1)) {
 
@@ -20,7 +22,7 @@ if (isset($_SESSION["admin"]) && ($_SESSION["admin"] == 1)) {
                                       INNER JOIN cv_pdf ON cv_pdf.id_user = user.id;");
     $requete->execute();
     $requete = $requete->fetchall();
-
+    debug($requete);
 
     wp_head();
     get_header();
