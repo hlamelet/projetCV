@@ -79,10 +79,10 @@ if (isset($_SESSION["admin"]) && ($_SESSION["admin"] == 1)) {
                     let pdfShow = document.getElementById('pdfShow');
                     // alert(element.classList[1].match(/\d+/g)[0])    
                     requete.forEach(function(elem, e) {
-                        // console.log("foreach")
+
                         if (elem[0] == (element.classList[1].match(/\d+/g)[0])) {
-                            // alert(elem[7])
-                            pdfShow.innerHTML = "<object data=" + elem[5] + "type='application/pdf' width='2500' height='600' zoom='50'> </object>"
+
+                            pdfShow.innerHTML = "<object data='http://localhost/projCV/wordpress/" + elem[5] + "' type='application/pdf' width='2500' height='600' zoom='50'> </object>"
                         }
                     });
                 }
@@ -91,9 +91,6 @@ if (isset($_SESSION["admin"]) && ($_SESSION["admin"] == 1)) {
                 function sendMail(element) {
                     console.log(element.classList[0].slice(2))
 
-                    console.log("mail")
-                    console.log("mail")
-                    console.log("mail")
                     sessionStorage.setItem("email", element.classList[0].slice(2));
                     window.location.replace("http://localhost/projCV/wordpress/wp-content/themes/write_cv/assets/Form/")
                 }
