@@ -206,6 +206,7 @@ if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
 
                             <label for="email-modif">E-mail: </label>
                             <input type="email" name="email-modif" id="email-modif" value="<?php echo $users["user_email"] ?>">
+
                             <input type="submit" value="Valider" id="submit-modif" name="submit-modif">
                         </form>
                     </div>
