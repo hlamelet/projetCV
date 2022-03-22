@@ -78,7 +78,7 @@ get_header();
                 console.log("mail")
                 console.log("mail")
                 sessionStorage.setItem("email", element.classList[0].slice(2));
-                window.location.replace("http://localhost/projCV/wordpress/wp-content/themes/write_cv/assets/Formulaire%20contact/")
+                window.location.replace("http://localhost/projCV/wordpress/wp-content/themes/write_cv/assets/Form/")
             }
             // ----------------------------------------------------fonction d'envoi de download en csv------------------------------------
 
