@@ -141,7 +141,8 @@ $requete = $requete->fetchall();
                         if (requete[i][0] == elem) {
 
                             push = Object.keys(requete[i]).map((k) => requete[i][k])
-                            selection2d.push(push.splice(0, 7))
+                            selection2d.push(push.splice(0, 5))
+                            console.log("excel" + selection2d)
                             break
                         }
                     }
