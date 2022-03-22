@@ -3,8 +3,7 @@
 Template Name: Admin Accueil
 
 */
-wp_head();
-get_header();
+
 $db = new PDO('mysql:host=localhost;dbname=cvtheque;charset=utf8', 'root', '');
 // ---------------------------------requete
 
@@ -12,57 +11,11 @@ $requete = $db->prepare("SELECT cv.id,user_infos.user_name,user_infos.user_first
 $requete->execute();
 $requete = $requete->fetchall();
 
+
+wp_head();
+get_header();
 ?>
 
-<head>
-    <style>
-        #container {
-            display: flex;
-        }
-
-        #containerCV {
-            width: 49.5%;
-            height: 1000px;
-        }
-
-        .pdf {
-            width: 49.5%;
-            height: 1000px;
-
-        }
-
-        .selectionToExcelBtn {
-            width: 100%;
-            height: 100px;
-            background-color: green;
-        }
-
-        .cvBloc {
-            display: flex;
-        }
-
-        .cv {
-            background-color: white;
-            margin-bottom: 10px;
-            width: 70%;
-
-        }
-
-        .boutonShow {
-            width: 30%;
-
-        }
-
-        .selected {
-            background-color: grey;
-        }
-
-        #pdfShow {
-            width: 80%;
-            height: 1000px;
-        }
-    </style>
-</head>
 <script>
     let selection2d = []
     let selection = []
@@ -73,9 +26,9 @@ $requete = $requete->fetchall();
 <!-- --------------------------- -->
 
 <h1>Admin Accueil</h1>
-<div id="container">
+<div id="containerAdmin">
     <!-- ------------------------------------------partie CV -->
-    <div id="containerCV">
+    <div id="containerCVAdmin">
         <!-- bouton pour envoyer en excel -->
 
         <div onclick="selectionToExcel()" class="selectionToExcelBtn">selection to excel</div>
@@ -156,25 +109,25 @@ $requete = $requete->fetchall();
                 // csv------
 
                 //headers
-                var csv = 'id; nom; prenom; mail; tel\n';  
-                
+                var csv = 'id; nom; prenom; mail; tel\n';
+
                 //merge the data with CSV  
-                csvFileData.forEach(function(row) {  
-                        csv += row.join(';');  
-                        csv += "\n";  
-                });  
+                csvFileData.forEach(function(row) {
+                    csv += row.join(';');
+                    csv += "\n";
+                });
 
                 //display the created CSV data on the web browser   
                 // document.write(csv);  
-                
-                var hiddenElement = document.createElement('a');  
-                hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);  
-                hiddenElement.target = '_blank';  
-                    
+
+                var hiddenElement = document.createElement('a');
+                hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);
+                hiddenElement.target = '_blank';
+
                 //provide the name for the CSV file to be downloaded  
-                hiddenElement.download = 'cv.csv';  
-                hiddenElement.click();  
-  
+                hiddenElement.download = 'cv.csv';
+                hiddenElement.click();
+
 
                 // let csvContent = "data:text/csv;charset=utf-8,";
 
@@ -192,10 +145,10 @@ $requete = $requete->fetchall();
                 selection = []
             }
 
-            let containerCV = document.getElementById('containerCV');
+            let containerCV = document.getElementById('containerCVAdmin');
 
             for (y = 0; y < Object.keys(requete).length; y++) {
-                containerCV.innerHTML += "<div class=cvBloc><div onclick='testClass(this)' class='cv cv" + requete[y]['id'] + "'>" + requete[y]['id'] + requete[y]['user_firstname'] + " " + requete[y]['user_name'] + "</div> <div onclick='show(this)' class='boutonShow show" + requete[y]['id'] + "'>Voir le cv</div><div onclick='sendMail(this)' class='cv" + requete[y]['user_email'] + "'> envoyer un message</div></div >"
+                containerCV.innerHTML += "<div class=cvBloc><div onclick='testClass(this)' class='cvAdmin cv" + requete[y]['id'] + "'>" + requete[y]['id'] + requete[y]['user_firstname'] + " " + requete[y]['user_name'] + "</div> <div onclick='show(this)' class='boutonShow show" + requete[y]['id'] + "'>Voir le cv</div><div onclick='sendMail(this)' class='cv" + requete[y]['user_email'] + "'> envoyer un message</div></div >"
 
 
             }
@@ -204,16 +157,12 @@ $requete = $requete->fetchall();
     <!-- ------------------------------------------partie selection -->
 
 
-    <div id='pdfShow'>
-        <!-- <object data='http://localhost/projCV/wordpress/wp-content/themes/write_cv/inc/cv/pdf-exemple.pdf' type="application/pdf" width="2500">
-            </object> -->
-        <?php echo  GET_THEME_FILE_URI() . "/inc/cv/pdf-exemple.pdf" ?>
-    </div>
+    <div id='pdfShow'></div>
 </div>
 <?php
-echo "<pre>";
-print_r($requete);
-echo "</pre>";
+// echo "<pre>";
+// print_r($requete);
+// echo "</pre>";
 ?>
 </section>
 
