@@ -4,13 +4,8 @@ Template Name: Admin Accueil
 
 */
 session_start();
-<<<<<<< HEAD
-if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
-
-=======
 if (isset($_SESSION["admin"]) && ($_SESSION["admin"] == 1)) {
-    
->>>>>>> 6a201c46101f1b074e2a16e78f8c751f5f403a1d
+
     $db = new PDO('mysql:host=localhost;dbname=cvtheque;charset=utf8', 'root', '');
     // ---------------------------------requete
 
