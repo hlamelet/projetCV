@@ -25,7 +25,9 @@ if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
         $req->execute();
     }
 
-    wp_head(); ?>
+    wp_head();
+?>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 
 
@@ -196,7 +198,7 @@ if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
                     <a href="#" id="button-modif-open" onclick="ModifAccount()"><i class=""></i><br>Modifier Compte</a>
                     <a href="#" id="button-modif-close" onclick="ModifAccountClose()"><i class=""></i><br>Modifier Compte</a>
                     <div class="modifProfil">
-                        <form action="" method="post" class="formModif">
+                        <form action="" method="post" class="formModif" onsubmit="return validateForm()">
 
                             <label for="name-modif">Nom: </label>
                             <input type="text" name="name-modif" id="name-modif" value="<?php echo $users["user_name"] ?>">
@@ -206,12 +208,42 @@ if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
 
                             <label for="email-modif">E-mail: </label>
                             <input type="email" name="email-modif" id="email-modif" value="<?php echo $users["user_email"] ?>">
+                            <div id="erreurChamp-text" class="erreur"></div>
 
                             <input type="submit" value="Valider" id="submit-modif" name="submit-modif">
                         </form>
                     </div>
                     <a href="#" class=" button-deconnexion" onclick="location.href='localhost/projCV/wordpress/accueil'"><i class=""></i><br>Deconnexion</a>
                 </div>
+                <script>
+                    const email = document.getElementById("email-modif");
+                    $(function ValideEmail() {
+                        $(email).keyup(function() {
+                            emailAjax = $(email).val();
+                            $.ajax({
+                                type: "POST",
+                                url: "/projCV/wordpress/wp-content/themes/write_cv/inscriptionAjax.php",
+                                data: "email-register=" + emailAjax,
+                                success: function(data) {
+                                    if (data == 1) {
+                                        $('#erreurChamp-text').html("<p>mail déja utilisé</p>");
+                                        emailvalid = true;
+                                    } else {
+                                        $('#erreurChamp-text').html(" ");
+                                        emailvalid = false;
+                                    }
+                                }
+                            });
+                        })
+                    });
+
+                    function validateForm() {
+                        if (emailvalid == true) {
+                            return false;
+                        }
+                    }
+                </script>
+
 
 
             </div>
