@@ -24,6 +24,7 @@ if (!empty($_POST["email"]) && !empty($_POST["mdp"])) {
     if ((!empty($users)) && (password_verify($password, $users["user_mdp"]))) {
         session_start();
         $_SESSION["id"] = $users["id"];
+        $_SESSION["admin"] = $users["admin_role"];
 
         if (($users["user_role"]) == 1) {
             header("Location: http://localhost/projCV/wordpress/espace-utilisateur/");
