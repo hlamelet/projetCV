@@ -404,10 +404,7 @@ input {
 	border-radius: 5px;
 }
 
-#email,
-#mdp {
-	color: #7267cb;
-}
+
 #submit-register,
 #submit-login {
 	margin-top: 5px;

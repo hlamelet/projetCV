@@ -384,6 +384,7 @@ template {
 *::before,
 *::after {
 	box-sizing: inherit;
+	margin-bottom: 8px;
 }
 
 html {
