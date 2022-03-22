@@ -204,11 +204,7 @@ $requete = $requete->fetchall();
     <!-- ------------------------------------------partie selection -->
 
 
-    <div id='pdfShow'>
-        <!-- <object data='http://localhost/projCV/wordpress/wp-content/themes/write_cv/inc/cv/pdf-exemple.pdf' type="application/pdf" width="2500">
-            </object> -->
-        <?php echo  GET_THEME_FILE_URI() . "/inc/cv/pdf-exemple.pdf" ?>
-    </div>
+    <div id='pdfShow'></div>
 </div>
 <?php
 // echo "<pre>";
