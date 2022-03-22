@@ -120,7 +120,7 @@
     }
 
     if ($nb_jobs == 1) {
-        if ((mysqli_query($conn, "INSERT INTO experience (id_user, debut, fin, info) VALUES ($_SESSION[id], '" . $job1__start . "', '" . $job1__end . "', '" . $job1__details . "')"))) {
+        if ((mysqli_query($conn, "INSERT INTO brouillon_experience (id_user, debut, fin, info) VALUES ($_SESSION[id], '" . $job1__start . "', '" . $job1__end . "', '" . $job1__details . "')"))) {
         } else {
             echo "Error: " . $sql . "" . mysqli_error($conn);
         }

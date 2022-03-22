@@ -9,7 +9,6 @@ Template Name: User Accueil
 include('fonctions.php');
 $db = new PDO('mysql:host=localhost;dbname=cvtheque;charset=utf8', 'root', '');
 
-
 //Compte User
 session_start();
 if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
@@ -46,9 +45,9 @@ if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
             if (move_uploaded_file($file_tmp_name, $file_dest)) {
                 $req = $db->prepare('INSERT INTO cv_pdf(id_user, cv_name, file_url) VALUES(?,?,?)');
                 $req->execute(array($_SESSION['id'], $file_name, $file_dest));
-                // echo 'Votre CV a bien été envoyé !';
+                echo 'Votre CV a bien été envoyé !';
             } else {
-                // echo 'erreur lors de lenvoi';
+                echo 'erreur lors de lenvoi';
             }
         } else 'erreur';
     }
@@ -79,10 +78,13 @@ if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
             <div id="overlay-content2">
                 <h5 style="color: white;">Mes Brouillons</h5>
 
+                <?php $num_brouillon = 1; ?>
                 <?php foreach ($brouillonCv as $brouillon) : ?>
-
                     <div id="brouillon_liste">
-                        <?= $brouillon['date'] ?>
+                        <div id="brouillon<?php echo "-".$num_brouillon; ?>">
+                            <?= $brouillon['date'] ?>
+                        </div>
+                        <?php $num_brouillon++; ?>
                     </div> <br>
 
                 <?php endforeach; ?>

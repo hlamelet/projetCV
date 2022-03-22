@@ -572,6 +572,39 @@ function changeAnnie() {
 }
 
 // Requete Ajax
+$("#brouillon-1").click(function () {
+
+  $.ajax({
+    type: "POST",
+    url: "/ProjCV/wordpress/wp-content/themes/write_cv/BdToForm.php",
+    dataType: 'JSON',
+    data: {},
+    cache: false,
+    success: function (data) {
+      console.log(data);
+      document.getElementById("name").value = data['user_name'];
+      document.getElementById("firstname").value = data['user_firstname'];
+      document.getElementById("address").value = data['user_adresse'];
+      document.getElementById("phone").value = data['user_tel'];
+      document.getElementById("email").value = data['user_email'];
+      document.getElementById("about").value = data['intro'];
+      document.getElementById("career").value = data['objectifs'];
+      document.getElementById("education").value = data['education'];
+      document.getElementById("job-1__start").value = data['debut'];
+      document.getElementById("job-1__end").value = data['fin'];
+      document.getElementById("job-1__details").value = data['info'];
+      document.getElementById("job-2__start").value = data['debut_2'];
+      document.getElementById("job-2__end").value = data['fin_2'];
+      document.getElementById("job-2__details").value = data['info_2'];
+      document.getElementById("job-3__start").value = data['debut_3'];
+      document.getElementById("job-3__end").value = data['fin_3'];
+      document.getElementById("job-3__details").value = data['info_3'];
+    },
+    error: function (xhr, status, error) {
+      console.error(xhr);
+    }
+  });
+});
 
 $("#create-resume").click(function () {
 	var name = $("#name").val();
