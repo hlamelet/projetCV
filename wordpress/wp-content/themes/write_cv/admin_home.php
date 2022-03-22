@@ -8,10 +8,9 @@ get_header();
 $db = new PDO('mysql:host=localhost;dbname=cvtheque;charset=utf8', 'root', '');
 // ---------------------------------requete
 
-$requete = $db->prepare("SELECT cv.id,id_user,intro,nom,prenom,user_email,user_tel,lien FROM `cv` INNER JOIN `user` ON cv.id_user = user.id");
+$requete = $db->prepare("SELECT cv.id,user_infos.user_name,user_infos.user_firstname,user_infos.user_email,user_infos.user_tel,lien FROM `cv` INNER JOIN user ON cv.id_user = user.id INNER JOIN `user_infos` ON cv.id_user=user_infos.id_user;");
 $requete->execute();
 $requete = $requete->fetchall();
-
 
 ?>
 
