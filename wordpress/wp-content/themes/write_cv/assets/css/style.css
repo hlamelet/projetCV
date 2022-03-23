@@ -6,12 +6,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Sacramento&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400;1,500&display=swap%27");
 /* PARTIE UTILISATEURS */ /* principale */
 
-*, *::before, *::after {
-    box-sizing: inherit;
-    margin-bottom: 0px;
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin-bottom: 0px;
+}
+body {
+  background-color: #21d4fd;
+  background-image: linear-gradient(19deg, #21d4fd 0%, #b721ff 100%);
+  font-family: "Poppins", sans-serif;
 }
 
 /* PARTIE UTILISATEURS */
@@ -60,12 +67,12 @@
 }
 
 #overlay-content1 {
-    position: relative;
-    height: 646px;
-    width: auto;
-    text-align: center;
-    background-color: #150f5a;
-    border-radius: 0px 0px 10px 0px;
+  position: relative;
+  height: 646px;
+  width: auto;
+  text-align: center;
+  background-color: #150f5a;
+  border-radius: 0px 0px 10px 0px;
 }
 #overlay-content2 {
   width: 100%;
@@ -171,11 +178,6 @@ a#btn_telecharger {
   border-style: dashed;
 }
 
-body {
-  background: linear-gradient(#b8e4f0, #98bae7);
-  font-family: "Lato", sans-serif;
-}
-
 /* PROFIL USER */
 .overlayProfil {
   height: 25%;
@@ -249,6 +251,7 @@ body {
   font-size: 27px;
   width: 30%;
   margin-left: 5px;
+  color: white;
 }
 
 @media (max-width: 1100px) {
@@ -266,29 +269,15 @@ body {
 }
 .laptop {
   width: 1000px;
-  height: 540px;
-  background-image: linear-gradient(19deg, #21b2fd 0%, #7267cb 100%);
-  border: 5px solid white;
+  height: 630px;
+  background-color: white;
   border-radius: 5px;
-  box-shadow: 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0#fff;
   overflow: hidden;
   display: flex;
   justify-content: center;
   margin-bottom: 0;
 }
-.keyboard {
-  content: "";
-  display: flex;
-  width: 1100px;
-  height: 30px;
-  background: white;
-  border-top: 10px solid #ccc;
-  border-top: 10px solid #ccc;
-  border-top-left-radius: 2px;
-  border-top-right-radius: 2px;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-}
+
 .container-login,
 .container-register {
   display: none;
@@ -297,7 +286,7 @@ body {
   position: relative;
   animation-name: animatebottom;
   animation-duration: 1s;
-  color: white;
+  color: black;
 }
 
 .form-login h1,
@@ -310,7 +299,8 @@ body {
 }
 
 .container-register {
-  justify-content: space-around;
+  justify-content: center;
+  flex-direction: row-reverse;
 }
 
 .login-text,
@@ -321,8 +311,7 @@ body {
   align-items: center;
 }
 
-.login-text,
-.register-text {
+.login-text {
   width: 50%;
 }
 
@@ -372,32 +361,41 @@ body {
 
 .form-login,
 .form-register {
-  display: flex;
   flex-direction: column;
   text-align: center;
-  width: 80%;
+  align-items: center;
 }
+.form-login {
+  width: 60%;
+}
+.form-register {
+  width: 40%;
+}
+
 .inputgroupe {
   position: relative;
   margin-bottom: 25px;
 }
+.mdpConf {
+  margin-bottom: 0;
+}
+
 .form-label {
   position: absolute;
   top: 0px;
   left: 0px;
-  font-size: 16px;
-  color: #fff;
+  font-size: 20px;
+  color: black;
   transition: all 0.2s ease-in-out;
-  cursor: pointer;
 }
 .form-field {
   border: 0 !important;
-  border-bottom: 1px solid white !important;
+  border-bottom: 1px solid black !important;
   background: transparent;
   width: 100%;
   padding: 8px 0 5px 0 !important;
   font-size: 16px;
-  color: #fff !important;
+  color: black !important;
 }
 .form-field:focus {
   border: none;
@@ -408,18 +406,24 @@ body {
 .form-field:focus ~ .form-label,
 .form-field:valid ~ .form-label {
   top: -12px;
-  font-size: 12px;
+  font-size: 15px;
 }
+.form-field:-webkit-autofill,
+.form-field:-webkit-autofill:hover,
+.form-field:-webkit-autofill:focus,
+.form-field:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: black;
+}
+
 .form-register {
   margin-top: 20px;
   margin-bottom: 0;
 }
-#label-mdpconf {
-  font-size: 15px;
-}
+
 #erreur-mdp {
   padding: 0;
-  font-size: 12px;
+  font-size: 15px;
   color: red;
   background-color: white;
 }
@@ -429,7 +433,6 @@ body {
 
 input {
   margin-bottom: 10px;
-  border-radius: 5px;
 }
 
 #submit-register,
@@ -440,7 +443,8 @@ input {
   background-color: #6e3cbc;
   color: white;
   font-size: 20px;
-  justify-self: center;
+  padding: 10px;
+  width: 100px;
 }
 #button-register,
 #button-login {
@@ -448,7 +452,8 @@ input {
 }
 
 .erreur p {
-  background-color: red;
+  background-color: white;
+  color: red;
   border-radius: 5px;
   margin: 2px;
 }
@@ -480,10 +485,6 @@ input {
     align-self: center;
   }
 
-  .container-register {
-    flex-direction: column;
-    align-items: center;
-  }
   .title-inscription h3 {
     margin: 0;
     font-size: 30px;
@@ -495,6 +496,9 @@ input {
     height: 30px;
     flex-wrap: wrap;
   }
+  #label-mdpconf {
+    font-size: 15px;
+  }
 
   #erreur-mdp p {
     font-size: 10px;
@@ -502,7 +506,8 @@ input {
   #submit-register {
     font-size: 15px;
   }
-  #button-login {
+  #button-register,
+  #submit-register {
     margin: 0;
   }
 }
@@ -512,6 +517,9 @@ input {
   }
   .img-laptop {
     display: none;
+  }
+  .form-register {
+    width: 100%;
   }
   .login-text,
   .register-text {
@@ -791,95 +799,94 @@ textarea {
 }
 /* PAGE ADMIN */
 #bloc1admin {
-    width: 100%;
-    height: 83px;
-	background-color: #2B4570;
-    display: flex;
-    flex-direction: row;
-	justify-content: space-between;
+  width: 100%;
+  height: 83px;
+  background-color: #2b4570;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
-#logorec{
-	display: flex;
-	margin-left: 50px;
+#logorec {
+  display: flex;
+  margin-left: 50px;
 }
-#titre_re{
-    display: flex;
-    color: white;
-    font-size: 22px;
+#titre_re {
+  display: flex;
+  color: white;
+  font-size: 22px;
 }
 #deco {
-    display: flex;
-    margin-right: 15px;
-    text-align: center;
-    color: red;
-    line-height: 30px;
-	cursor: pointer;
+  display: flex;
+  margin-right: 15px;
+  text-align: center;
+  color: red;
+  line-height: 30px;
+  cursor: pointer;
 }
 #div_gauche {
-    width: 13%;
-    height: 100%;
-    background-color: #2B4570;
-    display: flex;
-    flex-direction: column;
+  width: 13%;
+  height: 100%;
+  background-color: #2b4570;
+  display: flex;
+  flex-direction: column;
 }
 
 #containerAdmin {
-    display: flex;
-    background-color: white;
-    width: 100%;
-    height: 100%;
+  display: flex;
+  background-color: white;
+  width: 100%;
+  height: 100%;
 }
 
 #containerCVAdmin {
-    width: 87%;
-    height: 100%;
-	padding: 10px;
+  width: 87%;
+  height: 100%;
+  padding: 10px;
 }
 
 .pdf {
-	width: 15%;
-	height: 1000px;
+  width: 15%;
+  height: 1000px;
 }
 
 .selectionToExcelBtn {
-    width: 90%;
-    background-color: #ff99fd30;
-    color: white;
-    text-align: center;
-    cursor: pointer;
-    font-size: large;
-    border-radius: 10px;
-    justify-content: center;
-    display: flex;
-    margin: 6% auto 6% auto;
+  width: 90%;
+  background-color: #ff99fd30;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  font-size: large;
+  border-radius: 10px;
+  justify-content: center;
+  display: flex;
+  margin: 6% auto 6% auto;
 }
 .dataTables_wrapper {
-    position: relative;
-    clear: both;
-    margin-top: 25px;
+  position: relative;
+  clear: both;
+  margin-top: 25px;
 }
-.selectionToExcelBtn:hover{
-    background-color: #4544afcc;
-    color: rgb(255, 255, 255);
+.selectionToExcelBtn:hover {
+  background-color: #4544afcc;
+  color: rgb(255, 255, 255);
 }
 .dataTables_wrapper .dataTables_filter input {
-    border-radius: 3px;
-    padding: 5px;
-    margin-left: 3px;
-    border-radius: 20px;
-    background-color: #f5efdc;
+  border-radius: 3px;
+  padding: 5px;
+  margin-left: 3px;
+  border-radius: 20px;
+  background-color: #f5efdc;
 }
 td {
-    text-align: center;
+  text-align: center;
 }
 .boutonShow {
-    width: 30%;
-    background-color: #ffc273cf;
-	color: white;
-	text-align: center;
-	border: none;
+  width: 30%;
+  background-color: #ffc273cf;
+  color: white;
+  text-align: center;
+  border: none;
 }
-
 
 .cvBloc {
   display: flex;
@@ -891,9 +898,8 @@ td {
   width: 70%;
 }
 
-
 .selected {
-	background-color: rgb(67, 224, 5);
+  background-color: rgb(67, 224, 5);
 }
 
 /* #pdfShow {
@@ -904,11 +910,10 @@ td {
 /* brouillon style */
 
 #brouillon_liste {
-    background-color: white;
-    margin: 5px;
-    border-radius: 20px;
+  background-color: white;
+  margin: 5px;
+  border-radius: 20px;
 }
-
 
 /* template cv */
 h4 {

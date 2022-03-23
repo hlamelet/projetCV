@@ -78,18 +78,20 @@ get_header();
                 </div>
                 <div class="login-text">
 
-                    <form action="" method="post" class="form-login">
-                        <h1>Bienvenue sur<br> Bertolluci Agency</h1>
-                        <h2>Le site de création de CV en ligne de notre agence</h2>
-                        <h3>Connexion</h3>
+                    <h1>Bienvenue sur<br> Bertolluci Agency</h1>
+                    <h2>Le site de création de CV en ligne de notre agence</h2>
+                    <h3>Connexion</h3>
 
+                    <form action="" method="post" class="form-login">
                         <div class="inputgroupe">
                             <input type="text" class="form-field" name="email" id="email" required />
                             <label for="email" class="form-label">E-mail : </label>
                         </div>
 
-                        <input type="password" class="form-field" name="mdp" id="mdp">
-                        <label for="mdp" class="form-label">mot de passe: </label>
+                        <div class="inputgroupe">
+                            <input type="password" class="form-field" name="mdp" id="mdp" required />
+                            <label for="mdp" class="form-label">Mot de passe: </label>
+                        </div>
                         <div id="erreur-text" class="erreur"></div>
 
                         <input type="submit" value="Entrez" id="submit-login">
@@ -102,30 +104,44 @@ get_header();
             </div>
 
             <div class="container-register">
-                <div class="title-inscription">
-                    <h3>Inscription</h3>
-                </div>
-                <div class="register-text ">
+
+
+
+
+                <div class="register-text">
 
                     <form action="" method="post" class="form-register" onsubmit="return validateForm()" name="register" id="register">
 
-                        <label for="name-register">Nom: </label>
-                        <input type="text" name="name-register" id="name-register">
-                        <div id="demo"></div>
-                        <label for="email-register">Prenom: </label>
-                        <input type="text" name="surname-register" id="surname-register">
 
-                        <label for="email-register">E-mail: </label>
-                        <input type="email" name="email-register" id="email-register">
+                        <div class="inputgroupe">
+                            <input type="text" class="form-field" name="name-register" id="name-register" required />
+                            <label for="name-register" class="form-label">Nom: </label>
+                        </div>
 
-                        <label for="mdp-register">Mot de passe: </label>
-                        <input type="password" name="mdp-register" id="mdp-register">
+                        <div class="inputgroupe">
+                            <input type="text" class="form-field" name="surname-register" id="surname-register" required />
+                            <label for="email-register" class="form-label">Prenom: </label>
+                        </div>
+
+                        <div class="inputgroupe">
+                            <input type="text" class="form-field" name="email-register" id="email-register" required />
+                            <label for="email-register" class="form-label">E-mail: </label>
+                        </div>
+
+                        <div class="inputgroupe">
+                            <input type="password" class="form-field" name="mdp-register" id="mdp-register" required />
+                            <label for="mdp-register" class="form-label">Mot de passe: </label>
+                        </div>
+
+
+
+                        <div class="inputgroupe mdpConf">
+                            <input type="password" class="form-field" name="mdp-register-confirm" id="mdp-register-confirm" required />
+                            <label id="label-mdpconf" class="form-label" for="mdp-register-confirm"> Confirmation Mot de passe: </label>
+                        </div>
                         <div id="erreur-mdp">
                             <p>Votre mot de passe doit contenir au moins 8 caractères ainsi qu’une majuscule, une minuscule, un chiffre et un symbole.</p>
                         </div>
-
-                        <label id="label-mdpconf" for="mdp-register-confirm"> Confirmation Mot de passe: </label>
-                        <input type="password" name="mdp-register-confirm" id="mdp-register-confirm">
                         <div id="erreurChamp-text" class="erreur"></div>
 
                         <input type="submit" value="Valider" id="submit-register" name="submit-register">
