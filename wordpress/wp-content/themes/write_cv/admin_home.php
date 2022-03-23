@@ -3,8 +3,6 @@
 Template Name: Admin Accueil
 
 */
-
-include('fonctions.php');
 session_start();
 if (isset($_SESSION["admin"]) && ($_SESSION["admin"] == 1)) {
 
@@ -23,10 +21,8 @@ if (isset($_SESSION["admin"]) && ($_SESSION["admin"] == 1)) {
                                       INNER JOIN cv_pdf ON cv_pdf.id_user = user.id;");
     $requete->execute();
     $requete = $requete->fetchall();
-    debug($requete);
 
     wp_head();
-    get_header();
 ?>
 
     <script>
@@ -39,16 +35,43 @@ if (isset($_SESSION["admin"]) && ($_SESSION["admin"] == 1)) {
     <!-- --------------------------- -->
 
     <!--Requete dataTable --->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
 
-    <h1>Admin Accueil</h1>
+
+    <div id="bloc1admin">
+
+        <div id="logorec"><img src="<?php echo get_template_directory_uri() ?>/assets/img/logo.png" alt=""></div>
+
+        <div id="titre_re"><h3>Espace Recruteur</h3></div>
+        <div id="deco" onclick="location.href='localhost/projCV/wordpress/accueil'"><p>Deconnexion <br><i class="fi fi-rr-sign-out"></i></p></div>
+    </div>
+
     <div id="containerAdmin">
         <!-- ------------------------------------------partie CV -->
+        <div id="div_gauche">
+            <div class="selectionToExcelBtn">
+                <p> Liste des CVs <br> <i class="fi fi-rr-document"></i></p>
+            </div>
+            <div onclick="selectionToExcel()" class="selectionToExcelBtn">
+                <p> Export format excel <br> <i class="fi fi-rr-download"></i></p>
+            </div>
+            <div class="selectionToExcelBtn">
+                <p> Librairie CV <br><i class="fi fi-rr-eye"></i></p>
+            </div>
+            <div class="selectionToExcelBtn">
+                <p> Contacter un candidat <br> <i class="fi fi-rr-envelope"></i></p>
+            </div>
+
+            <div class="selectionToExcelBtn">
+                <p>Paramètres <br> <i class="fi fi-rr-settings"></i></p>
+            </div>
+        </div>
         <div id="containerCVAdmin">
             <!-- bouton pour envoyer en excel -->
 
-            <div onclick="selectionToExcel()" class="selectionToExcelBtn">selection to excel</div>
+
 
             <script>
                 // --------------------------------------------function
@@ -92,7 +115,7 @@ if (isset($_SESSION["admin"]) && ($_SESSION["admin"] == 1)) {
                 function sendMail(element) {
                     console.log(element.classList[0].slice(2))
 
-                    sessionStorage.setItem("email", element.classList[0].slice(2));
+                    sessionStorage.setItem("email", element.classList[1].slice(2));
                     window.location.replace("http://localhost/projCV/wordpress/wp-content/themes/write_cv/assets/Form/")
                 }
                 // ----------------------------------------------------fonction d'envoi de download en csv------------------------------------
@@ -194,11 +217,13 @@ if (isset($_SESSION["admin"]) && ($_SESSION["admin"] == 1)) {
 
                         <th>Prénom</th>
                         <th>Nom</th>
-                        <th>Mail</th>
-                        <th>Tel</th>
+                        <th>E-Mail</th>
+                        <th>Téléphone</th>
                         <th>Adresse</th>
-                        <th>sélectionner</th>
-                        <th>voir le cv</th>
+                        <th style='width: 10px;'>CV</th>
+                        <th style='width: 10px;'>Mail</th>
+                        <th style='width: 10px;'>Import Excel</th>
+                        <th style='width: 10px;' >Supprimer</th>
                     </tr>
                 </thead>
                 <tbody id='tbody'>
@@ -206,7 +231,11 @@ if (isset($_SESSION["admin"]) && ($_SESSION["admin"] == 1)) {
             </table>
             <script>
                 $(document).ready(function() {
-                    $('#table_id').DataTable();
+                    $('#table_id').DataTable({
+                        "language": {
+                            "url": "//cdn.datatables.net/plug-ins/1.11.5/i18n/fr-FR.json"
+                        }
+                    })
                 });
                 let tbody = document.getElementById('tbody')
                 for (y = 0; y < Object.keys(requete).length; y++) {
@@ -215,11 +244,13 @@ if (isset($_SESSION["admin"]) && ($_SESSION["admin"] == 1)) {
 
                         "<td>" + requete[y]['user_firstname'] + "</td>" +
                         "<td>" + requete[y]['user_name'] + "</td>" +
-                        "<td>" + requete[y]['user_mail'] + "</td>" +
+                        "<td>" + requete[y]['user_email'] + "</td>" +
                         "<td>" + requete[y]['user_tel'].match(/\d+/g) + "</td>" +
                         "<td>" + requete[y]['user_adresse'] + "</td>" +
-                        "<td><button onclick='testClass(this)' class='cv" + requete[y]['id'] + "'></td>" +
-                        "<td><button onclick='show(this)' class='boutonShow show" + requete[y]['id'] + "'> voir </td>" +
+                        "<td><button style='color: #d1557c; cursor:pointer; background-color: #7ea4a400;' onclick='show(this)' class='boutonShow show" + requete[y]['id'] + "'><i class='fi fi-rr-eye'></i> </td>" +
+                        "<td><button style='color: #929bff; cursor:pointer; background-color: #7ea4a400;' onclick='sendMail(this)' class='boutonShow show" + requete[y]['user_email'] + "'><i class='fi fi-rr-envelope'></i></td>" +
+                        "<td><button onclick='testClass(this)' class='cv" + requete[y]['id'] + "'><i class='fi fi-rr-check'></i>" +
+                        "<td ><button style='color: red; cursor:pointer; background-color: #7ea4a400;' onclick='sendMail(this)' class='boutonShow show" + requete[y]['user_email'] + "'><i class='fi fi-rr-trash'></i></td>" +
                         "</tr>"
                 }
             </script>
@@ -230,17 +261,21 @@ if (isset($_SESSION["admin"]) && ($_SESSION["admin"] == 1)) {
 
         <div id='pdfShow'></div>
     </div>
-    <?php
-    echo "<pre>";
-    print_r($requete);
-    echo "</pre>";
-    ?>
+
     </section>
 
-    <?
-    /*test test */
-    ?>
 
 <?php get_footer();
 } else
     header("Location: http://localhost/projCV/wordpress/accueil/"); ?>
+
+<style>
+    footer {
+        display: none;
+    }
+
+    html {
+        margin-top: 0px !important;
+        background-color: white;
+    }
+</style>

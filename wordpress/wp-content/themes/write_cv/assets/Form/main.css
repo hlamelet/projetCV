@@ -5,8 +5,13 @@
   box-sizing: border-box;
 }
 
+html{
+  height: 100%;
+}
+
 body {
-  background-color: #7267cb ;
+  background-repeat: no-repeat;
+    background-image: linear-gradient(45deg, #FBDA61 0%, #FF5ACD 100%);
   line-height: 1.6;
   font-family: 'Yantramanav', sans-serif;
   padding: 1em;

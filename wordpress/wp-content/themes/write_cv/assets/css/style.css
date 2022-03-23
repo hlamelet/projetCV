@@ -8,6 +8,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap");
 /* PARTIE UTILISATEURS */ /* principale */
+
+*, *::before, *::after {
+    box-sizing: inherit;
+    margin-bottom: 0px;
+}
+
+/* PARTIE UTILISATEURS */
+
+/* principale */
+
 #bloc_principal_user {
   width: 100%;
   height: auto;
@@ -50,12 +60,12 @@
 }
 
 #overlay-content1 {
-  position: relative;
-  height: 646px;
-  width: auto;
-  text-align: center;
-  background-color: #150f5a;
-  border-radius: 0px 10px 10px 0px;
+    position: relative;
+    height: 646px;
+    width: auto;
+    text-align: center;
+    background-color: #150f5a;
+    border-radius: 0px 0px 10px 0px;
 }
 #overlay-content2 {
   width: 100%;
@@ -534,7 +544,7 @@ input {
   height: 2000px;
   padding-left: 300px;
 }
-/* theo */
+/* Inputs */
 
 input#nameField,
 input#contactField,
@@ -779,26 +789,97 @@ textarea {
   margin: 25% 7px 7px 7px;
   border-radius: 10px 10px 10px 10px;
 }
-/* -------page admin */
+/* PAGE ADMIN */
+#bloc1admin {
+    width: 100%;
+    height: 83px;
+	background-color: #2B4570;
+    display: flex;
+    flex-direction: row;
+	justify-content: space-between;
+}
+#logorec{
+	display: flex;
+	margin-left: 50px;
+}
+#titre_re{
+    display: flex;
+    color: white;
+    font-size: 22px;
+}
+#deco {
+    display: flex;
+    margin-right: 15px;
+    text-align: center;
+    color: red;
+    line-height: 30px;
+	cursor: pointer;
+}
+#div_gauche {
+    width: 13%;
+    height: 100%;
+    background-color: #2B4570;
+    display: flex;
+    flex-direction: column;
+}
+
 #containerAdmin {
-  display: flex;
+    display: flex;
+    background-color: white;
+    width: 100%;
+    height: 100%;
 }
 
 #containerCVAdmin {
-  width: 49.5%;
-  height: 1000px;
+    width: 87%;
+    height: 100%;
+	padding: 10px;
 }
 
 .pdf {
-  width: 49.5%;
-  height: 1000px;
+	width: 15%;
+	height: 1000px;
 }
 
 .selectionToExcelBtn {
-  width: 100%;
-  height: 100px;
-  background-color: green;
+    width: 90%;
+    background-color: #ff99fd30;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    font-size: large;
+    border-radius: 10px;
+    justify-content: center;
+    display: flex;
+    margin: 6% auto 6% auto;
 }
+.dataTables_wrapper {
+    position: relative;
+    clear: both;
+    margin-top: 25px;
+}
+.selectionToExcelBtn:hover{
+    background-color: #4544afcc;
+    color: rgb(255, 255, 255);
+}
+.dataTables_wrapper .dataTables_filter input {
+    border-radius: 3px;
+    padding: 5px;
+    margin-left: 3px;
+    border-radius: 20px;
+    background-color: #f5efdc;
+}
+td {
+    text-align: center;
+}
+.boutonShow {
+    width: 30%;
+    background-color: #ffc273cf;
+	color: white;
+	text-align: center;
+	border: none;
+}
+
 
 .cvBloc {
   display: flex;
@@ -810,40 +891,24 @@ textarea {
   width: 70%;
 }
 
-.boutonShow {
-  width: 30%;
-}
 
 .selected {
-  background-color: grey;
+	background-color: rgb(67, 224, 5);
 }
 
-#pdfShow {
-  width: 80%;
-  height: 1000px;
-}
+/* #pdfShow {
+    width: 50%;
+    height: 100%;
+} */
 
 /* brouillon style */
 
 #brouillon_liste {
-  background-color: white;
-  margin: 5px;
-  border-radius: 20px;
+    background-color: white;
+    margin: 5px;
+    border-radius: 20px;
 }
-button,
-input[type="button"],
-input[type="reset"],
-input[type="submit"] {
-  border: none;
-  border-color: #ccc #ccc #bbb;
-  border-radius: 3px;
-  background: #e6e6e6;
-  color: white;
-  line-height: 1;
-  padding: 0.6em 1em 0.4em;
-  background-color: #150f5a;
-  margin-top: 10px;
-}
+
 
 /* template cv */
 h4 {

@@ -686,7 +686,7 @@ $("#create-resume").click(function () {
 function changeCvtheque() {
 	document.getElementById(
 		"overlay-content2"
-	).innerHTML = `<h5 style="color: white;">Mes Brouillons</h5><?php foreach ($brouillonCv as $brouillon) : ?><div id="brouillon_liste"><?= $brouillon['date'] ?></div> <br><?php endforeach; ?>`;
+	).innerHTML = "non";
 }
 
 function changeModele() {
