@@ -9,16 +9,18 @@ if (isset($_SESSION["admin"]) && ($_SESSION["admin"] == 1)) {
     $db = new PDO('mysql:host=localhost;dbname=cvtheque;charset=utf8', 'root', '');
     // ---------------------------------requete
 
-    $requete = $db->prepare("SELECT cv.id,
-                                    user_infos.user_name,
-                                    user_infos.user_firstname,
-                                    user_infos.user_email,
-                                    user_infos.user_tel,
-                                    cv_pdf.file_url,
-                                    user_infos.user_adresse
-                            FROM `cv` INNER JOIN user ON cv.id_user = user.id 
-                                      INNER JOIN `user_infos` ON cv.id_user = user_infos.id_user
-                                      INNER JOIN cv_pdf ON cv_pdf.id_user = user.id;");
+    $requete = $db->prepare("SELECT                                         
+                                cv.id,
+                                user_infos.user_name,
+                                user_infos.user_firstname,
+                                user_infos.user_email,
+                                user_infos.user_tel,
+                                cv_pdf.file_url,       
+                                user_infos.user_adresse
+                            FROM cv INNER JOIN user ON cv.id_user = user.id 
+                            INNER JOIN user_infos ON cv.id_user = user_infos.id_user
+                            INNER JOIN cv_pdf ON cv_pdf.id_user = user.id
+                            WHERE user_infos.id_cv = cv.id AND cv_pdf.id_cv = cv.id");
     $requete->execute();
     $requete = $requete->fetchall();
 

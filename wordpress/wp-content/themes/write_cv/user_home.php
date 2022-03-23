@@ -11,6 +11,7 @@ $db = new PDO('mysql:host=localhost;dbname=cvtheque;charset=utf8', 'root', '');
 
 //Compte User
 session_start();
+// debug($_SESSION);
 if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
     $id = $_SESSION["id"];
     $requestUtilisateur = $db->prepare("SELECT * FROM user WHERE id = '$id'");
@@ -43,8 +44,8 @@ if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
 
         if (in_array($file_extension, $extentions_autorisees)) {
             if (move_uploaded_file($file_tmp_name, $file_dest)) {
-                $req = $db->prepare('INSERT INTO cv_pdf(id_user, cv_name, file_url) VALUES(?,?,?)');
-                $req->execute(array($_SESSION['id'], $file_name, $file_dest));
+                $req = $db->prepare('INSERT INTO cv_pdf(id_cv, id_user, cv_name, file_url) VALUES(?,?,?,?)');
+                $req->execute(array($_SESSION['current_cv_id'], $_SESSION['id'], $file_name, $file_dest));
                 echo 'Votre CV a bien été envoyé !';
             } else {
                 echo 'erreur lors de lenvoi';
