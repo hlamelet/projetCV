@@ -572,13 +572,16 @@ function changeAnnie() {
 }
 
 // Requete Ajax
-$("#brouillon-1").click(function () {
 
+
+$(".brouillon").click(function () {
+  let date_choice = $(this)[0].innerText;
+  console.log(date_choice);
   $.ajax({
     type: "POST",
     url: "/ProjCV/wordpress/wp-content/themes/write_cv/BdToForm.php",
     dataType: 'JSON',
-    data: {},
+    data: {date_choice : date_choice},
     cache: false,
     success: function (data) {
       console.log(data);
@@ -601,7 +604,9 @@ $("#brouillon-1").click(function () {
       document.getElementById("job-3__details").value = data['info_3'];
     },
     error: function (xhr, status, error) {
-      console.error(xhr);
+      console.log(xhr);
+      console.log(status);
+      console.log(error);
     }
   });
 });
@@ -819,3 +824,5 @@ function displayResult() {
 	document.querySelector("#send_return").innerHTML =
 		"Votre CV a bien été envoyé !";
 }
+
+

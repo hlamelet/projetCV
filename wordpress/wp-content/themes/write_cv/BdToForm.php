@@ -6,6 +6,10 @@
 include('fonctions.php');
 session_start();
 
+if (!empty($_POST['date_choice'])) {
+    $date_choice = $_POST['date_choice'];
+}
+
 $db = new PDO('mysql:host=localhost;dbname=cvtheque;charset=utf8', 'root', '');
 
 if (!$db) {
@@ -37,7 +41,9 @@ $references = '';
 // Compter le nombre de jobs entrés en BDD
 $requete = $db->prepare(
     "SELECT brouillon_experience.id 
-     FROM brouillon_experience INNER JOIN user ON brouillon_experience.id_user = user.id 
+     FROM brouillon_experience 
+     INNER JOIN user ON brouillon_experience.id_user = user.id 
+     WHERE brouillon_experience.date = '$date_choice'
     ;"
 );
 $requete->execute();
@@ -65,12 +71,18 @@ if ($nb_jobs == 1) {
                                     brouillon_cv.id_user,
                                     brouillon_experience.id_user,
                                     brouillon_user.id_user,
-                                    user.id
+                                    user.id, 
+                                    brouillon_cv.date, 
+                                    brouillon_user.date,
+                                    brouillon_experience.date
     
                 FROM       brouillon_cv 
                 INNER JOIN user                 ON brouillon_cv.id_user         = user.id
                 INNER JOIN brouillon_experience ON brouillon_experience.id_user = user.id
                 INNER JOIN brouillon_user       ON brouillon_user.id_user       = user.id
+                WHERE brouillon_cv.date = '$date_choice'
+                AND brouillon_user.date = '$date_choice'
+                AND brouillon_experience.date = '$date_choice'
         ;"
     );
 
@@ -132,11 +144,15 @@ if ($nb_jobs == 0) {
                                     brouillon_user.user_adresse,
                                     brouillon_cv.id_user,
                                     brouillon_user.id_user,
-                                    user.id
+                                    user.id,
+                                    brouillon_cv.date, 
+                                    brouillon_user.date
     
                 FROM       brouillon_cv 
                 INNER JOIN user                 ON brouillon_cv.id_user         = user.id
                 INNER JOIN brouillon_user       ON brouillon_user.id_user       = user.id
+                WHERE brouillon_cv.date = '$date_choice'
+                AND brouillon_user.date = '$date_choice'
         ;"
     );
 
@@ -192,12 +208,18 @@ if ($nb_jobs == 2) {
                                     brouillon_user.user_adresse,
                                     brouillon_cv.id_user,
                                     brouillon_user.id_user,
-                                    user.id
+                                    user.id, 
+                                    brouillon_cv.date, 
+                                    brouillon_user.date, 
+                                    brouillon_experience.date
     
                 FROM       brouillon_cv 
                 INNER JOIN user                 ON brouillon_cv.id_user         = user.id
                 INNER JOIN brouillon_experience ON brouillon_experience.id_user = user.id
                 INNER JOIN brouillon_user       ON brouillon_user.id_user       = user.id
+                WHERE brouillon_cv.date = '$date_choice'
+                AND brouillon_user.date = '$date_choice'
+                AND brouillon_experience.date = '$date_choice'
         ;"
     );
 
@@ -242,11 +264,11 @@ if ($nb_jobs == 2) {
             $data_final['info'] = $requete_result[0]['info'];
         }
         if (!empty($requete_result[1]['debut'])) {
-            $newKey_start = 'debut_2';            
+            $newKey_start = 'debut_2';
             $data_final[$newKey_start] = $requete_result[1]['debut'];
         }
         if (!empty($requete_result[1]['fin'])) {
-            $newKey_end = 'fin_2';            
+            $newKey_end = 'fin_2';
             $data_final[$newKey_end] = $requete_result[1]['fin'];
         }
         if (!empty($requete_result[1]['info'])) {
@@ -274,12 +296,18 @@ if ($nb_jobs == 3) {
                                     brouillon_user.user_adresse,
                                     brouillon_cv.id_user,
                                     brouillon_user.id_user,
-                                    user.id
-    
+                                    user.id, 
+                                    brouillon_user.date, 
+                                    brouillon_cv.date,
+                                    brouillon_experience.date
+                
                 FROM       brouillon_cv 
                 INNER JOIN user                 ON brouillon_cv.id_user         = user.id
                 INNER JOIN brouillon_experience ON brouillon_experience.id_user = user.id
                 INNER JOIN brouillon_user       ON brouillon_user.id_user       = user.id
+                WHERE brouillon_cv.date = '$date_choice'
+                AND brouillon_user.date = '$date_choice'
+                AND brouillon_experience.date = '$date_choice'
         ;"
     );
 
@@ -324,11 +352,11 @@ if ($nb_jobs == 3) {
             $data_final['info'] = $requete_result[0]['info'];
         }
         if (!empty($requete_result[1]['debut'])) {
-            $newKey_start = 'debut_2';            
+            $newKey_start = 'debut_2';
             $data_final[$newKey_start] = $requete_result[1]['debut'];
         }
         if (!empty($requete_result[1]['fin'])) {
-            $newKey_end = 'fin_2';            
+            $newKey_end = 'fin_2';
             $data_final[$newKey_end] = $requete_result[1]['fin'];
         }
         if (!empty($requete_result[1]['info'])) {
@@ -336,11 +364,11 @@ if ($nb_jobs == 3) {
             $data_final[$newKey_info] = $requete_result[1]['info'];
         }
         if (!empty($requete_result[2]['debut'])) {
-            $newKey_start = 'debut_3';            
+            $newKey_start = 'debut_3';
             $data_final[$newKey_start] = $requete_result[1]['debut'];
         }
         if (!empty($requete_result[2]['fin'])) {
-            $newKey_end = 'fin_3';            
+            $newKey_end = 'fin_3';
             $data_final[$newKey_end] = $requete_result[1]['fin'];
         }
         if (!empty($requete_result[2]['info'])) {

@@ -62,7 +62,7 @@ if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
         <div id="send_return"></div>
 
         <div id="myNav" class="overlay">
-            
+
 
 
             <div id="overlay-content1">
@@ -77,18 +77,14 @@ if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
 
             <div id="overlay-content2">
                 <h5 style="color: white;">Mes Brouillons</h5>
-
-                <?php $num_brouillon = 1; ?>
                 <?php foreach ($brouillonCv as $brouillon) : ?>
                     <div id="brouillon_liste">
-                        <div id="brouillon<?php echo "-".$num_brouillon; ?>">
+                        <div class="brouillon">
                             <?= $brouillon['date'] ?>
                         </div>
-                        <?php $num_brouillon++; ?>
                     </div> <br>
 
                 <?php endforeach; ?>
-
             </div>
             <div id="overlay-content3"><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             </div>

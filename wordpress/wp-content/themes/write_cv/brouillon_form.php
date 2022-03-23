@@ -35,7 +35,7 @@
     date_default_timezone_set('Europe/Paris');
     $myDateString = date('d/m/Y H:i:s');
     $date = DateTime::createFromFormat('d/m/Y H:i:s', $myDateString);
-    $creationDate = $date->format('Y-m-d H:i:s');     
+    $creationDate = $date->format('Y-m-d H:i:s');  
     
     if (!empty($_POST['name'])) {
         $name = mysqli_real_escape_string($conn, $_POST['name']);
@@ -113,14 +113,14 @@
 
     if (
            (mysqli_query($conn, "INSERT INTO brouillon_cv (id_user, intro, objectifs, education, date) VALUES ($_SESSION[id], '" . $about . "', '" . $career . "', '" . $education . "', '" . $creationDate . "')"))
-        && (mysqli_query($conn, "INSERT INTO brouillon_user (id_user, user_name, user_firstname, user_adresse, user_email, user_tel) VALUES ($_SESSION[id], '" . $name . "', '" . $firstname . "', '" . $address . "', '" . $email . "', '" . $phone . "')"))
+        && (mysqli_query($conn, "INSERT INTO brouillon_user (id_user, user_name, user_firstname, user_adresse, user_email, user_tel, date) VALUES ($_SESSION[id], '" . $name . "', '" . $firstname . "', '" . $address . "', '" . $email . "', '" . $phone . "', '" . $creationDate . "')"))
         ) {
     } else {
        echo "Error: " . $sql . "" . mysqli_error($conn);
     }
 
     if ($nb_jobs == 1) {
-        if ((mysqli_query($conn, "INSERT INTO brouillon_experience (id_user, debut, fin, info) VALUES ($_SESSION[id], '" . $job1__start . "', '" . $job1__end . "', '" . $job1__details . "')"))) {
+        if ((mysqli_query($conn, "INSERT INTO brouillon_experience (id_user, debut, fin, info, date) VALUES ($_SESSION[id], '" . $job1__start . "', '" . $job1__end . "', '" . $job1__details . "', '" . $creationDate . "')"))) {
         } else {
             echo "Error: " . $sql . "" . mysqli_error($conn);
         }
@@ -128,8 +128,8 @@
 
     if ($nb_jobs == 2) {
         if (
-               (mysqli_query($conn, "INSERT INTO brouillon_experience (id_user, debut, fin, info) VALUES ($_SESSION[id], '" . $job1__start . "', '" . $job1__end . "', '" . $job1__details . "')"))
-            && (mysqli_query($conn, "INSERT INTO brouillon_experience (id_user, debut, fin, info) VALUES ($_SESSION[id], '" . $job2__start . "', '" . $job2__end . "', '" . $job2__details . "')"))
+               (mysqli_query($conn, "INSERT INTO brouillon_experience (id_user, debut, fin, info, date) VALUES ($_SESSION[id], '" . $job1__start . "', '" . $job1__end . "', '" . $job1__details . "', '" . $creationDate . "')"))
+            && (mysqli_query($conn, "INSERT INTO brouillon_experience (id_user, debut, fin, info, date) VALUES ($_SESSION[id], '" . $job2__start . "', '" . $job2__end . "', '" . $job2__details . "', '" . $creationDate . "')"))
         ) {
         } else {
             echo "Error: " . $sql . "" . mysqli_error($conn);
@@ -138,9 +138,9 @@
 
     if ($nb_jobs == 3) {
         if (
-               (mysqli_query($conn, "INSERT INTO brouillon_experience (id_user, debut, fin, info) VALUES ($_SESSION[id], '" . $job1__start . "', '" . $job1__end . "', '" . $job1__details . "')"))
-            && (mysqli_query($conn, "INSERT INTO brouillon_experience (id_user, debut, fin, info) VALUES ($_SESSION[id], '" . $job2__start . "', '" . $job2__end . "', '" . $job2__details . "')"))
-            && (mysqli_query($conn, "INSERT INTO brouillon_experience (id_user, debut, fin, info) VALUES ($_SESSION[id], '" . $job3__start . "', '" . $job3__end . "', '" . $job3__details . "')"))
+               (mysqli_query($conn, "INSERT INTO brouillon_experience (id_user, debut, fin, info, date) VALUES ($_SESSION[id], '" . $job1__start . "', '" . $job1__end . "', '" . $job1__details . "', '" . $creationDate . "')"))
+            && (mysqli_query($conn, "INSERT INTO brouillon_experience (id_user, debut, fin, info, date) VALUES ($_SESSION[id], '" . $job2__start . "', '" . $job2__end . "', '" . $job2__details . "', '" . $creationDate . "')"))
+            && (mysqli_query($conn, "INSERT INTO brouillon_experience (id_user, debut, fin, info, date) VALUES ($_SESSION[id], '" . $job3__start . "', '" . $job3__end . "', '" . $job3__details . "', '" . $creationDate . "')"))
         ) {
         } else {
             echo "Error: " . $sql . "" . mysqli_error($conn);
