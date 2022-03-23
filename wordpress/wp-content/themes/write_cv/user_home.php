@@ -11,6 +11,7 @@ $db = new PDO('mysql:host=localhost;dbname=cvtheque;charset=utf8', 'root', '');
 
 //Compte User
 session_start();
+// debug($_SESSION);
 if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
     $id = $_SESSION["id"];
     $requestUtilisateur = $db->prepare("SELECT * FROM user WHERE id = '$id'");
@@ -43,8 +44,8 @@ if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
 
         if (in_array($file_extension, $extentions_autorisees)) {
             if (move_uploaded_file($file_tmp_name, $file_dest)) {
-                $req = $db->prepare('INSERT INTO cv_pdf(id_user, cv_name, file_url) VALUES(?,?,?)');
-                $req->execute(array($_SESSION['id'], $file_name, $file_dest));
+                $req = $db->prepare('INSERT INTO cv_pdf(id_cv, id_user, cv_name, file_url) VALUES(?,?,?,?)');
+                $req->execute(array($_SESSION['current_cv_id'], $_SESSION['id'], $file_name, $file_dest));
                 echo 'Votre CV a bien été envoyé !';
             } else {
                 echo 'erreur lors de lenvoi';
@@ -80,9 +81,9 @@ if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
                 <?php foreach ($brouillonCv as $brouillon) : ?>
                     <div id="brouillon_liste">
                         <div class="brouillon">
-                            <?= $brouillon['date'] ?>
+                            <?= $brouillon['date'] ?> 
                         </div>
-                    </div> <br>
+                    </div><i style="color: white;" class="fi fi-rr-trash"></i> <br>
 
                 <?php endforeach; ?>
             </div>
@@ -213,14 +214,16 @@ if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
         </div>
 
         <div id="telechargement">
-
-            <button id="create-resume" class="cursor" title="Attention: Cela va envoyer ton CV au recruteur">Sauvegarder & Envoyer</button>
-            <button id="brouillon" class="cursor" title="Sauvegarder mon CV dans ma CVthèque">Sauvegarder le brouillon</button>
-            <button onclick="printCV()" class="cursor" class="btn background">Imprimer <i class="fi fi-rr-print"></i></button>
-            <form action="" method="POST" enctype="multipart/form-data">
-                <input type="file" name="fichier">
-                <input type="submit" value="Envoyer">
-            </form>
+            <div>
+                <div style="color: #7267cb; font-weight:bold;" id="brouillon" class="cursor" title="Sauvegarder mon CV dans ma CVthèque">Sauvegarder le brouillon</div>
+                <div style="color:black;" onclick="printCV()" class="cursor" class="btn background">Imprimer <i class="fi fi-rr-print"></i></div>
+            </div>
+            <div id="envoi_recru">
+                <form action="" method="POST" enctype="multipart/form-data">
+                    <input type="file" name="fichier">
+                    <input type="submit" value="Envoyer au recruteur" id="create-resume" title="Attention: Cela va envoyer ton CV au recruteur">
+                </form>
+            </div>
         </div>
     </div>
     <div id="zoom_box">
@@ -236,78 +239,74 @@ if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
     </div>
 
 
+
     <!-- Modification Compte -->
     <div id="compte_user">
-        <button id="mon_compte"><i class="fi fi-rr-user" onclick="openProfil()"></i></button>
+        <img src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-color-vitaly-gorbachev/60/000000/external-man-love-vitaliy-gorbachev-lineal-color-vitaly-gorbachev.png" id="mon_compte" onclick="openProfil();" />
         <div id="myNav" class="overlay overAccount">
 
-            <!-- Modification Compte -->
-            <div id="compte_user">
-                <img src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-color-vitaly-gorbachev/60/000000/external-man-love-vitaliy-gorbachev-lineal-color-vitaly-gorbachev.png" id="mon_compte" onclick="openProfil();" />
-                <div id="myNav" class="overlay overAccount">
 
+            <a href="#"><img src="<?php echo get_template_directory_uri() ?>/assets/img/logo.png" width="50px" alt=""></a>
 
-                    <a href="#"><img src="<?php echo get_template_directory_uri() ?>/assets/img/logo.png" width="50px" alt=""></a>
+            <div class="overlayProfil">
+                <p><?php echo $users["user_surname"] . " " . $users["user_name"]; ?></p>
+                <a href="javascript:void(0)" class="closebtn" onclick="closeProfil()">&times;</a>
+                <a href="#" id="button-modif-open" onclick="ModifAccount()"><i class=""></i><br>Modifier Compte</a>
+                <a href="#" id="button-modif-close" onclick="ModifAccountClose()"><i class=""></i><br>Modifier Compte</a>
+                <div class="modifProfil">
+                    <form action="" method="post" class="formModif" onsubmit="return validateForm()">
 
-                    <div class="overlayProfil">
-                        <p><?php echo $users["user_surname"] . " " . $users["user_name"]; ?></p>
-                        <a href="javascript:void(0)" class="closebtn" onclick="closeProfil()">&times;</a>
-                        <a href="#" id="button-modif-open" onclick="ModifAccount()"><i class=""></i><br>Modifier Compte</a>
-                        <a href="#" id="button-modif-close" onclick="ModifAccountClose()"><i class=""></i><br>Modifier Compte</a>
-                        <div class="modifProfil">
-                            <form action="" method="post" class="formModif" onsubmit="return validateForm()">
+                        <label for="name-modif">Nom: </label>
+                        <input type="text" name="name-modif" id="name-modif" value="<?php echo $users["user_name"] ?>">
 
-                                <label for="name-modif">Nom: </label>
-                                <input type="text" name="name-modif" id="name-modif" value="<?php echo $users["user_name"] ?>">
+                        <label for="email-modif">Prenom: </label>
+                        <input type="text" name="surname-modif" id="surname-modif" value="<?php echo $users["user_surname"] ?>">
 
-                                <label for="email-modif">Prenom: </label>
-                                <input type="text" name="surname-modif" id="surname-modif" value="<?php echo $users["user_surname"] ?>">
+                        <label for="email-modif">E-mail: </label>
+                        <input type="email" name="email-modif" id="email-modif" value="<?php echo $users["user_email"] ?>">
+                        <div id="erreurChamp-text" class="erreur"></div>
 
-                                <label for="email-modif">E-mail: </label>
-                                <input type="email" name="email-modif" id="email-modif" value="<?php echo $users["user_email"] ?>">
-                                <div id="erreurChamp-text" class="erreur"></div>
-
-                                <input type="submit" value="Valider" id="submit-modif" name="submit-modif">
-                            </form>
-                        </div>
-                        <a href="#" class=" button-deconnexion" onclick="location.href='localhost/projCV/wordpress/accueil'">Deconnexion<i class="fi fi-rr-sign-out"></i></a>
-                    </div>
-                    <script>
-                        const email = document.getElementById("email-modif");
-                        $(function ValideEmail() {
-                            $(email).keyup(function() {
-                                emailAjax = $(email).val();
-                                $.ajax({
-                                    type: "POST",
-                                    url: "/projCV/wordpress/wp-content/themes/write_cv/inscriptionAjax.php",
-                                    data: "email-register=" + emailAjax,
-                                    success: function(data) {
-                                        if (data == 1) {
-                                            $('#erreurChamp-text').html("<p>mail déja utilisé</p>");
-                                            emailvalid = true;
-                                        } else {
-                                            $('#erreurChamp-text').html(" ");
-                                            emailvalid = false;
-                                        }
-                                    }
-                                });
-                            })
-                        });
-
-                        function validateForm() {
-                            if (emailvalid == true) {
-                                return false;
-                            }
-                        }
-                    </script>
-
-
-
+                        <input type="submit" value="Valider" id="submit-modif" name="submit-modif">
+                    </form>
                 </div>
+                <a href="#" class=" button-deconnexion" onclick="location.href='localhost/projCV/wordpress/accueil'">Deconnexion<i class="fi fi-rr-sign-out"></i></a>
             </div>
-            </body>
-        </div>
+            <script>
+                const email = document.getElementById("email-modif");
+                $(function ValideEmail() {
+                    $(email).keyup(function() {
+                        emailAjax = $(email).val();
+                        $.ajax({
+                            type: "POST",
+                            url: "/projCV/wordpress/wp-content/themes/write_cv/inscriptionAjax.php",
+                            data: "email-register=" + emailAjax,
+                            success: function(data) {
+                                if (data == 1) {
+                                    $('#erreurChamp-text').html("<p>mail déja utilisé</p>");
+                                    emailvalid = true;
+                                } else {
+                                    $('#erreurChamp-text').html(" ");
+                                    emailvalid = false;
+                                }
+                            }
+                        });
+                    })
+                });
 
-    <?php wp_footer();
+                function validateForm() {
+                    if (emailvalid == true) {
+                        return false;
+                    }
+                }
+            </script>
+
+
+
+        </div>
+    </div>
+    </body>
+    </div>
+
+<?php wp_footer();
 } else
     header("Location: http://localhost/projCV/wordpress/accueil/"); ?>
