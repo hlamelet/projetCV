@@ -82,11 +82,14 @@ get_header();
                         <h1>Bienvenue sur<br> Bertolluci Agency</h1>
                         <h2>Le site de création de CV en ligne de notre agence</h2>
                         <h3>Connexion</h3>
-                        <label for="name">E-mail: </label>
-                        <input type="email" name="email" id="email">
 
-                        <label for="email">mot de passe: </label>
-                        <input type="password" name="mdp" id="mdp">
+                        <div class="inputgroupe">
+                            <input type="text" class="form-field" name="email" id="email" required />
+                            <label for="email" class="form-label">E-mail : </label>
+                        </div>
+
+                        <input type="password" class="form-field" name="mdp" id="mdp">
+                        <label for="mdp" class="form-label">mot de passe: </label>
                         <div id="erreur-text" class="erreur"></div>
 
                         <input type="submit" value="Entrez" id="submit-login">
