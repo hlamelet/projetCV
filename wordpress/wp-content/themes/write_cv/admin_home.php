@@ -46,8 +46,12 @@ if (isset($_SESSION["admin"]) && ($_SESSION["admin"] == 1)) {
 
         <div id="logorec"><img src="<?php echo get_template_directory_uri() ?>/assets/img/logo.png" alt=""></div>
 
-        <div id="titre_re"><h3>Espace Recruteur</h3></div>
-        <div id="deco" onclick="location.href='localhost/projCV/wordpress/accueil'"><p>Deconnexion <br><i class="fi fi-rr-sign-out"></i></p></div>
+        <div id="titre_re">
+            <h3>Espace Recruteur</h3>
+        </div>
+        <div id="deco" onclick="location.href='localhost/projCV/wordpress/accueil'">
+            <p>Deconnexion <br><i class="fi fi-rr-sign-out"></i></p>
+        </div>
     </div>
 
     <div id="containerAdmin">
@@ -225,7 +229,7 @@ if (isset($_SESSION["admin"]) && ($_SESSION["admin"] == 1)) {
                         <th style='width: 10px;'>CV</th>
                         <th style='width: 10px;'>Mail</th>
                         <th style='width: 10px;'>Import Excel</th>
-                        <th style='width: 10px;' >Supprimer</th>
+                        <th style='width: 10px;'>Supprimer</th>
                     </tr>
                 </thead>
                 <tbody id='tbody'>
@@ -252,9 +256,31 @@ if (isset($_SESSION["admin"]) && ($_SESSION["admin"] == 1)) {
                         "<td><button style='color: #d1557c; cursor:pointer; background-color: #7ea4a400;' onclick='show(this)' class='boutonShow show" + requete[y]['id'] + "'><i class='fi fi-rr-eye'></i> </td>" +
                         "<td><button style='color: #929bff; cursor:pointer; background-color: #7ea4a400;' onclick='sendMail(this)' class='boutonShow show" + requete[y]['user_email'] + "'><i class='fi fi-rr-envelope'></i></td>" +
                         "<td><button onclick='testClass(this)' class='cv" + requete[y]['id'] + "'><i class='fi fi-rr-check'></i>" +
-                        "<td ><button style='color: red; cursor:pointer; background-color: #7ea4a400;' onclick='sendMail(this)' class='boutonShow show" + requete[y]['user_email'] + "'><i class='fi fi-rr-trash'></i></td>" +
+                        "<td ><button style='color: red; cursor:pointer; background-color: #7ea4a400;' class='delete-cv' id='" + requete[y]['id'] + "'" + "><i class='fi fi-rr-trash'></i></td>" +
                         "</tr>"
                 }
+
+                $(".delete-cv").click(function() {
+                    let current_id = $(this)[0].attributes[2].nodeValue;
+                    $.ajax({
+                        type: "POST",
+                        url: "/ProjCV/wordpress/wp-content/themes/write_cv/delete_cv.php",
+                        data: {
+                            current_id : current_id
+                        },
+                        cache: false,
+                        success: function(data) {
+                            console.log(data);
+                            location.reload();
+                        },
+                        error: function(xhr, status, error) {
+                            console.log(xhr);
+                            console.log(status);
+                            console.log(error);
+                        }
+                    });
+                });
+                
             </script>
 
         </div>
