@@ -219,9 +219,12 @@ if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
                 <div style="color:black;" onclick="printCV()" class="cursor" class="btn background">Imprimer <i class="fi fi-rr-print"></i></div>
             </div>
             <div id="envoi_recru">
+                <div id="create-resume">
+                    Envoyer au recruteur
+                </div>
                 <form action="" method="POST" enctype="multipart/form-data">
                     <input type="file" name="fichier">
-                    <input type="submit" value="Envoyer au recruteur" id="create-resume" title="Attention: Cela va envoyer ton CV au recruteur">
+                    <input type="submit" value="Envoyer le CV" title="Attention: Cela va envoyer ton CV au recruteur">
                 </form>
             </div>
         </div>
