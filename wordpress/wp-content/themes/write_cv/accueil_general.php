@@ -1,8 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<?php
+/*
+Template Name: Accueil general
+
+*/
+
+wp_head();
+get_header();
+
+?>
 
   <!-- font awesome file link  -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
@@ -331,3 +336,4 @@ Vous pourrez être amené à effectuer des déplacements en France ou à l’int
   
 </body>
 </html>
+<?php get_footer();?>
