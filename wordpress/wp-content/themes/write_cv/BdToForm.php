@@ -8,6 +8,8 @@ session_start();
 
 if (!empty($_POST['date_choice'])) {
     $date_choice = $_POST['date_choice'];
+} else {
+    return false;
 }
 
 $db = new PDO('mysql:host=localhost;dbname=cvtheque;charset=utf8', 'root', '');
