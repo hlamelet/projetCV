@@ -845,4 +845,3 @@ function displayResult() {
 		"Votre CV a bien été envoyé !";
 }
 
-
