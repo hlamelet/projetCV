@@ -689,6 +689,7 @@ $("#create-resume").click(function () {
 		},
 		cache: false,
 		success: function (data) {
+			alert('Votre CV a bien été envoyé!');
 			// alert(data);
 		},
 		error: function (xhr, status, error) {
@@ -696,8 +697,8 @@ $("#create-resume").click(function () {
 		},
 	});
 
-	const isValid = checkValidity();
-	if (isValid) buildResume(getState());
+	// const isValid = checkValidity();
+	// if (isValid) buildResume(getState());
 });
 
 // CHANGEMENT DES DIVS USERS
