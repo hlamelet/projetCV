@@ -572,6 +572,25 @@ function changeAnnie() {
 }
 
 // Requete Ajax
+$(".fi-rr-trash").click(function () {
+	let current_id = $(this)[0].attributes[0].nodeValue;
+	let date_choice = $(this)['context'].nextSibling.parentElement.children[current_id].innerText;
+	$.ajax({
+	  type: "POST",
+	  url: "/ProjCV/wordpress/wp-content/themes/write_cv/delete_brouillon.php",
+	  data: {date_choice : date_choice},
+	  cache: false,
+	  success: function (data) {
+		console.log(data);
+		location.reload();
+	  },
+	  error: function (xhr, status, error) {
+		console.log(xhr);
+		console.log(status);
+		console.log(error);
+	  }
+	});
+  });
 
 
 $(".brouillon").click(function () {

@@ -78,13 +78,16 @@ if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
 
             <div id="overlay-content2">
                 <h5 style="color: white;">Mes Brouillons</h5>
+                <?php $no = 1; ?>
                 <?php foreach ($brouillonCv as $brouillon) : ?>
                     <div id="brouillon_liste">
                         <div class="brouillon">
                             <?= $brouillon['date'] ?> 
                         </div>
-                    </div><i style="color: white;" class="fi fi-rr-trash"></i> <br>
-
+                    </div> 
+                    <i id="<?= $no; ?>"style="color: white;" class="fi fi-rr-trash"></i>
+                    <?php $no+=3; ?>
+                    <br>
                 <?php endforeach; ?>
             </div>
             <div id="overlay-content3"><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
