@@ -27,7 +27,7 @@ if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
     }
     // affichage des brouillons dans la cvthèque
 
-    $pdoStat = $db->prepare('SELECT * FROM brouillon_cv');
+    $pdoStat = $db->prepare("SELECT * FROM brouillon_cv WHERE id_user = $_SESSION[id]");
     $executeIsOk = $pdoStat->execute();
     $brouillonCv = $pdoStat->fetchAll();
 
