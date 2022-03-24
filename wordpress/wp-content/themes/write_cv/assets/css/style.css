@@ -26,10 +26,11 @@ body {
 /* principale */
 
 #bloc_principal_user {
-  width: 100%;
-  height: auto;
-  display: flex;
-  flex-direction: row;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    background-color: floralwhite;
 }
 
 /* Rideau de navigation des modèles cv */
@@ -69,12 +70,12 @@ body {
 }
 
 #overlay-content1 {
-  position: relative;
-  height: 646px;
-  width: auto;
-  text-align: center;
-  background-color: #150f5a;
-  border-radius: 0px 0px 10px 0px;
+    position: relative;
+    height: 546px;
+    width: auto;
+    text-align: center;
+    background-color: #150f5a;
+    border-radius: 0px 0px 10px 0px;
 }
 #overlay-content2 {
   width: 100%;
@@ -770,15 +771,15 @@ input[type="file"] {
   cursor: pointer;
 }
 #mon_compte {
-  background-color: lightgray;
-  color: white;
-  border-radius: 100%;
-  font-size: 20;
-  margin-right: 10px;
-  cursor: pointer;
-  position: fixed;
-  top: 20px;
-  right: 0;
+    background-color: lightgray;
+    color: white;
+    border-radius: 100%;
+    font-size: 20;
+    margin-right: 10px;
+    cursor: pointer;
+    position: fixed;
+    top: 40px;
+    right: 0;
 }
 /* Fonts Change*/
 #sacramento {
