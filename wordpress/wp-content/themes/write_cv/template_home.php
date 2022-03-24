@@ -107,11 +107,9 @@ get_header();
             <div class="container-register">
 
 
-
-
                 <div class="register-text">
 
-                    <form action="" method="post" class="form-register" onsubmit="return validateForm()" name="register" id="register">
+                    <form action="" method="post" onsubmit="return validateForm()" class="form-register" name="register" id="register">
 
 
                         <div class="inputgroupe">
@@ -207,6 +205,14 @@ get_header();
     login.addEventListener("click", showPage);
     mdp.addEventListener('input', passwordChange);
 
+    $('#mdp-register-confirm')
+        .on('keyup', function() {
+            if (mdpConf.value != mdp.value) {
+                erreurchamp.innerHTML = "<p>Les mots de passes sont différents</p>";
+            } else {
+                erreurchamp.innerHTML = "";
+            }
+        })
 
     function validateForm() {
         var x = document.forms["register"]["name-register", "surname-register", "email-register", "mdp-register", "mdp-register-confirm"].value;
