@@ -84,12 +84,12 @@ if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
                 <h5 style="color: white;">Mes Brouillons</h5>
                 <?php $no = 1; ?>
                 <?php foreach ($brouillonCv as $brouillon) : ?>
-                    <div id="brouillon_liste">
+                    <div id="brouillon_liste" style="cursor: pointer;">
                         <div class="brouillon">
                             <?= $brouillon['date'] ?>
                         </div>
                     </div>
-                    <i id="<?= $no; ?>" style="color: white;" class="fi fi-rr-trash"></i>
+                    <i id="<?= $no; ?>" style="color: white; cursor:pointer;" class="fi fi-rr-trash"></i>
                     <?php $no += 3; ?>
                     <br>
                 <?php endforeach; ?>
