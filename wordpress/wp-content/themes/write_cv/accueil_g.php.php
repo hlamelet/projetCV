@@ -17,8 +17,7 @@ Template Name: accueil general
 
 <h1 class="banner">Bertolucci Agency</h1>
 <h3 class="slogan">Agence de Recrutement</h3>
-<a href="#"><button>se connecter </button></a>
-
+<a href="<?php the_permalink() ?>Accueil" title=""><button>se connecter </button></a>
 
 <div class="wave wave1"></div>
 <div class="wave wave2"></div>
