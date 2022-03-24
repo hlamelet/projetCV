@@ -19,17 +19,17 @@
 			<div class="Reseau">
 				<h3>Reseaux sociaux</h3>
 				<ul>
-					<li><a href=" #">Facebook</a></li>
-					<li><a href="#">Twitter</a></li>
-					<li><a href="#">Linkedin</a></li>
+					<li><a href="https://fr-fr.facebook.com/">Facebook</a></li>
+					<li><a href="https://twitter.com/?lang=fr">Twitter</a></li>
+					<li><a href="https://www.linkedin.com/">Linkedin</a></li>
 				</ul>
 			</div>
 			<div class="Societe">
 				<h3>Société</h3>
 				<ul>
-					<li><a href="#">L'agence</a></li>
-					<li><a href="#">L'Equipe</a></li>
-					<li><a href="#">Developpement web</a></li>
+					<li><a href="localhost/projCV/wordpress/accueil-general">L'agence</a></li>
+					<li><a href="https://www.lequipe.fr/">L'Equipe</a></li>
+					<li><a href="https://www.needfor-school.com/">Developpement web</a></li>
 				</ul>
 			</div>
 			<div class="About">
@@ -37,7 +37,7 @@
 				<ul>
 					<li><a href="#">Mentions Légales</a></li>
 					<li><a href="#">Conditions générales d'utilisation</a></li>
-					<li><a href="#">Mise a jour du site</a></li>
+					<li><a href="https://wordpress.org/">Mise a jour du site</a></li>
 				</ul>
 			</div>
 
