@@ -48,19 +48,9 @@
 			</div><!-- .site-branding -->
 			<div class="header-nav">
 
-				<img src="/projCV/wordpress/wp-content/themes/write_cv/assets/img/Bertolucci.png" alt="logo" id="logo">
+				<a href="localhost/projCV/wordpress/accueil-generale"><img src="/projCV/wordpress/wp-content/themes/write_cv/assets/img/Bertolucci.png" alt="logo" id="logo"></a>
 				<h1 id="titre">Bertolucci Agency</h1>
-				<nav id="site-navigation" class="main-navigation">
-					<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e('Primary Menu', 'write_cv'); ?></button>
-					<?php
-					wp_nav_menu(
-						array(
-							'theme_location' => 'menu-1',
-							'menu_id'        => 'primary-menu',
-						)
-					);
-					?>
-				</nav>
+
 			</div>
 			<!-- #site-navigation -->
 		</header><!-- #masthead -->
