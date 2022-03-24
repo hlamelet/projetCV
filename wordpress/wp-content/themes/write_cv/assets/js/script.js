@@ -814,15 +814,15 @@ $("#brouillon").click(function () {
 		},
 		cache: false,
 		success: function (data) {
-			// alert(data);
+			alert("Votre CV a bien été sauvegardé");
 		},
 		error: function (xhr, status, error) {
 			console.error(xhr);
 		},
 	});
 
-	const isValid = checkValidity();
-	if (isValid) buildResume(getState());
+	// const isValid = checkValidity();
+	// if (isValid) buildResume(getState());
 });
 
 //   Zoom

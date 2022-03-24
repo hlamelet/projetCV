@@ -46,7 +46,9 @@ if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
             if (move_uploaded_file($file_tmp_name, $file_dest)) {
                 $req = $db->prepare('INSERT INTO cv_pdf(id_cv, id_user, cv_name, file_url) VALUES(?,?,?,?)');
                 $req->execute(array($_SESSION['current_cv_id'], $_SESSION['id'], $file_name, $file_dest));
-                echo 'Votre CV a bien été envoyé !';
+                ?>
+                <script>alert('Votre fichier a bien été envoyé')</script>
+                <?php
             } else {
                 echo 'erreur lors de lenvoi';
             }
