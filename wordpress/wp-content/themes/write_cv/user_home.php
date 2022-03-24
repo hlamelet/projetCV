@@ -226,7 +226,7 @@ if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
 
 
                 <form action="" method="POST" enctype="multipart/form-data">
-                    <input type="file" name="fichier">
+                    <input id="input_file_pdf" type="file" name="fichier">
                     <div id="create-resume"><input type="submit" value="Envoyer le CV" title="Attention: Cela va envoyer ton CV au recruteur" style="cursor:pointer"></div>
                 </form>
 
