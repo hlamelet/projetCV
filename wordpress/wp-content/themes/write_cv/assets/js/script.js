@@ -716,11 +716,6 @@ function changeCvtheque() {
 	).innerHTML = "non";
 }
 
-function changeModele() {
-	document.getElementById("overlay-content2").innerHTML =
-		'<h5 style="color: white;">Templates de CV</h5>';
-}
-
 function changeStyle() {
 	document.getElementById("overlay-content2").innerHTML =
 		'<h5 style="color: white;">Couleur du CV</h5><button onclick="gfg_Run()" id="yellow_color"></button><button onclick="blue_Run()" id="blue_color"></button><button onclick="green_Run()" id="green_color"></button><button onclick="grey_Run()" id="grey_color"></button><button onclick="pink_Run()" id="purple_color"></button><h5 style="color: white;">Polices de caractères</h5><button onclick="changeSacramento()" id="sacramento">Je suis un beau CV</button><button onclick="changeGochi()" id="gochi">Je suis un beau CV</button><button onclick="changeAnnie()" id="annie">Je suis un beau CV</button>';

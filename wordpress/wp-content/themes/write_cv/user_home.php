@@ -237,7 +237,7 @@ if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
 
                 <!-- Modal content -->
                 <div class="modal-content">
-                    <span class="close">x</span>
+                    <span class="close"><i class="fi fi-rr-cross"></i></span>
                     <p style="font-weight: 600;">Comment envoyer son CV ?</p><br>
                     <p>1. Remplis tes informations directement sur la feuille en cliquant sur les éléments.</p><br>
                     <p>2. Stylise-le en changeant les couleurs et la police</p><br>
@@ -271,9 +271,8 @@ if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
             <a href="#"><img src="<?php echo get_template_directory_uri() ?>/assets/img/logo.png" width="50px" alt=""></a>
 
             <div class="overlayProfil">
-
-                <a href="javascript:void(0)" class="closebtn" onclick="closeProfil()">&times;</a>
                 <p><?php echo $users["user_surname"] . " " . $users["user_name"]; ?></p>
+                <a href="javascript:void(0)" class="closebtn" id="closeprofil" onclick="closeProfil()">&times;</a>
                 <a href="#" id="button-modif-open" onclick="ModifAccount()"><i class=""></i><br>Modifier Compte</a>
                 <a href="#" id="button-modif-close" onclick="ModifAccountClose()"><i class=""></i><br>Modifier Compte</a>
                 <div class="modifProfil">

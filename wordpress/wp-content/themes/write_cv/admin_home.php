@@ -257,8 +257,8 @@ if (isset($_SESSION["admin"]) && ($_SESSION["admin"] == 1)) {
                         "<td>" + requete[y]['user_adresse'] + "</td>" +
                         "<td><button style='color: #d1557c; cursor:pointer; background-color: #7ea4a400;' onclick='show(this)' class='boutonShow show" + requete[y]['id'] + "'><i class='fi fi-rr-eye'></i> </td>" +
                         "<td><button style='color: #929bff; cursor:pointer; background-color: #7ea4a400;' onclick='sendMail(this)' class='boutonShow show" + requete[y]['user_email'] + "'><i class='fi fi-rr-envelope'></i></td>" +
-                        "<td><button onclick='testClass(this)' class='cv" + requete[y]['id'] + "'><i class='fi fi-rr-check'></i>" +
-                        "<td ><button style='color: red; cursor:pointer; background-color: #7ea4a400;' class='delete-cv' id='" + requete[y]['id'] + "'" + "><i class='fi fi-rr-trash'></i></td>" +
+                        "<td><button style='border:none; border-radius:50%; padding:5px' onclick='testClass(this)' class='cv" + requete[y]['id'] + "'><i class='fi fi-rr-check'></i>" +
+                        "<td ><button style='color: red; cursor:pointer; background-color:#7ea4a400; border:none;' class='delete-cv' id='" + requete[y]['id'] + "'" + "><i class='fi fi-rr-trash'></i></td>" +
                         "</tr>"
                 }
 
