@@ -66,7 +66,7 @@ if (isset($_SESSION["admin"]) && ($_SESSION["admin"] == 1)) {
             <div class="selectionToExcelBtn">
                 <p> Librairie CV <br><i class="fi fi-rr-eye"></i></p>
             </div>
-            <a href="../write_cv/assets/Form/index.php">
+            <a href="http://localhost/projCV/wordpress/wp-content/themes/write_cv/assets/Form/">
                 <div class="selectionToExcelBtn">
                     <p> Contacter un candidat <br> <i class="fi fi-rr-envelope"></i></p>
                 </div>

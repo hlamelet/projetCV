@@ -46,7 +46,6 @@ if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
             if (move_uploaded_file($file_tmp_name, $file_dest)) {
                 $req = $db->prepare('INSERT INTO cv_pdf(id_cv, id_user, cv_name, file_url) VALUES(?,?,?,?)');
                 $req->execute(array($_SESSION['current_cv_id'], $_SESSION['id'], $file_name, $file_dest));
-
             } else {
                 echo 'erreur lors de lenvoi';
             }
@@ -54,7 +53,7 @@ if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
     }
 
     wp_head();
-    ?>
+?>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 
@@ -224,13 +223,13 @@ if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
             </div>
             <div id="envoi_recru">
                 <p> ⚠️ Télécharge ton cv & dépose le ici avant d'envoyer</p>
-                
-                   
-                <form action="" method="POST" enctype="multipart/form-data" >
+
+
+                <form action="" method="POST" enctype="multipart/form-data">
                     <input type="file" name="fichier">
-                    <div id="create-resume" ><input type="submit" value="Envoyer le CV"  title="Attention: Cela va envoyer ton CV au recruteur" style="cursor:pointer"></div> 
+                    <div id="create-resume"><input type="submit" value="Envoyer le CV" title="Attention: Cela va envoyer ton CV au recruteur" style="cursor:pointer"></div>
                 </form>
-            
+
             </div>
             <!-- Trigger/Open The Modal -->
             <!-- The Modal -->
@@ -244,7 +243,7 @@ if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
                     <p>2. Stylise-le en changeant les couleurs et la police</p><br>
                     <p>3. Télécharge ton CV <i class="fi fi-rr-download"></i> (le bouton se trouve à gauche)</p><br>
                     <p>4. </p>
-                    
+
                 </div>
 
             </div>
@@ -272,8 +271,9 @@ if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
             <a href="#"><img src="<?php echo get_template_directory_uri() ?>/assets/img/logo.png" width="50px" alt=""></a>
 
             <div class="overlayProfil">
-                <p><?php echo $users["user_surname"] . " " . $users["user_name"]; ?></p>
+
                 <a href="javascript:void(0)" class="closebtn" onclick="closeProfil()">&times;</a>
+                <p><?php echo $users["user_surname"] . " " . $users["user_name"]; ?></p>
                 <a href="#" id="button-modif-open" onclick="ModifAccount()"><i class=""></i><br>Modifier Compte</a>
                 <a href="#" id="button-modif-close" onclick="ModifAccountClose()"><i class=""></i><br>Modifier Compte</a>
                 <div class="modifProfil">

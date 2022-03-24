@@ -17,7 +17,8 @@ include("testphpMailer.php");
 </head>
 
 <body>
-    <div class="container">
+    <a href="http://localhost/projCV/wordpress/espace-administrateur"><img id="imgRetour" src="/projCV/wordpress\wp-content\themes\write_cv\assets\img\btnretour.png"></a>
+    <div class=" container">
 
         <h1 class="brand"><span>Contact</span></h1>
 
@@ -44,7 +45,9 @@ include("testphpMailer.php");
                     <p>
                         <label>envoyer un mail à :</label>
                         <script>
-                            let email_de_contact = sessionStorage.getItem('email').substring(2)
+                            let email_de_contact = sessionStorage.getItem('email').substring(2);
+
+
                             document.write("<input type = 'email' name = 'email' value ='" + email_de_contact + "'required ><br>")
                         </script>
 
@@ -55,12 +58,12 @@ include("testphpMailer.php");
                         <textarea name="message" rows="5" id="message" placeholder="Bonjour, nous avons retenu votre candidature..."></textarea>
                     </p>
                     <p class="full">
-                        <input  name="submit" type="submit">
+                        <input name="submit" type="submit">
                     </p>
                 </form>
                 <?php
-                if(!empty($_POST["submit"])){
-                    smtpMailer($_POST['email'], GMailUSER, 'Bertolucci Agency' , 'Retour candidature ',$_POST['message']);
+                if (!empty($_POST["submit"])) {
+                    smtpMailer($_POST['email'], GMailUSER, 'Bertolucci Agency', 'Retour candidature ', $_POST['message']);
                 }
                 ?>
             </div>

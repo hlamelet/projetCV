@@ -17,6 +17,10 @@ body {
   padding: 1em;
 }
 
+#imgRetour{
+  width: 20px;
+}
+
 .container {
   max-width: 1170px;
   margin-left: auto;
