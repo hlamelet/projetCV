@@ -1012,7 +1012,7 @@ h4 {
   text-align: center;
 }
 
-.header-nav a {
+/* .header-nav a {
     color: white;
     border: 2px solid white;
     border-radius: 25px;
@@ -1023,7 +1023,7 @@ h4 {
 .header-nav a:hover {
 	background-color: white;
 	color: #6e3cbc;
-}
+} */
 
 /* TUTORIAL */
 
