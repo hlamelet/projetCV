@@ -71,7 +71,7 @@ body {
 
 #overlay-content1 {
     position: relative;
-    height: 546px;
+    height: 605px;
     width: auto;
     text-align: center;
     background-color: #150f5a;
@@ -953,7 +953,21 @@ td {
   margin: 5px;
   border-radius: 20px;
 }
-
+#brouillon{
+	color: #7267cb; 
+	font-weight:bold;
+}
+#brouillon:hover {
+    transform: scale(1.1);
+	color: #7267cb; 
+	font-weight:bold;
+}
+#print{
+	color: #000;
+}
+#print:hover {
+    transform: scale(1.1);
+}
 /* template cv */
 h4 {
   font-size: 30px;
@@ -988,3 +1002,57 @@ h4 {
   text-align: center;
 }
 
+.header-nav a {
+    color: white;
+    border: 2px solid white;
+    border-radius: 25px;
+    padding: 7px;
+    font-weight: 600;
+}
+
+.header-nav a:hover {
+	background-color: white;
+	color: #6e3cbc;
+}
+
+/* TUTORIAL */
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 5px;
+    border: none;
+    width: 30%;
+    border-radius: 20px;
+    background-image: linear-gradient(19deg, #21b2fd 0%, #7267cb 100%);
+    color: white;
+}
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}

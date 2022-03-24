@@ -46,9 +46,11 @@ if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
             if (move_uploaded_file($file_tmp_name, $file_dest)) {
                 $req = $db->prepare('INSERT INTO cv_pdf(id_cv, id_user, cv_name, file_url) VALUES(?,?,?,?)');
                 $req->execute(array($_SESSION['current_cv_id'], $_SESSION['id'], $file_name, $file_dest));
-                ?>
-                <script>alert('Votre fichier a bien été envoyé')</script>
-                <?php
+?>
+                <script>
+                    alert('Votre fichier a bien été envoyé')
+                </script>
+    <?php
             } else {
                 echo 'erreur lors de lenvoi';
             }
@@ -56,7 +58,7 @@ if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
     }
 
     wp_head();
-?>
+    ?>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 
@@ -75,6 +77,7 @@ if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
                 <a href="#" class="style_bouton"><i class="fi fi-rr-picture"></i><br>Importer</a>
                 <a href="#" id="telecharger" class="style_bouton"><i class="fi fi-rr-download"></i><br>Télécharger</a>
                 <a href="#" class="style_bouton" value="Rafraîchir" onclick="history.go(0)"><i class="fi fi-rr-add"></i><br>Nouveau</a>
+                <a href="#" id="myBtn" class="style_bouton"><i class="fi fi-rr-interrogation"></i><br>Tutoriel</a>
             </div>
 
             <div id="overlay-content2">
@@ -83,11 +86,11 @@ if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
                 <?php foreach ($brouillonCv as $brouillon) : ?>
                     <div id="brouillon_liste">
                         <div class="brouillon">
-                            <?= $brouillon['date'] ?> 
+                            <?= $brouillon['date'] ?>
                         </div>
-                    </div> 
-                    <i id="<?= $no; ?>"style="color: white;" class="fi fi-rr-trash"></i>
-                    <?php $no+=3; ?>
+                    </div>
+                    <i id="<?= $no; ?>" style="color: white;" class="fi fi-rr-trash"></i>
+                    <?php $no += 3; ?>
                     <br>
                 <?php endforeach; ?>
             </div>
@@ -218,18 +221,36 @@ if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
         </div>
 
         <div id="telechargement">
+
             <div>
-                <div style="color: #7267cb; font-weight:bold;" id="brouillon" class="cursor" title="Sauvegarder mon CV dans ma CVthèque">Sauvegarder le brouillon</div>
-                <div style="color:black;" onclick="printCV()" class="cursor" class="btn background">Imprimer <i class="fi fi-rr-print"></i></div>
+                <div id="brouillon" class="cursor" title="Sauvegarder mon CV dans ma CVthèque">Sauvegarder le brouillon</div>
+                <div id="print" onclick="printCV()" class="cursor" class="btn background">Imprimer <i class="fi fi-rr-print"></i></div>
             </div>
             <div id="envoi_recru">
-                <div id="create-resume">
-                    Envoyer au recruteur
-                </div>
-                <form action="" method="POST" enctype="multipart/form-data">
+                <p> ⚠️ Télécharge ton cv & dépose le ici avant d'envoyer</p>
+                
+                   
+                <form action="" method="POST" enctype="multipart/form-data" >
                     <input type="file" name="fichier">
-                    <input type="submit" value="Envoyer le CV" title="Attention: Cela va envoyer ton CV au recruteur">
+                    <div id="create-resume" ><input type="submit" value="Envoyer le CV"  title="Attention: Cela va envoyer ton CV au recruteur" style="cursor:pointer"></div> 
                 </form>
+            
+            </div>
+            <!-- Trigger/Open The Modal -->
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close">x</span>
+                    <p style="font-weight: 600;">Comment envoyer son CV ?</p><br>
+                    <p>1. Remplis tes informations directement sur la feuille en cliquant sur les éléments.</p><br>
+                    <p>2. Stylise-le en changeant les couleurs et la police</p><br>
+                    <p>3. Télécharge ton CV <i class="fi fi-rr-download"></i> (le bouton se trouve à gauche)</p><br>
+                    <p>4. </p>
+                    
+                </div>
+
             </div>
         </div>
     </div>
@@ -244,7 +265,6 @@ if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
             -
         </button>
     </div>
-
 
 
     <!-- Modification Compte -->
@@ -278,6 +298,9 @@ if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
                 </div>
                 <a href="#" class=" button-deconnexion" onclick="location.href='localhost/projCV/wordpress/accueil'">Deconnexion<i class="fi fi-rr-sign-out"></i></a>
             </div>
+
+
+
             <script>
                 const email = document.getElementById("email-modif");
                 $(function ValideEmail() {
@@ -313,13 +336,13 @@ if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
     </div>
     </body>
     </div>
-<style>
-    body {
-    background-color: floralwhite;
-    background-image: none;
-    font-family: "Poppins", sans-serif;
-}
-</style>
+    <style>
+        body {
+            background-color: floralwhite;
+            background-image: none;
+            font-family: "Poppins", sans-serif;
+        }
+    </style>
 <?php wp_footer();
 } else
     header("Location: http://localhost/projCV/wordpress/accueil/"); ?>
