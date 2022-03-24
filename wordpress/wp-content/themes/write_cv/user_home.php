@@ -27,7 +27,7 @@ if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
     }
     // affichage des brouillons dans la cvthèque
 
-    $pdoStat = $db->prepare('SELECT * FROM brouillon_cv');
+    $pdoStat = $db->prepare("SELECT * FROM brouillon_cv WHERE id_user = $_SESSION[id]");
     $executeIsOk = $pdoStat->execute();
     $brouillonCv = $pdoStat->fetchAll();
 
@@ -46,7 +46,9 @@ if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
             if (move_uploaded_file($file_tmp_name, $file_dest)) {
                 $req = $db->prepare('INSERT INTO cv_pdf(id_cv, id_user, cv_name, file_url) VALUES(?,?,?,?)');
                 $req->execute(array($_SESSION['current_cv_id'], $_SESSION['id'], $file_name, $file_dest));
-                echo 'Votre CV a bien été envoyé !';
+                ?>
+                <script>alert('Votre fichier a bien été envoyé')</script>
+                <?php
             } else {
                 echo 'erreur lors de lenvoi';
             }
@@ -69,7 +71,6 @@ if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
             <div id="overlay-content1">
                 <a href="#"><img src="<?php echo get_template_directory_uri() ?>/assets/img/logo.png" width="70px" alt=""></a>
                 <a href="#" class="style_bouton" onclick="changeCvtheque()"><i class="fi fi-rr-document"></i><br>CVthèque</a>
-                <a href="#" class="style_bouton" onclick="changeModele()"><i class="fi fi-rr-apps"></i><br>Modèles</a>
                 <a href="#" onclick="changeStyle()" class="style_bouton"><i class="fi fi-rr-pencil"></i><br>Style</a>
                 <a href="#" class="style_bouton"><i class="fi fi-rr-picture"></i><br>Importer</a>
                 <a href="#" id="telecharger" class="style_bouton"><i class="fi fi-rr-download"></i><br>Télécharger</a>
@@ -312,7 +313,13 @@ if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
     </div>
     </body>
     </div>
-
+<style>
+    body {
+    background-color: floralwhite;
+    background-image: none;
+    font-family: "Poppins", sans-serif;
+}
+</style>
 <?php wp_footer();
 } else
     header("Location: http://localhost/projCV/wordpress/accueil/"); ?>

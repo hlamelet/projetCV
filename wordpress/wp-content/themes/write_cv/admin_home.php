@@ -66,9 +66,11 @@ if (isset($_SESSION["admin"]) && ($_SESSION["admin"] == 1)) {
             <div class="selectionToExcelBtn">
                 <p> Librairie CV <br><i class="fi fi-rr-eye"></i></p>
             </div>
-            <div class="selectionToExcelBtn">
-                <p> Contacter un candidat <br> <i class="fi fi-rr-envelope"></i></p>
-            </div>
+            <a href="../write_cv/assets/Form/index.php">
+                <div class="selectionToExcelBtn">
+                    <p> Contacter un candidat <br> <i class="fi fi-rr-envelope"></i></p>
+                </div>
+            </a>
 
             <div class="selectionToExcelBtn">
                 <p>Paramètres <br> <i class="fi fi-rr-settings"></i></p>
@@ -266,7 +268,7 @@ if (isset($_SESSION["admin"]) && ($_SESSION["admin"] == 1)) {
                         type: "POST",
                         url: "/ProjCV/wordpress/wp-content/themes/write_cv/delete_cv.php",
                         data: {
-                            current_id : current_id
+                            current_id: current_id
                         },
                         cache: false,
                         success: function(data) {
@@ -280,7 +282,6 @@ if (isset($_SESSION["admin"]) && ($_SESSION["admin"] == 1)) {
                         }
                     });
                 });
-                
             </script>
 
         </div>
