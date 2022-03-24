@@ -557,7 +557,9 @@ function green_Run() {
 function grey_Run() {
 	changeColor("#8f8f8f");
 }
-
+function marron_Run() {
+	changeColor("#754726");
+}
 // Changement font
 
 function changeSacramento() {
@@ -716,11 +718,14 @@ function changeCvtheque() {
 	).innerHTML = "non";
 }
 
-function changeStyle() {
+function changeCouleurs() {
 	document.getElementById("overlay-content2").innerHTML =
-		'<h5 style="color: white;">Couleur du CV</h5><button onclick="gfg_Run()" id="yellow_color"></button><button onclick="blue_Run()" id="blue_color"></button><button onclick="green_Run()" id="green_color"></button><button onclick="grey_Run()" id="grey_color"></button><button onclick="pink_Run()" id="purple_color"></button><h5 style="color: white;">Polices de caractères</h5><button onclick="changeSacramento()" id="sacramento">Je suis un beau CV</button><button onclick="changeGochi()" id="gochi">Je suis un beau CV</button><button onclick="changeAnnie()" id="annie">Je suis un beau CV</button>';
+		'<h5 style="color: white; padding-bottom:15px">Couleur du CV</h5><button onclick="gfg_Run()" class="color_class" id="yellow_color"></button><button onclick="blue_Run()" class="color_class" id="blue_color"></button><button onclick="green_Run()" class="color_class" id="green_color"></button><button onclick="grey_Run()" class="color_class" id="grey_color"></button><button onclick="pink_Run()" class="color_class" id="purple_color"></button></br><button onclick="marron_Run()" class="color_class" id="marron_color"></button>';
 }
-
+function changeFonts() {
+	document.getElementById("overlay-content2").innerHTML =
+		'<h5 style="color: white;">Polices de caractères</h5><button onclick="changeSacramento()" id="sacramento">Je suis un beau CV</button><button onclick="changeGochi()" id="gochi">Je suis un beau CV</button><button onclick="changeAnnie()" id="annie">Je suis un beau CV</button>';
+}
 // Interieur d'une div bouge
 
 function mouseOver(event) {
@@ -873,4 +878,27 @@ window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
+}
+
+// darkmode
+function myFunction() {
+  var element = document.getElementById("div_gauche");
+  element.classList.toggle("dark-mode");
+}
+
+function toggle(anId)
+{
+node = document.getElementById(anId);
+if (node.style.visibility=="hidden")
+{
+// Contenu caché, le montrer
+node.style.visibility = "visible";
+node.style.height = "auto"; // Optionnel rétablir la hauteur
+}
+else
+{
+// Contenu visible, le cacher
+node.style.visibility = "hidden";
+node.style.height = "0"; // Optionnel libérer l'espace
+}
 }

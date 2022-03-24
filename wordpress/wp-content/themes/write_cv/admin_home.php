@@ -57,23 +57,11 @@ if (isset($_SESSION["admin"]) && ($_SESSION["admin"] == 1)) {
     <div id="containerAdmin">
         <!-- ------------------------------------------partie CV -->
         <div id="div_gauche">
-            <div class="selectionToExcelBtn">
-                <p> Liste des CVs <br> <i class="fi fi-rr-document"></i></p>
-            </div>
             <div onclick="selectionToExcel()" class="selectionToExcelBtn">
                 <p> Export format excel <br> <i class="fi fi-rr-download"></i></p>
             </div>
-            <div class="selectionToExcelBtn">
-                <p> Librairie CV <br><i class="fi fi-rr-eye"></i></p>
-            </div>
-            <a href="http://localhost/projCV/wordpress/wp-content/themes/write_cv/assets/Form/">
-                <div class="selectionToExcelBtn">
-                    <p> Contacter un candidat <br> <i class="fi fi-rr-envelope"></i></p>
-                </div>
-            </a>
-
-            <div class="selectionToExcelBtn">
-                <p>Paramètres <br> <i class="fi fi-rr-settings"></i></p>
+            <div  class="selectionToExcelBtn" onclick="myFunction()">
+                <p> Darkmode <br> <i class="fi fi-rr-bulb"></i></p>
             </div>
         </div>
         <div id="containerCVAdmin">
