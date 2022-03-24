@@ -266,7 +266,7 @@ if (isset($_SESSION["admin"]) && ($_SESSION["admin"] == 1)) {
                         type: "POST",
                         url: "/ProjCV/wordpress/wp-content/themes/write_cv/delete_cv.php",
                         data: {
-                            current_id : current_id
+                            current_id: current_id
                         },
                         cache: false,
                         success: function(data) {
@@ -280,7 +280,6 @@ if (isset($_SESSION["admin"]) && ($_SESSION["admin"] == 1)) {
                         }
                     });
                 });
-                
             </script>
 
         </div>
