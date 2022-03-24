@@ -44,7 +44,8 @@ include("testphpMailer.php");
                     <p>
                         <label>envoyer un mail à :</label>
                         <script>
-                            document.write("<input type = 'email' name = 'email' value ='" + sessionStorage.getItem('email') + "'required ><br>")
+                            let email_de_contact = sessionStorage.getItem('email').substring(2)
+                            document.write("<input type = 'email' name = 'email' value ='" + email_de_contact + "'required ><br>")
                         </script>
 
                     </p>
