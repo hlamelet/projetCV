@@ -74,7 +74,7 @@ Template Name: accueil general
   <div class="content">
     <h3>Développeur Front-End </h3>
     <p>En tant que développeur front-end vous ferez partie de l’équipe de conception des interfaces de notre application développée autour du framework React.js.</p>
-    <a href="#"><button class="btn">Déposer son Cv</button></a>
+    <a href="<?php the_permalink() ?>Accueil" title=""><button class="btn">Déposer son Cv</button></a>
   </div>
 
 </div>
@@ -84,7 +84,7 @@ Template Name: accueil general
   <div class="content">
     <h3>Développeur Mobile</h3>
     <p>- Développeur Android - Mobilité Nous recherchons pour l'un de nos partenaire, société qui développe des solutions de mobilité partagée, leur futur Développeur Mobile pour les accompagner dans leurs nouveaux projets en 2022..</p>
-    <a href="#"><button class="btn">Déposer son Cv</button></a>
+     <a href="<?php the_permalink() ?>Accueil" title=""><button class="btn">Déposer son Cv</button></a>
   </div>
   <div class="image">
     <img src="<?php echo get_template_directory_uri() ?>/assets/img/img2.svg" alt="">
@@ -101,7 +101,7 @@ Template Name: accueil general
   <div class="content">
     <h3>Graphiste</h3>
     <p>- réaliser la mise en page de tout type de supports Print,de créer des projets publicitaires en corrélation avec les identités visuelles des clients. les fichiers réalisés devront être mis au format pour l'imprimeur.</p>
-    <a href="#"><button class="btn">Déposer son Cv</button></a>
+    <a href="<?php the_permalink() ?>Accueil" title=""><button class="btn">Déposer son Cv</button></a>
   </div>
 
 </div>
@@ -112,7 +112,7 @@ Template Name: accueil general
     <h3>Chargé de projet</h3>
     <p>- Votre travail consistera à donner vie à des projets variés, en partant d’un brief, ou bien d’une de vos propositions.
 Vous pourrez être amené à effectuer des déplacements en France ou à l’international.</p>
-    <a href="#"><button class="btn">Déposer son Cv</button></a>
+<a href="<?php the_permalink() ?>Accueil" title=""><button class="btn">Déposer son Cv</button></a>
   </div>
   <div class="image">
     <img src="<?php echo get_template_directory_uri() ?>/assets/img/img4.svg" alt="">
@@ -129,7 +129,7 @@ Vous pourrez être amené à effectuer des déplacements en France ou à l’int
   <div class="content">
     <h3> Community Manager</h3>
     <p>Nous recherchons un profil motivé, passionné par la communication digitale / les nouvelles technologies et ayant déjà une première expérience professionnelle sur le même type de poste.</p>
-    <a href="#"><button class="btn">Déposer son CV</button></a>
+    <a href="<?php the_permalink() ?>Accueil" title=""><button class="btn">Déposer son CV</button></a>
   </div>
 
 </div>
@@ -139,7 +139,7 @@ Vous pourrez être amené à effectuer des déplacements en France ou à l’int
   <div class="content">
     <h3>Administrateur Systèmes et Réseaux</h3>
     <p>Rattaché au Responsable Informatique, vous êtes le garant de la fiabilité, de la disponibilité, de la performance, de la sécurité, de la confidentialité et de l’évolution des systèmes d’informations.</p>
-    <a href="#"><button class="btn">Déposer son CV</button></a>
+    <a href="<?php the_permalink() ?>Accueil" title=""><button class="btn">Déposer son CV</button></a>
   </div>
   <div class="image">
     <img src="<?php echo get_template_directory_uri() ?>/assets/img/img6.svg" alt="">
@@ -504,7 +504,7 @@ background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
   left: 0;
   height:11rem;
   width: 100%;
-  background: url("C:/xampp/htdocs/projCV/wordpress/wp-content/themes/write_cv/assets/img/wave.png");
+  background-image: url('C:\xampp\htdocs\projCV\wordpress\wp-content\themes\write_cv\assets\img\wave.png');
   background-size: 100rem 11rem;
   background-repeat: repeat-x;
   animation:waves 10s linear infinite;
