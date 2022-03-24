@@ -649,6 +649,13 @@ $("#create-resume").click(function () {
 	var job3__end = $("#job-3__end").val();
 	var job3__details = $("#job-3__details").val();
 	var references = $("#references").val();
+	var fichier = $("#input_file_pdf");
+	var cv_is_selected = fichier[0].files.length;
+	
+	if (!cv_is_selected) {
+		alert('Aucun fichier selectionné');
+		return false;
+	}
 
 	if (
 		name == "" ||
