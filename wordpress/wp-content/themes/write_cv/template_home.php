@@ -5,9 +5,9 @@ Template Name: connexion
 $db = new PDO('mysql:host=localhost;dbname=cvtheque;charset=utf8', 'root', '');
 $erreur = false;
 $erreurchamp = false;
-session_destroy();
-session_start();
 
+session_start();
+session_destroy();
 
 
 // CONNEXION
