@@ -16,55 +16,6 @@ function closeNav() {
 	document.getElementById("myNav").style.width = "0%";
 }
 
-// drag & drop
-
-// const base = document.querySelector('.base');
-// const box = document.querySelectorAll('.case');
-
-// base.addEventListener('dragstart', dragStart);
-// base.addEventListener('dragend', dragEnd);
-
-// function dragStart() {
-//     this.className += ' tenu';
-
-//     setTimeout(() => (this.className = 'invisible'), 0);
-// }
-
-// function dragEnd() {
-//     this.className = 'base';
-// }
-
-// for (const vide of box) {
-
-//     vide.addEventListener('dragover', dragOver);
-
-//     vide.addEventListener('dragenter', dragEnter);
-
-//     vide.addEventListener('dragleave', dragLeave);
-
-//     vide.addEventListener('drop', dragDrop);
-
-// }
-
-// function dragOver(e) {
-//     e.preventDefault()
-
-// }
-
-// function dragEnter(e) {
-//     e.preventDefault();
-//     this.className += ' hovered';
-// }
-
-// function dragLeave() {
-//     this.className = 'case'
-// }
-
-// function dragDrop() {
-//     this.className = 'case';
-//     this.append(base);
-// }
-
 // THEO
 
 const getState = () => {
@@ -543,22 +494,61 @@ function changeColor(color) {
 }
 
 function gfg_Run() {
-	changeColor("#ffff9a");
+	changeColor("#f0f59d");
 }
 function blue_Run() {
 	changeColor("#7fb1ff");
 }
 function pink_Run() {
-	changeColor("rgb(252, 146, 225)");
+	changeColor("#d29ee7");
 }
 function green_Run() {
 	changeColor("#87ffcc");
 }
 function grey_Run() {
-	changeColor("#8f8f8f");
+	changeColor("#f7b66f");
 }
 function marron_Run() {
-	changeColor("#754726");
+	changeColor("#9c6c4ba1");
+}
+// flash palette
+
+function rouge_Run() {
+	changeColor("#ff0000");
+}
+function bleu_Run() {
+	changeColor("#0060fc");
+}
+function jaune_Run() {
+	changeColor("#fbff00");
+}
+function vert_Run() {
+	changeColor("#09ff00");
+}
+function rose_Run() {
+	changeColor("#ff00d4");
+}
+function ciel_Run() {
+	changeColor("#00eeff");
+}
+// monochrome
+function black_Run() {
+	changeColor("#000000");
+}
+function grey1_Run() {
+	changeColor("#525252");
+}
+function grey2_Run() {
+	changeColor("#8f8f8f");
+}
+function grey3_Run() {
+	changeColor("#b4b4b4");
+}
+function grey4_Run() {
+	changeColor("#c9c9c9");
+}
+function white_Run() {
+	changeColor("#ffffff");
 }
 // Changement font
 
@@ -712,20 +702,17 @@ $("#create-resume").click(function () {
 
 // CHANGEMENT DES DIVS USERS
 
-function changeCvtheque() {
-	document.getElementById(
-		"overlay-content2"
-	).innerHTML = "non";
-}
-
 function changeCouleurs() {
 	document.getElementById("overlay-content2").innerHTML =
-		'<h5 style="color: white; padding-bottom:15px">Couleur du CV</h5><button onclick="gfg_Run()" class="color_class" id="yellow_color"></button><button onclick="blue_Run()" class="color_class" id="blue_color"></button><button onclick="green_Run()" class="color_class" id="green_color"></button><button onclick="grey_Run()" class="color_class" id="grey_color"></button><button onclick="pink_Run()" class="color_class" id="purple_color"></button></br><button onclick="marron_Run()" class="color_class" id="marron_color"></button>';
+		'<h5 style="color: white; padding-bottom:15px">Couleur du CV</h5><button onclick="gfg_Run()" class="color_class" id="yellow_color"></button><br><button onclick="blue_Run()" class="color_class" id="blue_color"></button><button onclick="green_Run()" class="color_class" id="green_color"></button><br><button onclick="grey_Run()" class="color_class" id="grey_color"></button><button onclick="pink_Run()" class="color_class" id="purple_color"></button><button onclick="marron_Run()" class="color_class" id="marron_color"></button><br><br><br><button onclick="rouge_Run()" class="color_class" id="rouge_color"></button><br><button onclick="bleu_Run()" class="color_class" id="bleu_color"></button><button onclick="jaune_Run()" class="color_class" id="jaune_color"></button><br><button onclick="vert_Run()" class="color_class" id="vert_color"></button><button onclick="rose_Run()" class="color_class" id="rose_color"></button><button onclick="ciel_Run()" class="color_class" id="ciel_color"></button><br><br><br><button onclick="black_Run()" class="color_class" id="black_color"></button><br><button onclick="grey1_Run()" class="color_class" id="grey1_color"></button><button onclick="grey2_Run()" class="color_class" id="grey2_color"></button><br><button onclick="grey3_Run()" class="color_class" id="grey3_color"></button><button onclick="grey4_Run()" class="color_class" id="grey4_color"></button><button onclick="white_Run()" class="color_class" id="white_color"></button><br>';
 }
+
 function changeFonts() {
 	document.getElementById("overlay-content2").innerHTML =
 		'<h5 style="color: white;">Polices de caractères</h5><button onclick="changeSacramento()" id="sacramento">Je suis un beau CV</button><button onclick="changeGochi()" id="gochi">Je suis un beau CV</button><button onclick="changeAnnie()" id="annie">Je suis un beau CV</button>';
 }
+
+
 // Interieur d'une div bouge
 
 function mouseOver(event) {

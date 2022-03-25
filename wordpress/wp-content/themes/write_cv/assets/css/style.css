@@ -34,7 +34,7 @@ body {
     height: auto;
     display: flex;
     flex-direction: row;
-    background-color: floralwhite;
+    background-color: #e1cb9e;
 }
 
 /* Rideau de navigation des modèles cv */
@@ -46,21 +46,30 @@ body {
   width: 0px;
 }
 #bouton_rideau {
-  display: block;
-  width: 48px;
-  height: 100%;
-  line-height: 100px;
-  background-image: linear-gradient(19deg, #21b2fd 0%, #7267cb 100%);
-  text-align: center;
-  font-size: 1em;
-  padding-top: 35px;
-  color: white;
-  cursor: pointer;
-  position: fixed;
-  box-shadow: 25px 13px 33px 4px rgba(0, 0, 0, 0.1),
-    0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+    display: block;
+    width: 95px;
+    height: 100%;
+    line-height: 100px;
+    background-image: linear-gradient(19deg, #21b2fd 0%, #7267cb 100%);
+    text-align: center;
+    font-size: 1em;
+    padding-top: 35px;
+    color: white;
+    cursor: pointer;
+    position: fixed;
+    box-shadow: 25px 13px 33px 4px rgb(0 0 0 / 10%), 0px 10px 15px -3px rgb(0 0 0 / 10%);
 }
-
+.magic {
+    background-color: #c6d4ff47;
+    padding: 16%;
+    margin: 5px;
+    border-radius: 4px;
+    line-height: 1px;
+    font-size: 12px;
+}
+.magic:hover{
+	background-color: #150f5a;
+}
 .overlay {
   height: 100%;
   width: 0;
@@ -75,11 +84,13 @@ body {
 
 #overlay-content1 {
     position: relative;
-    height: 605px;
-    width: auto;
+    height: 336px;
+    width: 20%;
     text-align: center;
     background-color: #150f5a;
-    border-radius: 0px 0px 10px 0px;
+    border-radius: 38px;
+    padding-top: 20px;
+    margin: 38px 0px 0px 20px;
 }
 #overlay-content2 {
   width: 100%;
@@ -171,25 +182,13 @@ a#btn_telecharger {
   padding: 7px;
 }
 
-/* drag and drop */
-.base {
-  cursor: pointer;
-}
-
-.tenu {
-  border: solid 5px #ccc;
-}
-
-.case {
-  display: inline-block;
-  width: auto;
-  margin: 10px;
-  background: #fff;
-}
-
-.hovered {
-  background: #f4f4f4;
-  border-style: dashed;
+#information_cv{
+	background-color: #afafaf4b;
+	border-radius: 20px;
+	padding: 20px;
+	width: 35%;
+    float: revert;
+	text-align: center;
 }
 
 body {
@@ -599,15 +598,13 @@ textarea.form-control.eqField {
   color: black;
 }
 #feuille {
-  background-color: white;
-  width: 794px;
-  height: 1122px;
-  margin: 25px;
-  padding: 20px;
-  color: black;
-  box-shadow: 25px 13px 33px 4px rgb(0 0 0 / 10%),
-    0px 10px 15px -3px rgb(0 0 0 / 10%);
-  margin-left: 37px;
+    background-color: white;
+    width: 794px;
+    height: 1023px;
+    margin: 25px;
+    padding: 20px;
+    color: black;
+    margin-left: 37px;
 }
 #cv_colonne {
   display: flex;
@@ -626,49 +623,73 @@ textarea.form-control.eqField {
 }
 
 /* Palette de couleur */
+.color_class{
+	margin-top: 20px;
+	border-radius: 50px;
+	border: none;
+  	padding: 12px;
+  	margin-left: 20px;
+  	cursor: pointer;
+}
 
 #yellow_color {
-  border-radius: 50px;
-  background-color: #ffff9a;
-  border: none;
-  padding: 12px;
-  margin-left: 10px;
-  cursor: pointer;
+  background-color: #f0f59d;
 }
-
 #blue_color {
-  border-radius: 50px;
   background-color: #7fb1ff;
-  border: none;
-  padding: 12px;
-  margin-left: 10px;
-  cursor: pointer;
 }
 #purple_color {
-  border-radius: 50px;
-  background-color: rgb(252, 146, 225);
-  border: none;
-  padding: 12px;
-  margin-left: 10px;
-  cursor: pointer;
+  background-color: #d29ee7;
 }
 #green_color {
-  border-radius: 50px;
   background-color: #87ffcc;
-  border: none;
-  padding: 12px;
-  margin-left: 10px;
-  cursor: pointer;
 }
 #grey_color {
-  border-radius: 50px;
-  background-color: #8f8f8f;
-  border: none;
-  padding: 12px;
-  margin-left: 10px;
-  cursor: pointer;
+  background-color: #f7b66f;
+}
+#marron_color {
+	background-color: #9c6c4ba1;
 }
 
+/* flash */
+#rouge_color {
+	background-color: #ff0000;
+  }
+  #bleu_color {
+	background-color: #0060fc;
+  }
+  #jaune_color {
+	background-color: #fbff00;
+  }
+  #vert_color {
+	background-color: #09ff00;
+  }
+  #rose_color {
+	background-color: #ff00d4;
+  }
+  #ciel_color {
+	  background-color: #00eeff;
+  }
+
+  /* mono */
+  #black_color {
+	background-color: #000000;
+  }
+  #grey1_color {
+	background-color: #525252;
+  }
+  #grey2_color {
+	background-color: #8f8f8f;
+  }
+  #grey3_color {
+	background-color: #b4b4b4;
+  }
+  #grey4_color {
+	background-color: #c9c9c9;
+  }
+  #white_color {
+	  background-color: #ffffff;
+  }
 /* FOOTER */
 .footer {
   margin-top: 200px;
@@ -763,10 +784,10 @@ textarea.form-control.eqField {
 /* COMPTE USER */
 
 #envoi_recru {
-  background-color: #360d963b;
-  padding: 15px;
-  color: white;
-  border-radius: 15px;
+    background-color: #035fff9e;
+    padding: 15px;
+    color: white;
+    border-radius: 15px;
 }
 input[type="file"] {
   color: white;
@@ -817,39 +838,37 @@ input[type="file"] {
   width: 100%;
   cursor: pointer;
 }
-input[type="text"],
-input[type="email"],
-input[type="url"],
-input[type="password"],
-input[type="search"],
-input[type="number"],
-input[type="tel"],
-input[type="range"],
-input[type="date"],
-input[type="month"],
-input[type="week"],
-input[type="time"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="color"],
-textarea {
-  color: #000;
-  border: none;
-  border-radius: 3px;
-  padding: 0px;
+input[type="text"], input[type="email"], input[type="url"], input[type="password"], input[type="search"], input[type="number"], input[type="tel"], input[type="range"], input[type="date"], input[type="month"], input[type="week"], input[type="time"], input[type="datetime"], input[type="datetime-local"], input[type="color"], textarea {
+    color: #000;
+	background-color: rgba(0, 0, 0, 0);
+    border: none;
+    border-radius: 20px;
+    padding: 0px;
+    text-align: center;
 }
-
+#personnalite{
+	width: 65%;
+	margin-left: 20px;
+}
+textarea#education {
+    height: 91px;
+}
+a.style_bouton {
+    background-color: #bad2d22e;
+	margin-top: 6px;
+    margin: 3px;
+    border-radius: 5px;
+    padding: 13px;
+}
 .style_bouton:hover {
   background-image: linear-gradient(19deg, #3fc4d6 0%, #8c4fec 100%);
-  padding: 10px;
-  margin: 25% 7px 7px 7px;
   border-radius: 10px 10px 10px 10px;
 }
 /* PAGE ADMIN */
 #bloc1admin {
   width: 100%;
   height: 83px;
-  background-color: #2b4570;
+  background-color: #759AAB;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -872,9 +891,9 @@ textarea {
   cursor: pointer;
 }
 #div_gauche {
-  width: 13%;
+  width: 10%;
   height: 100%;
-  background-color: #2b4570;
+  background-color: #759AAB;
   display: flex;
   flex-direction: column;
 }
@@ -893,21 +912,22 @@ textarea {
 }
 
 .pdf {
-  width: 15%;
+  width: 30%;
   height: 1000px;
+  position: relative;
 }
 
 .selectionToExcelBtn {
-  width: 90%;
-  background-color: #ff99fd30;
-  color: white;
-  text-align: center;
-  cursor: pointer;
-  font-size: large;
-  border-radius: 10px;
-  justify-content: center;
-  display: flex;
-  margin: 6% auto 6% auto;
+    width: 90%;
+    background-color: #202c5330;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    font-size: large;
+    border-radius: 10px;
+    justify-content: center;
+    display: flex;
+    margin: 6% auto 6% auto;
 }
 .dataTables_wrapper {
   position: relative;
@@ -915,7 +935,7 @@ textarea {
   margin-top: 25px;
 }
 .selectionToExcelBtn:hover {
-  background-color: #4544afcc;
+  background-color: #a3a2d4cc;
   color: rgb(255, 255, 255);
 }
 .dataTables_wrapper .dataTables_filter input {
@@ -963,7 +983,6 @@ td {
 /* brouillon style */
 
 #brouillon_liste {
-  background-color: white;
   margin: 5px;
   border-radius: 20px;
 }
@@ -984,10 +1003,16 @@ td {
 }
 /* template cv */
 h4 {
-  font-size: 30px;
+  font-size: 20px;
   margin-top: 1px;
 }
-
+#foo {
+    width: 20%;
+    background-color: rgb(82 82 82 / 14%);
+    margin-left: 50px;
+    padding: 34px;
+    text-align: center;
+}
 /* zoom */
 #zoom {
   height: 30;
@@ -1072,3 +1097,7 @@ h4 {
     text-decoration: none;
     cursor: pointer;
 }
+.dark-mode {
+	background-color: black;
+	color: white;
+  }
