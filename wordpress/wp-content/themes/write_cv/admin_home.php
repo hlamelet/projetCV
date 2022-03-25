@@ -86,9 +86,9 @@ if (isset($_SESSION["admin"]) && ($_SESSION["admin"] == 1)) {
             <div onclick="selectionToExcel()" class="selectionToExcelBtn">
                 <p> Export format excel <br> <i class="fi fi-rr-download"></i></p>
             </div>
-            <div class="selectionToExcelBtn" onclick="myFunction()">
+            <!-- <div class="selectionToExcelBtn" onclick="myFunction()">
                 <p> Darkmode <br> <i class="fi fi-rr-bulb"></i></p>
-            </div>
+            </div> -->
         </div>
         <div id="containerCVAdmin">
             <!-- bouton pour envoyer en excel -->
