@@ -887,6 +887,7 @@ $("#brouillon").click(function () {
     cache: false,
     success: function (data) {
       alert("Votre CV a bien été sauvegardé");
+      location.reload();
     },
     error: function (xhr, status, error) {
       console.error(xhr);
