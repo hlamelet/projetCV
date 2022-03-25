@@ -192,6 +192,8 @@ if (isset($_SESSION["admin"]) && ($_SESSION["admin"] == 1)) {
                             selected.classList.remove("selected");
                         });
 
+                    } else {
+                        alert('veuillez selectionner des candidats !')
                     }
                 }
 
