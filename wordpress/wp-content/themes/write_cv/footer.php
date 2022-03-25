@@ -35,7 +35,7 @@
 			<div class="About">
 				<h3>A propos</h3>
 				<ul>
-					<li><a href="localhost/projCV/wordpress/mentions-legales">Mentions Légales</a></li>
+					<li><a href="mentions-legales">Mentions Légales</a></li>
 					<li><a href="#">Conditions générales d'utilisation</a></li>
 					<li><a href="https://wordpress.org/">Mise a jour du site</a></li>
 				</ul>
