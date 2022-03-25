@@ -175,7 +175,7 @@ if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
                     </div>
 
                     <div class="form-group">
-                        <input type="text" name="address" id="address" placeholder="Ville & Code Postale*">
+                        <input type="text" name="address" id="address" placeholder="Ville & Code Postal*">
                     </div>
 
                     <div class="form-group">
@@ -302,7 +302,7 @@ if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
                     <p>1. Remplis tes informations directement sur la feuille en cliquant sur les éléments.</p><br>
                     <p>2. Stylise-le en changeant les couleurs et la police</p><br>
                     <p>3. Télécharge ton CV <i class="fi fi-rr-download"></i> (le bouton se trouve à gauche)</p><br>
-                    <p>4. Dans le petit bloc bleu de droite, insère ton cv et envoi le au recruteur ! </p>
+                    <p>4. Dans le petit bloc bleu de droite, insère ton cv et envoie le au recruteur ! </p>
 
                 </div>
 
