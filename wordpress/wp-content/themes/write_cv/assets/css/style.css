@@ -7,6 +7,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400;1,500&display=swap%27");
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Bebas+Neue&family=Dosis:wght@300&family=Fredoka+One&family=Lobster&family=Smokum&display=swap');
 /* PARTIE UTILISATEURS */ /* principale */
 
 *,
@@ -34,7 +35,7 @@ body {
     height: auto;
     display: flex;
     flex-direction: row;
-    background-color: #e1cb9e;
+    background-color: #f3e4c7;
 }
 
 /* Rideau de navigation des modèles cv */
@@ -81,10 +82,12 @@ body {
   overflow-x: hidden;
   transition: 0.2s;
 }
-
+#bold{
+	font-weight: bold;
+}
 #overlay-content1 {
     position: relative;
-    height: 336px;
+    height: 274px;
     width: 20%;
     text-align: center;
     background-color: #150f5a;
@@ -811,32 +814,69 @@ input[type="file"] {
     right: 0;
 }
 /* Fonts Change*/
+.font_general {
+    background-color: white;
+    margin-top: 10px;
+    font-size: 100%;
+    color: black;
+    width: 100%;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+}
+.font_general2 {
+	background-color: none;
+    margin-top: 10px;
+    font-size: 100%;
+    color: black;
+    width: 100%;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+}
 #sacramento {
   font-family: "Sacramento", cursive;
-  background-color: white;
-  margin-top: 10px;
-  font-size: 100%;
-  color: black;
-  width: 100%;
-  cursor: pointer;
 }
 #gochi {
   font-family: "Gochi Hand", cursive;
-  background-color: white;
-  margin-top: 10px;
-  font-size: 100%;
-  color: black;
-  width: 100%;
-  cursor: pointer;
 }
 #annie {
   font-family: "Annie Use Your Telescope", cursive;
-  background-color: white;
-  margin-top: 10px;
-  font-size: 100%;
-  color: black;
-  width: 100%;
-  cursor: pointer;
+}
+#smokum{
+	font-family: "Smokum", cursive;
+}
+#dosis{
+	font-family: "Dosis", cursive;
+}
+#bebasneue{
+	font-family: "Bebas Neue", cursive;
+}
+#lobster{
+	font-family: "Lobster",cursive;
+}
+#fredokaone{
+	font-family: "Fredoka One", cursive;
+}
+#amaticsc{
+	font-family: "Amatic SC", cursive;
+}
+
+/* fontsize */
+#smallfont{
+	font-size: small;
+}
+#smaller{
+	font-size: x-small;
+}
+#medium{
+	font-size: medium;
+}
+#large{
+	font-size: large;
+}
+#larger{
+	font-size: larger;
 }
 input[type="text"], input[type="email"], input[type="url"], input[type="password"], input[type="search"], input[type="number"], input[type="tel"], input[type="range"], input[type="date"], input[type="month"], input[type="week"], input[type="time"], input[type="datetime"], input[type="datetime-local"], input[type="color"], textarea {
     color: #000;

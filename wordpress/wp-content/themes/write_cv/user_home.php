@@ -67,11 +67,10 @@ if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
 
             <div id="overlay-content1">
                 <a href="#" onclick="changeCouleurs()" class="style_bouton"><i class="fi fi-rr-palette"></i></a>
-                <a href="#" onclick="changeFonts()" class="style_bouton"><i class="fi fi-rr-letter-case"></i></a>
-                <a href="#" onclick="changeStickers()" class="style_bouton"><i class="fi fi-rr-grin"></i></a>
-                <a href="#" onclick="changeFonts()" class="style_bouton"><i class="fi fi-rr-grin"></i></a>
-                <a href="#" onclick="changeFonts()" class="style_bouton"><i class="fi fi-rr-grin"></i></a>
-                <a href="#" onclick="changeFonts()" class="style_bouton"><i class="fi fi-rr-grin"></i></a>
+                <a href="#" onclick="changeFonts()" class="style_bouton"><i class="fi fi-rr-text"></i></a>
+                <a href="#" onclick="changeSize()" class="style_bouton"><i class="fi fi-rr-letter-case"></i></a>
+                <a href="#" onclick="changeFontStyle()" class="style_bouton"><i class="fi fi-rr-italic"></i></a>
+                <a href="#" onclick="changeCenter()" class="style_bouton"><i class="fi fi-rr-align-center"></i></a>
 
 
             </div>
