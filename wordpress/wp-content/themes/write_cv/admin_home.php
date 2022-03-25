@@ -93,18 +93,24 @@ if (isset($_SESSION["admin"]) && ($_SESSION["admin"] == 1)) {
 
                 }
                 // ----------------------------------------------------fonction show
-
                 function show(element) {
-                    console.log("show")
+                    
                     let pdfShow = document.getElementById('pdfShow');
-                    // alert(element.classList[1].match(/\d+/g)[0])    
-                    requete.forEach(function(elem, e) {
-
-                        if (elem[0] == (element.classList[1].match(/\d+/g)[0])) {
-
-                            pdfShow.innerHTML = "<object data='http://localhost/projCV/wordpress/" + elem[5] + "' type='application/pdf' width='2500' height='600' zoom='50'> </object>"
-                        }
-                    });
+                    console.log(pdfShow.childNodes);
+                    if (pdfShow.childNodes.length == 0) {
+                        // alert(element.classList[1].match(/\d+/g)[0])    
+                        requete.forEach(function(elem, e) {
+    
+                            if (elem[0] == (element.classList[1].match(/\d+/g)[0])) {
+                                console.log(elem[5]);
+                                pdfShow.innerHTML = "<object data='http://localhost/projCV/wordpress/" + elem[5] + "' type='application/pdf' width='100%' height='100%'> </object>"
+                            }
+                        });
+                        pdfShow.style.zIndex = 1;
+                    } else {
+                        pdfShow.innerHTML="";
+                        pdfShow.style.zIndex = -1;
+                    }
                 }
                 // http://localhost/projCV/wordpress/wp-content/themes/write_cv/inc/cv/pdf-exemple.pdf'
                 // ----------------------------------------------------function sendMail------------------------------------
