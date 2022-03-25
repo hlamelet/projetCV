@@ -60,7 +60,7 @@ if (isset($_SESSION["admin"]) && ($_SESSION["admin"] == 1)) {
             <div onclick="selectionToExcel()" class="selectionToExcelBtn">
                 <p> Export format excel <br> <i class="fi fi-rr-download"></i></p>
             </div>
-            <div  class="selectionToExcelBtn" onclick="myFunction()">
+            <div class="selectionToExcelBtn" onclick="myFunction()">
                 <p> Darkmode <br> <i class="fi fi-rr-bulb"></i></p>
             </div>
         </div>
@@ -72,6 +72,7 @@ if (isset($_SESSION["admin"]) && ($_SESSION["admin"] == 1)) {
             <script>
                 // --------------------------------------------function
                 function testClass(element) {
+
 
                     if (element.classList.contains("selected")) { //enleve la class selected de la selection []
                         element.classList.remove("selected")
@@ -94,13 +95,14 @@ if (isset($_SESSION["admin"]) && ($_SESSION["admin"] == 1)) {
                 }
                 // ----------------------------------------------------fonction show
                 function show(element) {
-                    
+
                     let pdfShow = document.getElementById('pdfShow');
                     console.log(pdfShow.childNodes);
+                    console.log(element.childNodes)
                     if (pdfShow.childNodes.length == 0) {
                         // alert(element.classList[1].match(/\d+/g)[0])    
                         requete.forEach(function(elem, e) {
-    
+
                             if (elem[0] == (element.classList[1].match(/\d+/g)[0])) {
                                 console.log(elem[5]);
                                 pdfShow.innerHTML = "<object data='http://localhost/projCV/wordpress/" + elem[5] + "' type='application/pdf' width='100%' height='100%'> </object>"
@@ -108,7 +110,7 @@ if (isset($_SESSION["admin"]) && ($_SESSION["admin"] == 1)) {
                         });
                         pdfShow.style.zIndex = 1;
                     } else {
-                        pdfShow.innerHTML="";
+                        pdfShow.innerHTML = "";
                         pdfShow.style.zIndex = -1;
                     }
                 }
@@ -125,64 +127,72 @@ if (isset($_SESSION["admin"]) && ($_SESSION["admin"] == 1)) {
 
                 // transformation de la selection en multidimensionnal array [[...][...]]
                 function selectionToExcel() {
+                    if (selection.length != 0) {
 
-                    selection.forEach(function(elem, e) {
-                        // boucle pour rechercher les info contact
-                        for (let i = 0; i < requete.length; i++) {
-                            if (requete[i][0] == elem) {
+                        selection.forEach(function(elem, e) {
+                            // boucle pour rechercher les info contact
+                            for (let i = 0; i < requete.length; i++) {
+                                if (requete[i][0] == elem) {
 
-                                push = Object.keys(requete[i]).map((k) => requete[i][k])
-                                selection2d.push(push.splice(0, 5))
-                                console.log("excel" + selection2d)
-                                break
+                                    push = Object.keys(requete[i]).map((k) => requete[i][k])
+                                    selection2d.push(push.splice(0, 5))
+                                    console.log("excel" + selection2d)
+                                    break
+                                }
                             }
-                        }
 
-                    });
-                    //create CSV file data in an array  
-                    var csvFileData = selection2d
-                    console.log("selec")
-                    console.log(selection2d)
-                    console.log("csvfile")
-                    console.log(csvFileData)
-                    // console.log(requete)
-                    // csv------
+                        });
+                        //create CSV file data in an array  
+                        var csvFileData = selection2d
+                        console.log("selec")
+                        console.log(selection2d)
+                        console.log("csvfile")
+                        console.log(csvFileData)
+                        // console.log(requete)
+                        // csv------
 
-                    //headers
-                    var csv = 'id; nom; prenom; mail; tel\n';
+                        //headers
+                        var csv = 'id; nom; prenom; mail; tel\n';
 
-                    //merge the data with CSV  
-                    csvFileData.forEach(function(row) {
-                        csv += row.join(';');
-                        csv += "\n";
-                    });
+                        //merge the data with CSV  
+                        csvFileData.forEach(function(row) {
+                            csv += row.join(';');
+                            csv += "\n";
+                        });
 
-                    //display the created CSV data on the web browser   
-                    // document.write(csv);  
+                        //display the created CSV data on the web browser   
+                        // document.write(csv);  
 
-                    var hiddenElement = document.createElement('a');
-                    hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);
-                    hiddenElement.target = '_blank';
+                        var hiddenElement = document.createElement('a');
+                        hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);
+                        hiddenElement.target = '_blank';
 
-                    //provide the name for the CSV file to be downloaded  
-                    hiddenElement.download = 'cv.csv';
-                    hiddenElement.click();
+                        //provide the name for the CSV file to be downloaded  
+                        hiddenElement.download = 'cv.csv';
+                        hiddenElement.click();
 
 
-                    // let csvContent = "data:text/csv;charset=utf-8,";
+                        // let csvContent = "data:text/csv;charset=utf-8,";
 
-                    // selection2d.forEach(function(rowArray) {
-                    //     // console.log(rowArray)
-                    //     let row = rowArray.join(";");
-                    //     csvContent += row + "\r\n";
-                    // });
+                        // selection2d.forEach(function(rowArray) {
+                        //     // console.log(rowArray)
+                        //     let row = rowArray.join(";");
+                        //     csvContent += row + "\r\n";
+                        // });
 
-                    // --------------CSV content a telecharger (à faire)
-                    // console.log(csvContent)
-                    // ---------
+                        // --------------CSV content a telecharger (à faire)
+                        // console.log(csvContent)
+                        // ---------
 
-                    selection2d = []
-                    selection = []
+                        selection2d = []
+                        selection = []
+                        const selected = document.querySelectorAll('.selected');
+
+                        selected.forEach(selected => {
+                            selected.classList.remove("selected");
+                        });
+
+                    }
                 }
 
                 let containerCV = document.getElementById('containerCVAdmin');
