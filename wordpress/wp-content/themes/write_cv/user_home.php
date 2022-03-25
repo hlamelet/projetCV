@@ -303,7 +303,7 @@ if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
                     <p>1. Remplis tes informations directement sur la feuille en cliquant sur les éléments.</p><br>
                     <p>2. Stylise-le en changeant les couleurs et la police</p><br>
                     <p>3. Télécharge ton CV <i class="fi fi-rr-download"></i> (le bouton se trouve à gauche)</p><br>
-                    <p>4. </p>
+                    <p>4. Dans le petit bloc bleu de droite, insère ton cv et envoi le au recruteur ! </p>
 
                 </div>
 
@@ -335,7 +335,7 @@ if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
                 <p><?php echo $users["user_surname"] . " " . $users["user_name"]; ?></p>
                 <a href="javascript:void(0)" class="closebtn" id="closeprofil" onclick="closeProfil()">&times;</a>
                 <a href="#" id="button-modif-open" onclick="ModifAccount()"><i class=""></i><br>Modifier mes informations</a>
-                <a href="#" id="button-modif-close" onclick="ModifAccountClose()"><i class=""></i><br>Modifier Compte</a>
+                <a href="#" id="button-modif-close" onclick="ModifAccountClose()"><i class=""></i><br> <i class="fi fi-rr-redo-alt"></i> Retour</a>
                 <div class="modifProfil">
                     <form action="" method="post" class="formModif" onsubmit="return validateForm()">
 
