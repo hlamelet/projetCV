@@ -393,10 +393,19 @@ if (isset($_SESSION["user"]) && ($_SESSION["user"] == 1)) {
     </div>
     <style>
         body {
-            background-color: floralwhite;
+            background-color: #f3e4c7;
             background-image: none;
             font-family: "Poppins", sans-serif;
         }
+
+        input[type="text"], input[type="email"], input[type="url"], input[type="password"], input[type="search"], input[type="number"], input[type="tel"], input[type="range"], input[type="date"], input[type="month"], input[type="week"], input[type="time"], input[type="datetime"], input[type="datetime-local"], input[type="color"], textarea {
+    color: #000;
+	background-color: rgba(0, 0, 0, 0);
+    border: none;
+    border-radius: 20px;
+    padding: 0px;
+    text-align: center;
+}
     </style>
 <?php wp_footer();
 } else
